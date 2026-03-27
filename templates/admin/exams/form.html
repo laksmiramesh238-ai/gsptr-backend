@@ -1,0 +1,166 @@
+{% extends 'admin/base.html' %}
+{% block title %}{{ 'Edit' if exam else 'Add' }} Exam{% endblock %}
+{% block page_title %}{{ 'Edit' if exam else 'Add' }} Exam{% endblock %}
+
+{% block extra_styles %}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group.full { grid-column: 1/-1; }
+label { font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: .5px; }
+input, textarea, select { border: 1.5px solid #ddd; border-radius: 8px; padding: 10px 12px; font-size: 14px; font-family: inherit; }
+textarea { resize: vertical; min-height: 80px; }
+.btn { padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary { background: #6c63ff; color: #fff; }
+.btn-danger { background: #ff4f4f; color: #fff; }
+.btn-success { background: #2ecc71; color: #fff; }
+.btn-outline { background: #fff; color: #6c63ff; border: 1.5px solid #6c63ff; }
+.btn-sm { padding: 6px 13px; font-size: 12px; }
+.section { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.section-title { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+.subject-card { border: 1.5px solid #e8e8f0; border-radius: 10px; padding: 16px; margin-bottom: 14px; background: #fafafe; }
+.subject-header { display: flex; align-items: center; gap: 10px; }
+.subject-header input { flex: 1; }
+.upload-row { display: flex; align-items: center; gap: 10px; }
+.upload-status { font-size: 11px; color: #888; }
+.toast { position: fixed; top: 20px; right: 20px; background: #2ecc71; color: #fff; padding: 12px 24px; border-radius: 10px; font-weight: 600; z-index: 9999; display: none; }
+.session-count { font-size: 12px; color: #888; margin-top: 6px; }
+{% endblock %}
+
+{% block content %}
+<div id="toast" class="toast">Saved!</div>
+
+<!-- Exam Info -->
+<div class="section">
+  <div class="section-title">Exam Information</div>
+  <div class="form-grid">
+    <div class="form-group"><label>Title *</label><input id="title" value="{{ exam.title if exam else '' }}"/></div>
+    <div class="form-group"><label>Full Form</label><input id="full_form" value="{{ exam.full_form if exam else '' }}"/></div>
+    <div class="form-group"><label style="display:flex;align-items:center;gap:8px;text-transform:none"><input type="checkbox" id="exam_locked" {{ 'checked' if exam and exam.locked else '' }}/> 🔒 Lock Entire Exam (hidden from students)</label></div>
+    <div class="form-group full"><label>Description (English)</label><textarea id="desc_en">{{ exam.description_en if exam else '' }}</textarea></div>
+    <div class="form-group full"><label>Description (Kannada)</label><textarea id="desc_kn">{{ exam.description_kn if exam else '' }}</textarea></div>
+    <div class="form-group">
+      <label>Thumbnail</label>
+      <div class="upload-row">
+        <input type="file" id="thumbFile" accept="image/*"/>
+        <span class="upload-status" id="thumbStatus"></span>
+      </div>
+      <input type="hidden" id="thumbnail_url" value="{{ exam.thumbnail_url if exam else '' }}"/>
+    </div>
+    {% if exam %}
+    <div class="form-group"><label>Exam ID</label><input value="{{ exam.exam_id }}" readonly style="background:#f0f0f0"/></div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Subjects -->
+<div class="section">
+  <div class="section-title">
+    Subjects
+    <button class="btn btn-primary btn-sm" onclick="addSubject()">+ Add Subject</button>
+  </div>
+  <div id="subjects"></div>
+  {% if not exam %}
+  <p style="font-size:13px;color:#888;margin-top:8px">Save the exam first, then manage sessions for each subject.</p>
+  {% endif %}
+</div>
+
+<div style="display:flex;gap:12px;margin-top:20px">
+  <button class="btn btn-success" onclick="saveExam()" id="saveBtn">{{ 'Update Exam' if exam else 'Create Exam' }}</button>
+  <a href="{{ url_for('exam_admin.list_exams') }}" class="btn btn-outline">Cancel</a>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+const IS_EDIT = {{ 'true' if exam else 'false' }};
+const EXAM_ID = '{{ exam.id if exam else '' }}';
+let subjects = {{ subjects_json | safe }};
+
+async function uploadFile(fileInput, folder, callback) {
+  const file = fileInput.files[0];
+  if (!file) return;
+  const res = await fetch(`/s3/presign?filename=${encodeURIComponent(file.name)}&folder=${folder}`);
+  const { url, fields, public_url } = await res.json();
+  const fd = new FormData();
+  Object.entries(fields).forEach(([k,v]) => fd.append(k, v));
+  fd.append('file', file);
+  await fetch(url, { method: 'POST', body: fd });
+  callback(public_url);
+}
+
+document.getElementById('thumbFile').addEventListener('change', function() {
+  document.getElementById('thumbStatus').textContent = 'Uploading...';
+  uploadFile(this, 'exam_thumbnail', url => {
+    document.getElementById('thumbnail_url').value = url;
+    document.getElementById('thumbStatus').textContent = 'Uploaded ✓';
+  });
+});
+
+function render() {
+  const el = document.getElementById('subjects');
+  el.innerHTML = '';
+  subjects.forEach((sub, si) => {
+    const sessCount = (sub.sessions || []).length;
+    const div = document.createElement('div');
+    div.className = 'subject-card';
+    div.innerHTML = `
+      <div class="subject-header">
+        <strong>${si+1}.</strong>
+        <input value="${sub.name||''}" placeholder="Subject name" onchange="subjects[${si}].name=this.value"/>
+        <label style="font-size:12px;display:flex;align-items:center;gap:4px;white-space:nowrap;text-transform:none">
+          <input type="checkbox" ${sub.locked?'checked':''} onchange="subjects[${si}].locked=this.checked"/> 🔒
+        </label>
+        ${IS_EDIT ? `<a href="/admin/exams/${EXAM_ID}/subjects/${si}/sessions" class="btn btn-outline btn-sm">📖 Sessions (${sessCount})</a>` : ''}
+        <button class="btn btn-danger btn-sm" onclick="subjects.splice(${si},1);render()">✕</button>
+      </div>
+      ${IS_EDIT ? `<div class="session-count">${sessCount} session(s) — click "Sessions" to manage content</div>` : ''}
+    `;
+    el.appendChild(div);
+  });
+}
+
+function addSubject() {
+  subjects.push({ name: '', locked: false, sessions: [] });
+  render();
+}
+
+async function saveExam() {
+  const btn = document.getElementById('saveBtn');
+  btn.disabled = true; btn.textContent = 'Saving...';
+
+  const body = {
+    title: document.getElementById('title').value,
+    locked: document.getElementById('exam_locked').checked,
+    full_form: document.getElementById('full_form').value,
+    description_en: document.getElementById('desc_en').value,
+    description_kn: document.getElementById('desc_kn').value,
+    thumbnail_url: document.getElementById('thumbnail_url').value,
+    subjects: subjects,
+  };
+
+  const url = IS_EDIT ? `/admin/exams/${EXAM_ID}/edit` : '/admin/exams/add';
+  const res = await fetch(url, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  const data = await res.json();
+
+  if (data.ok) {
+    if (!IS_EDIT) {
+      window.location.href = '/admin/exams/';
+    } else {
+      const t = document.getElementById('toast');
+      t.style.display = 'block';
+      setTimeout(() => t.style.display = 'none', 2500);
+    }
+  } else {
+    alert('Error: ' + (data.error || 'Unknown'));
+  }
+  btn.disabled = false;
+  btn.textContent = IS_EDIT ? 'Update Exam' : 'Create Exam';
+}
+
+render();
+</script>
+{% endblock %}

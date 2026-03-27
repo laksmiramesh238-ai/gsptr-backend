@@ -1,0 +1,591 @@
+{% extends 'admin/base.html' %}
+{% block title %}{{ 'Edit' if course else 'Add' }} Course{% endblock %}
+{% block page_title %}{{ 'Edit' if course else 'Add' }} Course{% endblock %}
+
+{% block extra_styles %}
+/* ── Layout ── */
+.form-card { background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 24px; }
+.form-card h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 12px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.4px; }
+.field input, .field textarea, .field select { padding: 10px 13px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; outline: none; font-family: inherit; transition: border 0.2s; width: 100%; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: #6c63ff; }
+.field textarea { resize: vertical; min-height: 80px; }
+
+/* ── Upload ── */
+.upload-wrap { position: relative; }
+.upload-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 15px; background: #f3f2ff; color: #6c63ff; border: 1.5px dashed #6c63ff; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: background 0.15s; }
+.upload-btn:hover { background: #ebe9ff; }
+.upload-btn input[type=file] { display: none; }
+.upload-preview { margin-top: 8px; }
+.upload-preview img { max-width: 160px; max-height: 100px; border-radius: 8px; object-fit: cover; border: 1px solid #eee; }
+.upload-status { font-size: 12px; color: #888; margin-top: 5px; }
+.upload-status.ok { color: #1a7a4a; }
+.upload-status.err { color: #c0392b; }
+
+/* ── Chapters ── */
+.chapters-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.chapters-header h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+
+.chapter-card { background: #fff; border: 1px solid #e8e8f0; border-radius: 10px; margin-bottom: 10px; transition: box-shadow 0.15s, opacity 0.15s; overflow: hidden; }
+.chapter-card.dragging { opacity: 0.4; box-shadow: 0 8px 32px rgba(108,99,255,0.2); }
+.chapter-card.drag-over { border: 2px dashed #6c63ff; background: #f8f7ff; }
+
+/* collapsed header — always visible */
+.chapter-header { display: flex; align-items: center; gap: 10px; padding: 13px 16px; cursor: default; }
+.drag-handle { cursor: grab; color: #ccc; font-size: 17px; padding: 0 2px; user-select: none; flex-shrink: 0; }
+.drag-handle:hover { color: #6c63ff; }
+.drag-handle:active { cursor: grabbing; }
+.chapter-number { width: 26px; height: 26px; background: #6c63ff; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+.ch-type-badge { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px; background: #f0efff; color: #6c63ff; flex-shrink: 0; }
+.ch-title-preview { flex: 1; font-size: 13px; font-weight: 600; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ch-title-preview.untitled { color: #bbb; font-style: italic; font-weight: 400; }
+.demo-badge { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px; background: #fff8e1; color: #b8860b; flex-shrink: 0; }
+.expand-btn { background: none; border: none; color: #aaa; cursor: pointer; font-size: 15px; padding: 4px 6px; border-radius: 6px; transition: background 0.15s, color 0.15s; flex-shrink: 0; }
+.expand-btn:hover { background: #f0efff; color: #6c63ff; }
+.remove-ch { background: none; border: none; color: #ddd; cursor: pointer; font-size: 16px; padding: 4px 6px; border-radius: 6px; transition: color 0.15s; flex-shrink: 0; }
+.remove-ch:hover { color: #ff4f4f; }
+
+/* expanded body */
+.chapter-body { border-top: 1px solid #f0f0f0; padding: 20px; display: none; flex-direction: column; gap: 16px; }
+.chapter-body.open { display: flex; }
+.chapter-body-top { display: flex; align-items: center; gap: 12px; }
+.chapter-body-top select { flex: 1; }
+.demo-row { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #555; white-space: nowrap; }
+.demo-row input[type=checkbox] { width: 15px; height: 15px; accent-color: #6c63ff; }
+.chapter-fields { display: flex; flex-direction: column; gap: 14px; }
+
+/* ── Buttons ── */
+.btn { padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 7px; transition: opacity 0.15s; }
+.btn:hover { opacity: 0.85; }
+.btn-primary { background: #6c63ff; color: #fff; }
+.btn-outline { background: #fff; color: #6c63ff; border: 1.5px solid #6c63ff; }
+.btn-ghost  { background: #f3f2ff; color: #6c63ff; }
+.form-footer { display: flex; gap: 12px; justify-content: flex-end; margin-top: 10px; }
+.spinner { display: none; width: 16px; height: 16px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Preview Modal ── */
+.preview-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 1000; align-items: center; justify-content: center; }
+.preview-modal.open { display: flex; }
+.preview-box { background: #1a1a2e; border-radius: 12px; padding: 20px; max-width: 90vw; max-height: 90vh; position: relative; display: flex; flex-direction: column; gap: 12px; }
+.preview-close { position: absolute; top: 12px; right: 14px; background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; line-height: 1; }
+.preview-box video { max-width: 80vw; max-height: 70vh; border-radius: 8px; }
+.preview-box audio { width: 420px; max-width: 80vw; }
+.preview-box iframe { width: 80vw; height: 70vh; border: none; border-radius: 8px; background: #fff; }
+.preview-label { color: #aaa; font-size: 13px; }
+{% endblock %}
+
+{% block content %}
+<form id="courseForm">
+
+  <!-- ── Basic Info ── -->
+  <div class="form-card">
+    <h2>Course Info</h2>
+    <div style="margin-bottom:18px">
+      <div class="field">
+        <label>Course Name *</label>
+        <input type="text" id="name" placeholder="e.g. Advanced Mathematics" value="{{ course.name if course else '' }}" required/>
+      </div>
+      {% if course %}
+      <div style="margin-top:6px;font-size:12px;color:#999">
+        Course ID: <code style="background:#f5f5f5;padding:2px 6px;border-radius:4px;color:#6c63ff">{{ course.course_id }}</code>
+      </div>
+      {% endif %}
+    </div>
+    <div class="grid3" style="margin-bottom:18px">
+      <div class="field">
+        <label>Price (₹) *</label>
+        <input type="number" id="price" step="0.01" min="0" placeholder="999.00" value="{{ course.price if course else '' }}" required/>
+      </div>
+      <div class="field">
+        <label>Duration</label>
+        <input type="text" id="whole_duration" placeholder="e.g. 6 months" value="{{ course.whole_duration if course else '' }}"/>
+      </div>
+      <div class="field">
+        <label>Topics (comma separated)</label>
+        <input type="text" id="topics" placeholder="Algebra, Calculus, Geometry" value="{{ course.topics | join(', ') if course else '' }}"/>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>Professors (comma separated)</label>
+        <input type="text" id="professors" placeholder="Dr. Sharma, Prof. Mehta" value="{{ course.professors | join(', ') if course else '' }}"/>
+      </div>
+      <div class="field">
+        <label>Thumbnail</label>
+        <div class="upload-wrap">
+          <label class="upload-btn">
+            📷 Choose Image
+            <input type="file" id="thumbnail_file" accept="image/*" onchange="uploadFile(this,'thumbnail','thumbnail_url','thumb_preview','thumb_status','image')"/>
+          </label>
+          <div class="upload-preview">
+            {% if course and course.thumbnail_url %}
+              <img id="thumb_preview" src="{{ course.thumbnail_url }}" />
+            {% else %}
+              <img id="thumb_preview" style="display:none"/>
+            {% endif %}
+          </div>
+          <div class="upload-status" id="thumb_status"></div>
+          <input type="hidden" id="thumbnail_url" value="{{ course.thumbnail_url if course else '' }}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Chapters ── -->
+  <div class="form-card">
+    <div class="chapters-header">
+      <h2>Chapters</h2>
+      <button type="button" class="btn btn-ghost" onclick="addChapter()">+ Add Chapter</button>
+    </div>
+    <div id="chapterList"></div>
+    <div id="noChapters" style="text-align:center;color:#bbb;padding:30px 0;font-size:14px;">No chapters yet. Click "Add Chapter" to begin.</div>
+  </div>
+
+  <div class="form-footer">
+    <a href="{{ url_for('courses.list_courses') }}" class="btn btn-outline">Cancel</a>
+    <button type="submit" class="btn btn-primary" id="saveBtn">
+      <span id="saveText">{{ 'Update' if course else 'Save Course' }}</span>
+      <div class="spinner" id="saveSpinner"></div>
+    </button>
+  </div>
+</form>
+
+<!-- Preview Modal -->
+<div class="preview-modal" id="previewModal">
+  <div class="preview-box">
+    <button class="preview-close" onclick="closePreview()">✕</button>
+    <div class="preview-label" id="previewLabel"></div>
+    <div id="previewContent"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const IS_EDIT = {{ 'true' if course else 'false' }};
+const COURSE_ID = '{{ course.id if course else "" }}';
+const PRESIGN_URL = '/s3/presign';
+
+// ── Preview Modal ────────────────────────────────────────────────────────────
+function openPreview(url, filename) {
+  const ext = url.split('?')[0].split('.').pop().toLowerCase();
+  const content = document.getElementById('previewContent');
+  document.getElementById('previewLabel').textContent = filename || url.split('/').pop();
+
+  if (['mp4','webm','mov','mkv'].includes(ext)) {
+    content.innerHTML = `<video controls autoplay src="${url}"></video>`;
+  } else if (['mp3','wav','ogg','aac','m4a'].includes(ext)) {
+    content.innerHTML = `<audio controls autoplay src="${url}"></audio>`;
+  } else if (ext === 'pdf') {
+    content.innerHTML = `<iframe src="${url}"></iframe>`;
+  } else {
+    content.innerHTML = `<img src="${url}" style="max-width:80vw;max-height:70vh;border-radius:8px"/>`;
+  }
+
+  document.getElementById('previewModal').classList.add('open');
+}
+
+function closePreview() {
+  document.getElementById('previewModal').classList.remove('open');
+  document.getElementById('previewContent').innerHTML = '';
+}
+
+document.getElementById('previewModal').addEventListener('click', function(e) {
+  if (e.target === this) closePreview();
+});
+
+// ── Toast ────────────────────────────────────────────────────────────────────
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:28px;right:28px;background:#1a7a4a;color:#fff;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.2);z-index:2000;opacity:0;transition:opacity 0.25s';
+  document.body.appendChild(t);
+  requestAnimationFrame(() => t.style.opacity = '1');
+  setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 2500);
+}
+
+// ── S3 Upload ────────────────────────────────────────────────────────────────
+async function uploadFile(input, folder, hiddenId, previewId, statusId, kind='file') {
+  const file = input.files[0];
+  if (!file) return;
+  const statusEl = document.getElementById(statusId);
+  statusEl.textContent = 'Uploading…';
+  statusEl.className = 'upload-status';
+  try {
+    const r = await fetch(`${PRESIGN_URL}?filename=${encodeURIComponent(file.name)}&folder=${folder}`);
+    const { url, fields, public_url } = await r.json();
+
+    const fd = new FormData();
+    Object.entries(fields).forEach(([k, v]) => fd.append(k, v));
+    fd.append('file', file);
+    const up = await fetch(url, { method: 'POST', body: fd });
+    if (!up.ok) throw new Error('S3 upload failed');
+
+    document.getElementById(hiddenId).value = public_url;
+    statusEl.textContent = '✓ Uploaded';
+    statusEl.className = 'upload-status ok';
+
+    const prevEl = previewId ? document.getElementById(previewId) : null;
+    if (prevEl) {
+      if (kind === 'image') {
+        prevEl.src = public_url;
+        prevEl.style.display = 'block';
+      } else {
+        prevEl.innerHTML = `✓ ${file.name} — <a href="javascript:void(0)" onclick="openPreview('${public_url}','${file.name}')" style="color:#1a7a4a">preview</a>`;
+        prevEl.className = 'upload-status ok';
+      }
+    }
+  } catch(e) {
+    statusEl.textContent = '✗ ' + e.message;
+    statusEl.className = 'upload-status err';
+  }
+}
+
+// ── Chapter Builder ───────────────────────────────────────────────────────────
+let chapterIndex = 0;
+const chapters = [];   // { index, type, demo, ...type-specific data }
+
+const TYPE_LABELS = { video:'🎬 Video', pdf:'📄 PDF', audio:'🎵 Audio', text:'📝 Text', live_class:'📡 Live Class' };
+
+function addChapter(preload) {
+  const idx = chapterIndex++;
+  const type = preload ? preload.type : 'video';
+  const demo = preload ? !!preload.demo : false;
+  chapters.push({ _idx: idx });
+
+  document.getElementById('noChapters').style.display = 'none';
+
+  const card = document.createElement('div');
+  card.className = 'chapter-card';
+  card.id = `ch_${idx}`;
+  card.innerHTML = `
+    <div class="chapter-header" id="hdr_${idx}">
+      <span class="drag-handle" title="Drag to reorder">⠿</span>
+      <div class="chapter-number">${chapters.length}</div>
+      <span class="ch-type-badge" id="tbadge_${idx}">${TYPE_LABELS[type]}</span>
+      <span class="ch-title-preview untitled" id="tpreview_${idx}">Untitled</span>
+      ${demo ? `<span class="demo-badge">DEMO</span>` : ''}
+      <button type="button" class="expand-btn" title="Edit" onclick="toggleChapter(${idx})">✏️</button>
+      <button type="button" class="remove-ch" onclick="removeChapter(${idx})">✕</button>
+    </div>
+    <div class="chapter-body" id="body_${idx}">
+      <div class="chapter-body-top">
+        <select id="type_${idx}" onchange="onTypeChange(${idx})">
+          <option value="video"      ${type==='video'?'selected':''}>🎬 Video</option>
+          <option value="pdf"        ${type==='pdf'?'selected':''}>📄 PDF</option>
+          <option value="audio"      ${type==='audio'?'selected':''}>🎵 Audio</option>
+          <option value="text"       ${type==='text'?'selected':''}>📝 Text</option>
+          <option value="live_class" ${type==='live_class'?'selected':''}>📡 Live Class</option>
+        </select>
+        <label class="demo-row">
+          <input type="checkbox" id="demo_${idx}" ${demo?'checked':''} onchange="syncDemoBadge(${idx})"/> Demo
+        </label>
+      </div>
+      <div class="chapter-fields" id="fields_${idx}"></div>
+    </div>
+  `;
+  bindDrag(card);
+  document.getElementById('chapterList').appendChild(card);
+  renderChapterFields(idx, preload);
+  // auto-expand new (non-preloaded) chapters so user can fill them in
+  if (!preload) toggleChapter(idx);
+}
+
+function toggleChapter(idx) {
+  document.getElementById(`body_${idx}`).classList.toggle('open');
+  const btn = document.querySelector(`#hdr_${idx} .expand-btn`);
+  const open = document.getElementById(`body_${idx}`).classList.contains('open');
+  btn.textContent = open ? '🔼' : '✏️';
+  btn.title = open ? 'Collapse' : 'Edit';
+}
+
+function onTypeChange(idx) {
+  document.getElementById(`tbadge_${idx}`).textContent = TYPE_LABELS[document.getElementById(`type_${idx}`).value];
+  renderChapterFields(idx);
+}
+
+function syncDemoBadge(idx) {
+  const hdr = document.getElementById(`hdr_${idx}`);
+  const existing = hdr.querySelector('.demo-badge');
+  if (document.getElementById(`demo_${idx}`).checked) {
+    if (!existing) {
+      const span = document.createElement('span');
+      span.className = 'demo-badge';
+      span.textContent = 'DEMO';
+      hdr.querySelector('.expand-btn').before(span);
+    }
+  } else {
+    if (existing) existing.remove();
+  }
+}
+
+function updateTitlePreview(idx, title) {
+  const el = document.getElementById(`tpreview_${idx}`);
+  if (title && title.trim()) {
+    el.textContent = title.trim();
+    el.classList.remove('untitled');
+  } else {
+    el.textContent = 'Untitled';
+    el.classList.add('untitled');
+  }
+}
+
+function removeChapter(idx, btn) {
+  const card = document.getElementById(`ch_${idx}`);
+  card.remove();
+  const i = chapters.findIndex(c => c._idx === idx);
+  if (i !== -1) chapters.splice(i, 1);
+  if (document.getElementById('chapterList').children.length === 0)
+    document.getElementById('noChapters').style.display = 'block';
+  renumberChapters();
+}
+
+function renumberChapters() {
+  document.querySelectorAll('.chapter-number').forEach((el, i) => el.textContent = i+1);
+}
+
+// ── Drag & Drop reorder ───────────────────────────────────────────────────────
+let dragSrc = null;
+
+function bindDrag(card) {
+  card.addEventListener('dragstart', e => {
+    dragSrc = card;
+    card.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+  });
+  card.addEventListener('dragend', () => {
+    card.classList.remove('dragging');
+    document.querySelectorAll('.chapter-card').forEach(c => c.classList.remove('drag-over'));
+    renumberChapters();
+  });
+  card.addEventListener('dragover', e => {
+    e.preventDefault();
+    if (card === dragSrc) return;
+    e.dataTransfer.dropEffect = 'move';
+    card.classList.add('drag-over');
+  });
+  card.addEventListener('dragleave', () => card.classList.remove('drag-over'));
+  card.addEventListener('drop', e => {
+    e.preventDefault();
+    if (!dragSrc || dragSrc === card) return;
+    const list = document.getElementById('chapterList');
+    const cards = [...list.children];
+    const srcIdx = cards.indexOf(dragSrc);
+    const tgtIdx = cards.indexOf(card);
+    if (srcIdx < tgtIdx) {
+      list.insertBefore(dragSrc, card.nextSibling);
+    } else {
+      list.insertBefore(dragSrc, card);
+    }
+    card.classList.remove('drag-over');
+    renumberChapters();
+  });
+  // prevent drag from firing on inputs/selects inside the card
+  card.querySelectorAll('input,select,textarea,button,a').forEach(el => {
+    el.addEventListener('mousedown', e => e.stopPropagation());
+  });
+  // only drag when grabbing the handle
+  card.querySelector('.drag-handle').addEventListener('mousedown', () => {
+    card.draggable = true;
+  });
+  card.addEventListener('mousedown', e => {
+    if (!e.target.closest('.drag-handle')) card.draggable = false;
+  });
+}
+
+function renderChapterFields(idx, preload) {
+  const type = document.getElementById(`type_${idx}`).value;
+  const container = document.getElementById(`fields_${idx}`);
+  const p = preload || {};
+
+  const fld = (id, label, type='text', value='', extra='') =>
+    `<div class="field"><label>${label}</label><input type="${type}" id="${id}" value="${escHtml(value)}" ${extra}/></div>`;
+  const txtFld = (id, label, value='') =>
+    `<div class="field"><label>${label}</label><textarea id="${id}">${escHtml(value)}</textarea></div>`;
+  // kind: 'image' shows <img> preview; 'file' shows a link + filename
+  const upFld = (id, label, folder, hiddenId, previewId, statusId, accept, previewSrc='', kind='file') => {
+    const pid = previewId || `${hiddenId}_prev`;
+    let previewHtml = '';
+    if (previewSrc) {
+      if (kind === 'image') {
+        previewHtml = `<div class="upload-preview"><img id="${pid}" src="${escHtml(previewSrc)}" style="max-width:160px;border-radius:6px;margin-top:6px"/></div>`;
+      } else {
+        const fname = previewSrc.split('/').pop();
+        previewHtml = `<div class="upload-status ok" id="${pid}">✓ ${escHtml(fname)} — <a href="javascript:void(0)" onclick="openPreview('${escHtml(previewSrc)}','${escHtml(fname)}')" style="color:#1a7a4a">preview</a></div>`;
+      }
+    } else {
+      previewHtml = kind === 'image'
+        ? `<img id="${pid}" style="display:none;max-width:160px;border-radius:6px;margin-top:6px"/>`
+        : `<div id="${pid}"></div>`;
+    }
+    return `
+    <div class="field">
+      <label>${label}</label>
+      <label class="upload-btn">📎 Choose File
+        <input type="file" accept="${accept}" onchange="uploadFile(this,'${folder}','${hiddenId}','${pid}','${statusId}','${kind}')"/>
+      </label>
+      ${previewHtml}
+      <div class="upload-status" id="${statusId}"></div>
+      <input type="hidden" id="${hiddenId}" value="${escHtml(previewSrc)}"/>
+    </div>`;
+  };
+
+  let html = '';
+
+  let titleId = null;
+
+  if (type === 'video') {
+    const v = p.video || {};
+    titleId = `vt_${idx}`;
+    html = `
+      <div class="grid2">
+        ${fld(titleId, 'Title *', 'text', v.title||'')}
+        ${fld(`vdur_${idx}`, 'Duration', 'text', v.duration||'', 'placeholder="10:30"')}
+      </div>
+      ${upFld(`vid_${idx}`,'Video File *','video',`vurl_${idx}`,`vprev_${idx}`,`vstat_${idx}`,'video/*', v.video_url||'', 'file')}
+      ${upFld(`vth_${idx}`,'Thumbnail (optional)','video_thumb',`vthurl_${idx}`,`vthprev_${idx}`,`vthstat_${idx}`,'image/*', v.thumbnail||'', 'image')}
+      <div class="grid2">
+        ${fld(`vprof_${idx}`, 'Professor', 'text', v.professor||'')}
+        ${fld(`vnotes_${idx}`, 'Notes', 'text', v.notes||'')}
+      </div>`;
+  } else if (type === 'pdf') {
+    const pf = p.pdf || {};
+    titleId = `pdft_${idx}`;
+    html = `
+      ${fld(titleId, 'Title *', 'text', pf.title||'')}
+      ${upFld(`pdff_${idx}`,'PDF File *','pdf',`pdfurl_${idx}`,`pdfprev_${idx}`,`pdfstat_${idx}`,'application/pdf', pf.pdf_url||'', 'file')}`;
+  } else if (type === 'audio') {
+    const a = p.audio || {};
+    titleId = `audt_${idx}`;
+    html = `
+      ${fld(titleId, 'Title *', 'text', a.title||'')}
+      ${upFld(`audf_${idx}`,'Audio File *','audio',`audurl_${idx}`,`audprev_${idx}`,`audstat_${idx}`,'audio/*', a.audio_url||'', 'file')}`;
+  } else if (type === 'text') {
+    const t = p.text || {};
+    titleId = `txtt_${idx}`;
+    html = `
+      ${fld(titleId, 'Title *', 'text', t.title||'')}
+      ${txtFld(`txtc_${idx}`, 'Content *', t.text||'')}`;
+  } else if (type === 'live_class') {
+    const lc = p.live_class || {};
+    titleId = `lct_${idx}`;
+    html = `
+      ${fld(titleId, 'Title *', 'text', lc.title||'')}
+      <div class="grid3">
+        ${fld(`lcdate_${idx}`, 'Start Date *', 'text', lc.start_date||'', 'placeholder="2024-09-01"')}
+        ${fld(`lctime_${idx}`, 'Start Time *', 'text', lc.start_time||'', 'placeholder="10:00 AM"')}
+        ${fld(`lcdur_${idx}`, 'Duration *', 'text', lc.duration||'', 'placeholder="90 min"')}
+      </div>
+      ${fld(`lclink_${idx}`, 'Meeting Link', 'url', lc.link||'', 'placeholder="https://zoom.us/..."')}`;
+  }
+
+  container.innerHTML = html;
+
+  // wire title input → collapsed preview
+  if (titleId) {
+    const titleEl = document.getElementById(titleId);
+    if (titleEl) {
+      updateTitlePreview(idx, titleEl.value);
+      titleEl.addEventListener('input', () => updateTitlePreview(idx, titleEl.value));
+    }
+  }
+}
+
+function escHtml(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── Collect & Submit ─────────────────────────────────────────────────────────
+function collectChapters() {
+  const result = [];
+  document.querySelectorAll('.chapter-card').forEach(card => {
+    const idx = card.id.replace('ch_', '');
+    const type = document.getElementById(`type_${idx}`).value;
+    const demo = document.getElementById(`demo_${idx}`).checked;
+    const ch = { type, demo };
+
+    if (type === 'video') {
+      ch.video = {
+        title:     document.getElementById(`vt_${idx}`).value,
+        video_url: document.getElementById(`vurl_${idx}`).value,
+        thumbnail: document.getElementById(`vthurl_${idx}`)?.value || '',
+        duration:  document.getElementById(`vdur_${idx}`).value,
+        professor: document.getElementById(`vprof_${idx}`).value,
+        notes:     document.getElementById(`vnotes_${idx}`).value,
+      };
+    } else if (type === 'pdf') {
+      ch.pdf = { title: document.getElementById(`pdft_${idx}`).value, pdf_url: document.getElementById(`pdfurl_${idx}`).value };
+    } else if (type === 'audio') {
+      ch.audio = { title: document.getElementById(`audt_${idx}`).value, audio_url: document.getElementById(`audurl_${idx}`).value };
+    } else if (type === 'text') {
+      ch.text = { title: document.getElementById(`txtt_${idx}`).value, text: document.getElementById(`txtc_${idx}`).value };
+    } else if (type === 'live_class') {
+      ch.live_class = {
+        title:      document.getElementById(`lct_${idx}`).value,
+        start_date: document.getElementById(`lcdate_${idx}`).value,
+        start_time: document.getElementById(`lctime_${idx}`).value,
+        duration:   document.getElementById(`lcdur_${idx}`).value,
+        link:       document.getElementById(`lclink_${idx}`).value,
+      };
+    }
+    result.push(ch);
+  });
+  return result;
+}
+
+document.getElementById('courseForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('saveBtn');
+  document.getElementById('saveText').style.display = 'none';
+  document.getElementById('saveSpinner').style.display = 'block';
+  btn.disabled = true;
+
+  const payload = {
+    name:          document.getElementById('name').value,
+    course_id:     '',
+    price:         document.getElementById('price').value,
+    whole_duration:document.getElementById('whole_duration').value,
+    topics:        document.getElementById('topics').value,
+    professors:    document.getElementById('professors').value,
+    thumbnail_url: document.getElementById('thumbnail_url').value,
+    chapters:      collectChapters(),
+  };
+
+  const url = IS_EDIT
+    ? `/admin/courses/${COURSE_ID}/edit`
+    : '/admin/courses/add';
+
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (data.ok) {
+      if (IS_EDIT) {
+        showToast('Course updated successfully!');
+      } else {
+        window.location.href = '/admin/courses/';
+      }
+    } else {
+      alert('Error: ' + data.error);
+    }
+  } catch(err) {
+    alert('Request failed: ' + err.message);
+  } finally {
+    document.getElementById('saveText').style.display = 'inline';
+    document.getElementById('saveSpinner').style.display = 'none';
+    btn.disabled = false;
+  }
+});
+
+// ── Preload existing chapters on edit ────────────────────────────────────────
+const PRELOADED = {{ chapters_json | safe }};
+PRELOADED.forEach(ch => addChapter(ch));
+</script>
+{% endblock %}

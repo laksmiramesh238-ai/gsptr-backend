@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+
+{% block extra_styles %}
+.empty-state { display: flex; align-items: center; justify-content: center; height: 60vh; flex-direction: column; color: #bbb; }
+.empty-state .big { font-size: 52px; margin-bottom: 14px; }
+.empty-state p { font-size: 15px; }
+{% endblock %}
+
+{% block content %}
+<div class="empty-state">
+  <div class="big">⊞</div>
+  <p>Dashboard coming soon.</p>
+</div>
+{% endblock %}

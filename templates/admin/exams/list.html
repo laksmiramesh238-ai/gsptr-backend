@@ -1,0 +1,60 @@
+{% extends 'admin/base.html' %}
+{% block title %}Exams{% endblock %}
+{% block page_title %}Exams{% endblock %}
+
+{% block extra_styles %}
+.toolbar { display: flex; justify-content: flex-end; margin-bottom: 24px; }
+.btn { padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.15s; }
+.btn:hover { opacity: 0.85; }
+.btn-primary { background: #6c63ff; color: #fff; }
+.btn-danger  { background: #ff4f4f; color: #fff; }
+.btn-outline { background: #fff; color: #6c63ff; border: 1.5px solid #6c63ff; }
+.btn-sm { padding: 6px 13px; font-size: 12px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+.card { background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s, transform 0.2s; }
+.card:hover { box-shadow: 0 6px 24px rgba(108,99,255,0.13); transform: translateY(-2px); }
+.card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.card-title { font-size: 16px; font-weight: 700; color: #1a1a2e; }
+.card-sub { font-size: 12px; color: #6c63ff; font-weight: 600; }
+.card-desc { font-size: 13px; color: #888; line-height: 1.5; }
+.card-meta { display: flex; gap: 10px; margin-top: 4px; }
+.badge { padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; background: #f0efff; color: #6c63ff; }
+.badge-grey { background: #f0f0f0; color: #666; }
+.card-footer { padding: 12px 16px; border-top: 1px solid #f0f0f0; display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+.empty { text-align: center; padding: 80px 20px; color: #aaa; font-size: 15px; }
+.empty a { color: #6c63ff; }
+{% endblock %}
+
+{% block content %}
+<div class="toolbar">
+  <a href="{{ url_for('exam_admin.add_exam') }}" class="btn btn-primary">+ Add Exam</a>
+</div>
+
+{% if exams | list | length > 0 %}
+<div class="cards">
+  {% for e in exams %}
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title">{{ e.title }}</div>
+      {% if e.full_form %}<div class="card-sub">{{ e.full_form }}</div>{% endif %}
+      {% if e.description_en %}<div class="card-desc">{{ e.description_en[:100] }}{% if e.description_en|length > 100 %}…{% endif %}</div>{% endif %}
+      <div class="card-meta">
+        <span class="badge">{{ e.exam_id }}</span>
+        <span class="badge badge-grey">{{ e.subjects | length }} subjects</span>
+        <span class="badge badge-grey">{{ e.assessments | length }} assessments</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="{{ url_for('exam_admin.list_assessments', exam_id=e.id) }}" class="btn btn-outline btn-sm">Assessments</a>
+      <a href="{{ url_for('exam_admin.edit_exam', exam_id=e.id) }}" class="btn btn-primary btn-sm">Edit</a>
+      <form method="POST" action="{{ url_for('exam_admin.delete_exam', exam_id=e.id) }}" onsubmit="return confirm('Delete {{ e.title }}?')" style="display:inline">
+        <button class="btn btn-danger btn-sm">Delete</button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="empty">No exams yet. <a href="{{ url_for('exam_admin.add_exam') }}">Add one &rarr;</a></div>
+{% endif %}
+{% endblock %}

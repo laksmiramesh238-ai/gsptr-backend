@@ -1,0 +1,320 @@
+{% extends 'admin/base.html' %}
+{% block title %}{{ 'Edit' if sess_idx is not none else 'Add' }} Session{% endblock %}
+{% block page_title %}{{ 'Edit' if sess_idx is not none else 'Add' }} Session — {{ exam.subjects[sub_idx].name }}{% endblock %}
+
+{% block extra_styles %}
+.form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+label { font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: .5px; }
+input, textarea, select { border: 1.5px solid #ddd; border-radius: 8px; padding: 10px 12px; font-size: 14px; font-family: inherit; width: 100%; }
+textarea { resize: vertical; min-height: 80px; }
+.btn { padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary { background: #6c63ff; color: #fff; }
+.btn-danger { background: #ff4f4f; color: #fff; }
+.btn-success { background: #2ecc71; color: #fff; }
+.btn-outline { background: #fff; color: #6c63ff; border: 1.5px solid #6c63ff; }
+.btn-sm { padding: 6px 13px; font-size: 12px; }
+.section { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.section-title { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+.lock-bar { display: flex; flex-wrap: wrap; gap: 14px; padding: 10px 14px; background: #f8f0ff; border-radius: 8px; margin-bottom: 16px; align-items: center; }
+.lock-bar span { font-size: 12px; font-weight: 700; color: #6c63ff; }
+.lock-bar label { font-size: 12px; display: flex; align-items: center; gap: 4px; text-transform: none; cursor: pointer; }
+.q-card { background: #f8f8fc; border-radius: 8px; padding: 14px; margin-bottom: 10px; }
+.q-card input, .q-card textarea { margin-bottom: 6px; }
+.upload-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.upload-status { font-size: 11px; color: #888; }
+.vid-card, .lc-card { background: #f8f8fc; border-radius: 8px; padding: 14px; margin-bottom: 10px; }
+.vid-card input, .lc-card input { margin-bottom: 6px; }
+.toast { position: fixed; top: 20px; right: 20px; background: #2ecc71; color: #fff; padding: 12px 24px; border-radius: 10px; font-weight: 600; z-index: 9999; display: none; }
+{% endblock %}
+
+{% block content %}
+<div id="toast" class="toast">Saved!</div>
+
+<a href="{{ url_for('exam_admin.list_sessions', exam_id=exam.id, sub_idx=sub_idx) }}" class="btn btn-outline btn-sm" style="margin-bottom:20px">← Back to Sessions</a>
+
+<!-- Session Info + Locks -->
+<div class="section">
+  <div class="section-title">Session Info</div>
+  <div class="form-group">
+    <label>Title *</label>
+    <input id="sess_title"/>
+  </div>
+  <div class="form-group">
+    <label style="display:flex;align-items:center;gap:8px;text-transform:none">
+      <input type="checkbox" id="sess_locked"/> 🔒 Lock entire session
+    </label>
+  </div>
+  <div class="lock-bar">
+    <span>Content Locks:</span>
+    <label><input type="checkbox" id="notes_locked"/> 📝 Notes</label>
+    <label><input type="checkbox" id="mcq_locked"/> ❓ MCQ</label>
+    <label><input type="checkbox" id="descriptive_locked"/> 📝 Descriptive</label>
+    <label><input type="checkbox" id="audio_locked"/> 🎵 Audio</label>
+    <label><input type="checkbox" id="video_locked"/> 🎥 Video</label>
+    <label><input type="checkbox" id="live_locked"/> 📡 Live</label>
+  </div>
+</div>
+
+<!-- Notes -->
+<div class="section">
+  <div class="section-title">📝 Notes</div>
+  <div class="form-group">
+    <label>HTML Content</label>
+    <textarea id="notes_html" placeholder="Paste HTML notes here..."></textarea>
+  </div>
+  <div class="form-group">
+    <label>Or Upload PDF</label>
+    <div class="upload-row">
+      <input type="file" accept=".pdf" id="notesPdfFile"/>
+      <span class="upload-status" id="notesPdfStatus"></span>
+    </div>
+    <input type="hidden" id="notes_pdf_url"/>
+  </div>
+</div>
+
+<!-- MCQ -->
+<div class="section">
+  <div class="section-title">❓ MCQ Questions <button class="btn btn-primary btn-sm" onclick="addMCQ()">+ Add MCQ</button></div>
+  <div id="mcqs"></div>
+</div>
+
+<!-- Descriptive -->
+<div class="section">
+  <div class="section-title">📝 Descriptive Questions <button class="btn btn-primary btn-sm" onclick="addDesc()">+ Add Descriptive</button></div>
+  <div id="descriptive"></div>
+</div>
+
+<!-- Audio -->
+<div class="section">
+  <div class="section-title">🎵 Audio Revision</div>
+  <div class="upload-row">
+    <input type="file" accept="audio/*" id="audioFile"/>
+    <span class="upload-status" id="audioStatus"></span>
+  </div>
+  <input type="hidden" id="audio_url"/>
+</div>
+
+<!-- Videos -->
+<div class="section">
+  <div class="section-title">🎥 Videos</div>
+  <div class="form-group">
+    <label>Full Session Video</label>
+    <div class="upload-row">
+      <input type="file" accept="video/*" id="fullVideoFile"/>
+      <span class="upload-status" id="fullVideoStatus"></span>
+    </div>
+    <input type="hidden" id="full_video_url"/>
+  </div>
+  <div class="form-group">
+    <label>Duration</label>
+    <input id="full_video_duration" placeholder="e.g. 45 min"/>
+  </div>
+  <div class="section-title" style="margin-top:12px">Module Videos <button class="btn btn-primary btn-sm" onclick="addModVid()">+ Add Module</button></div>
+  <div id="module_videos"></div>
+</div>
+
+<!-- Live Classes -->
+<div class="section">
+  <div class="section-title">📡 Live Classes <button class="btn btn-primary btn-sm" onclick="addLive()">+ Add Live Class</button></div>
+  <div id="live_classes"></div>
+</div>
+
+<div style="display:flex;gap:12px;margin-top:20px;margin-bottom:40px">
+  <button class="btn btn-success" onclick="saveSession()" id="saveBtn">{{ 'Update Session' if sess_idx is not none else 'Create Session' }}</button>
+  <a href="{{ url_for('exam_admin.list_sessions', exam_id=exam.id, sub_idx=sub_idx) }}" class="btn btn-outline">Cancel</a>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+const IS_EDIT = {{ 'true' if sess_idx is not none else 'false' }};
+const EXAM_ID = '{{ exam.id }}';
+const SUB_IDX = {{ sub_idx }};
+const SESS_IDX = {{ sess_idx if sess_idx is not none else 'null' }};
+
+let sess = {{ session_json | safe }};
+let mcqs = sess.mcqs || [];
+let descs = sess.descriptive_questions || [];
+let modVids = sess.module_videos || [];
+let liveClasses = sess.live_classes || [];
+
+// populate fields
+document.getElementById('sess_title').value = sess.title || '';
+document.getElementById('sess_locked').checked = !!sess.locked;
+document.getElementById('notes_locked').checked = !!sess.notes_locked;
+document.getElementById('mcq_locked').checked = !!sess.mcq_locked;
+document.getElementById('descriptive_locked').checked = !!sess.descriptive_locked;
+document.getElementById('audio_locked').checked = !!sess.audio_locked;
+document.getElementById('video_locked').checked = !!sess.video_locked;
+document.getElementById('live_locked').checked = !!sess.live_locked;
+document.getElementById('notes_html').value = sess.notes_html || '';
+document.getElementById('notes_pdf_url').value = sess.notes_pdf_url || '';
+document.getElementById('audio_url').value = sess.audio_url || '';
+document.getElementById('full_video_url').value = sess.full_video_url || '';
+document.getElementById('full_video_duration').value = sess.full_video_duration || '';
+
+if (sess.notes_pdf_url) document.getElementById('notesPdfStatus').textContent = '✓ PDF attached';
+if (sess.audio_url) document.getElementById('audioStatus').textContent = '✓ Audio attached';
+if (sess.full_video_url) document.getElementById('fullVideoStatus').textContent = '✓ Video attached';
+
+function esc(s) { return (s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+// ── S3 upload ──
+async function uploadFile(fileInput, folder, callback) {
+  const file = fileInput.files[0];
+  if (!file) return;
+  const res = await fetch(`/s3/presign?filename=${encodeURIComponent(file.name)}&folder=${folder}`);
+  const { url, fields, public_url } = await res.json();
+  const fd = new FormData();
+  Object.entries(fields).forEach(([k,v]) => fd.append(k, v));
+  fd.append('file', file);
+  await fetch(url, { method: 'POST', body: fd });
+  callback(public_url);
+}
+
+document.getElementById('notesPdfFile').addEventListener('change', function() {
+  document.getElementById('notesPdfStatus').textContent = 'Uploading...';
+  uploadFile(this, 'exam_pdf', url => {
+    document.getElementById('notes_pdf_url').value = url;
+    document.getElementById('notesPdfStatus').textContent = 'Uploaded ✓';
+  });
+});
+document.getElementById('audioFile').addEventListener('change', function() {
+  document.getElementById('audioStatus').textContent = 'Uploading...';
+  uploadFile(this, 'exam_audio', url => {
+    document.getElementById('audio_url').value = url;
+    document.getElementById('audioStatus').textContent = 'Uploaded ✓';
+  });
+});
+document.getElementById('fullVideoFile').addEventListener('change', function() {
+  document.getElementById('fullVideoStatus').textContent = 'Uploading...';
+  uploadFile(this, 'exam_video', url => {
+    document.getElementById('full_video_url').value = url;
+    document.getElementById('fullVideoStatus').textContent = 'Uploaded ✓';
+  });
+});
+
+// ── MCQs ──
+function renderMCQs() {
+  const el = document.getElementById('mcqs');
+  el.innerHTML = '';
+  mcqs.forEach((m, i) => {
+    el.innerHTML += `<div class="q-card">
+      <strong style="color:#6c63ff;font-size:12px">Q${i+1}</strong>
+      <input value="${esc(m.question)}" placeholder="Question" onchange="mcqs[${i}].question=this.value"/>
+      ${(m.options||['','','','']).map((o,oi) => `<input value="${esc(o)}" placeholder="Option ${oi+1}" onchange="mcqs[${i}].options[${oi}]=this.value"/>`).join('')}
+      <select onchange="mcqs[${i}].answer=parseInt(this.value)">
+        ${[0,1,2,3].map(oi => `<option value="${oi}" ${m.answer===oi?'selected':''}>Correct: Option ${oi+1}</option>`).join('')}
+      </select>
+      <input value="${esc(m.explanation||'')}" placeholder="Explanation" onchange="mcqs[${i}].explanation=this.value"/>
+      <button class="btn btn-danger btn-sm" onclick="mcqs.splice(${i},1);renderMCQs()">Remove</button>
+    </div>`;
+  });
+}
+function addMCQ() { mcqs.push({question:'',options:['','','',''],answer:0,explanation:''}); renderMCQs(); }
+
+// ── Descriptive ──
+function renderDescs() {
+  const el = document.getElementById('descriptive');
+  el.innerHTML = '';
+  descs.forEach((d, i) => {
+    el.innerHTML += `<div class="q-card">
+      <strong style="color:#6c63ff;font-size:12px">Q${i+1}</strong>
+      <textarea placeholder="Question" onchange="descs[${i}].question=this.value">${esc(d.question)}</textarea>
+      <textarea placeholder="Answer" onchange="descs[${i}].answer=this.value">${esc(d.answer)}</textarea>
+      <button class="btn btn-danger btn-sm" onclick="descs.splice(${i},1);renderDescs()">Remove</button>
+    </div>`;
+  });
+}
+function addDesc() { descs.push({question:'',answer:''}); renderDescs(); }
+
+// ── Module Videos ──
+function renderModVids() {
+  const el = document.getElementById('module_videos');
+  el.innerHTML = '';
+  modVids.forEach((v, i) => {
+    el.innerHTML += `<div class="vid-card">
+      <input value="${esc(v.title)}" placeholder="Module title" onchange="modVids[${i}].title=this.value"/>
+      <div class="upload-row">
+        <input type="file" accept="video/*" onchange="uploadFile(this,'exam_video',url=>{modVids[${i}].video_url=url;this.nextElementSibling.textContent='Uploaded ✓'})"/>
+        <span class="upload-status">${v.video_url?'✓ Video':''}</span>
+      </div>
+      <input value="${v.duration||''}" placeholder="Duration" onchange="modVids[${i}].duration=this.value"/>
+      <button class="btn btn-danger btn-sm" onclick="modVids.splice(${i},1);renderModVids()">Remove</button>
+    </div>`;
+  });
+}
+function addModVid() { modVids.push({title:'',video_url:'',duration:''}); renderModVids(); }
+
+// ── Live Classes ──
+function renderLive() {
+  const el = document.getElementById('live_classes');
+  el.innerHTML = '';
+  liveClasses.forEach((lc, i) => {
+    el.innerHTML += `<div class="lc-card">
+      <input value="${esc(lc.title)}" placeholder="Title" onchange="liveClasses[${i}].title=this.value"/>
+      <input value="${esc(lc.description||'')}" placeholder="Description" onchange="liveClasses[${i}].description=this.value"/>
+      <input value="${lc.date||''}" type="date" onchange="liveClasses[${i}].date=this.value"/>
+      <input value="${lc.time||''}" placeholder="Time (10:00 AM IST)" onchange="liveClasses[${i}].time=this.value"/>
+      <input value="${lc.join_url||''}" placeholder="Join URL" onchange="liveClasses[${i}].join_url=this.value"/>
+      <button class="btn btn-danger btn-sm" onclick="liveClasses.splice(${i},1);renderLive()">Remove</button>
+    </div>`;
+  });
+}
+function addLive() { liveClasses.push({title:'',description:'',date:'',time:'',join_url:''}); renderLive(); }
+
+// initial render
+renderMCQs(); renderDescs(); renderModVids(); renderLive();
+
+// ── Save ──
+async function saveSession() {
+  const btn = document.getElementById('saveBtn');
+  btn.disabled = true; btn.textContent = 'Saving...';
+
+  const body = {
+    title: document.getElementById('sess_title').value,
+    locked: document.getElementById('sess_locked').checked,
+    notes_locked: document.getElementById('notes_locked').checked,
+    mcq_locked: document.getElementById('mcq_locked').checked,
+    descriptive_locked: document.getElementById('descriptive_locked').checked,
+    audio_locked: document.getElementById('audio_locked').checked,
+    video_locked: document.getElementById('video_locked').checked,
+    live_locked: document.getElementById('live_locked').checked,
+    notes_html: document.getElementById('notes_html').value,
+    notes_pdf_url: document.getElementById('notes_pdf_url').value,
+    audio_url: document.getElementById('audio_url').value,
+    full_video_url: document.getElementById('full_video_url').value,
+    full_video_duration: document.getElementById('full_video_duration').value,
+    mcqs: mcqs,
+    descriptive_questions: descs,
+    module_videos: modVids,
+    live_classes: liveClasses,
+  };
+
+  const url = IS_EDIT
+    ? `/admin/exams/${EXAM_ID}/subjects/${SUB_IDX}/sessions/${SESS_IDX}/edit`
+    : `/admin/exams/${EXAM_ID}/subjects/${SUB_IDX}/sessions/add`;
+
+  const res = await fetch(url, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  const data = await res.json();
+
+  if (data.ok) {
+    if (!IS_EDIT) {
+      window.location.href = `/admin/exams/${EXAM_ID}/subjects/${SUB_IDX}/sessions`;
+    } else {
+      const t = document.getElementById('toast');
+      t.style.display = 'block';
+      setTimeout(() => t.style.display = 'none', 2500);
+    }
+  } else {
+    alert('Error: ' + (data.error || 'Unknown'));
+  }
+  btn.disabled = false;
+  btn.textContent = IS_EDIT ? 'Update Session' : 'Create Session';
+}
+</script>
+{% endblock %}

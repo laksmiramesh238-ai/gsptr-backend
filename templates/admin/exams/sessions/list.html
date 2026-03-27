@@ -1,0 +1,66 @@
+{% extends 'admin/base.html' %}
+{% block title %}Sessions — {{ subject.name }}{% endblock %}
+{% block page_title %}Sessions — {{ subject.name }} ({{ exam.title }}){% endblock %}
+
+{% block extra_styles %}
+.toolbar { display: flex; justify-content: space-between; margin-bottom: 24px; align-items: center; gap: 12px; }
+.btn { padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary { background: #6c63ff; color: #fff; }
+.btn-danger { background: #ff4f4f; color: #fff; }
+.btn-outline { background: #fff; color: #6c63ff; border: 1.5px solid #6c63ff; }
+.btn-sm { padding: 6px 13px; font-size: 12px; }
+.session-list { display: flex; flex-direction: column; gap: 12px; }
+.session-card {
+  background: #fff; border-radius: 12px; padding: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex; align-items: center; gap: 14px;
+}
+.session-num { width: 36px; height: 36px; border-radius: 18px; background: #f0efff; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #6c63ff; font-size: 14px; flex-shrink: 0; }
+.session-info { flex: 1; }
+.session-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+.session-meta { display: flex; gap: 8px; margin-top: 4px; flex-wrap: wrap; }
+.badge { padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; background: #f0f0f0; color: #666; }
+.badge-lock { background: #fff0f0; color: #e53e3e; }
+.badge-ok { background: #e6f9f0; color: #2ecc71; }
+.session-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.empty { text-align: center; padding: 60px 20px; color: #aaa; }
+{% endblock %}
+
+{% block content %}
+<div class="toolbar">
+  <a href="{{ url_for('exam_admin.edit_exam', exam_id=exam.id) }}" class="btn btn-outline btn-sm">← Back to Exam</a>
+  <a href="{{ url_for('exam_admin.add_session_page', exam_id=exam.id, sub_idx=sub_idx) }}" class="btn btn-primary">+ Add Session</a>
+</div>
+
+{% if subject.sessions | length > 0 %}
+<div class="session-list">
+  {% for sess in subject.sessions %}
+  <div class="session-card">
+    <div class="session-num">{{ loop.index }}</div>
+    <div class="session-info">
+      <div class="session-title">
+        {% if sess.locked %}🔒 {% endif %}{{ sess.title }}
+      </div>
+      <div class="session-meta">
+        {% if sess.mcqs | length > 0 %}<span class="badge {% if sess.mcq_locked %}badge-lock{% else %}badge-ok{% endif %}">{{ sess.mcqs | length }} MCQ {% if sess.mcq_locked %}🔒{% endif %}</span>{% endif %}
+        {% if sess.descriptive_questions | length > 0 %}<span class="badge {% if sess.descriptive_locked %}badge-lock{% else %}badge-ok{% endif %}">{{ sess.descriptive_questions | length }} Desc {% if sess.descriptive_locked %}🔒{% endif %}</span>{% endif %}
+        {% if sess.notes_html or sess.notes_pdf_url %}<span class="badge {% if sess.notes_locked %}badge-lock{% else %}badge-ok{% endif %}">Notes {% if sess.notes_locked %}🔒{% endif %}</span>{% endif %}
+        {% if sess.audio_url %}<span class="badge {% if sess.audio_locked %}badge-lock{% else %}badge-ok{% endif %}">Audio {% if sess.audio_locked %}🔒{% endif %}</span>{% endif %}
+        {% if sess.full_video_url %}<span class="badge {% if sess.video_locked %}badge-lock{% else %}badge-ok{% endif %}">Video {% if sess.video_locked %}🔒{% endif %}</span>{% endif %}
+        {% if sess.module_videos | length > 0 %}<span class="badge">{{ sess.module_videos | length }} Modules</span>{% endif %}
+        {% if sess.live_classes | length > 0 %}<span class="badge {% if sess.live_locked %}badge-lock{% else %}badge-ok{% endif %}">{{ sess.live_classes | length }} Live {% if sess.live_locked %}🔒{% endif %}</span>{% endif %}
+      </div>
+    </div>
+    <div class="session-actions">
+      <a href="{{ url_for('exam_admin.edit_session_page', exam_id=exam.id, sub_idx=sub_idx, sess_idx=loop.index0) }}" class="btn btn-primary btn-sm">Edit</a>
+      <form method="POST" action="{{ url_for('exam_admin.delete_session', exam_id=exam.id, sub_idx=sub_idx, sess_idx=loop.index0) }}" style="display:inline" onsubmit="return confirm('Delete this session?')">
+        <button class="btn btn-danger btn-sm">Delete</button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="empty">No sessions yet. Add one to start building content.</div>
+{% endif %}
+{% endblock %}
