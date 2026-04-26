@@ -1,15 +1,18 @@
 """
-Seed script — replace the Mathematics subject of GPSTR 2026
-with chapters loaded from maths_data.json (extracted from index.html).
+Seed script — replace the Science subject of GPSTR 2026 with chapters
+loaded from science_data.json (extracted from science_preview.html).
 
-Each chapter (merge_code) becomes one Session under a single
-"Mathematics / ಗಣಿತ" subject. Sessions are sorted by domain then
-chapter_name, with the domain prefixed to the title for visual grouping.
-Per-module podcasts ride along on each ModuleVideo.
+Each chapter (merge_code) becomes one Session under the existing
+"Science / ವಿಜ್ಞಾನ" subject. Sessions are sorted by canonical domain
+then class then chapter_name, with the domain prefixed to the title.
+
+Domain values in the source are inconsistent (e.g. "ಜೀವಶಾಸ್ತ್ರ" and
+"ಜೀವಶಾಸ್ತ್ರ (Biology)" appear as separate strings). They are
+canonicalized via DOMAIN_MAP below before grouping.
 
 Usage:
     cd backend
-    python seed_exam_maths.py
+    python seed_exam_science.py
 """
 
 import os, sys, json
@@ -31,12 +34,31 @@ connect(
 )
 
 EXAM_TITLE   = 'GPSTR 2026'
-SUBJECT_NAME = 'Mathematics / ಗಣಿತ'
-DATA_PATH    = os.path.join(os.path.dirname(__file__), 'maths_data.json')
+SUBJECT_NAME = 'Science / ವಿಜ್ಞಾನ'
+DATA_PATH    = os.path.join(os.path.dirname(__file__), 'science_data.json')
+
+DOMAIN_MAP = {
+    'ಜೀವಶಾಸ್ತ್ರ':                                  'ಜೀವಶಾಸ್ತ್ರ (Biology)',
+    'ಜೀವಶಾಸ್ತ್ರ (Biology)':                        'ಜೀವಶಾಸ್ತ್ರ (Biology)',
+    'ಭೌತಶಾಸ್ತ್ರ':                                  'ಭೌತಶಾಸ್ತ್ರ (Physics)',
+    'ಭೌತಶಾಸ್ತ್ರ (Physics)':                        'ಭೌತಶಾಸ್ತ್ರ (Physics)',
+    'ರಸಾಯನಶಾಸ್ತ್ರ':                                 'ರಸಾಯನಶಾಸ್ತ್ರ (Chemistry)',
+    'ರಸಾಯನಶಾಸ್ತ್ರ (Chemistry)':                    'ರಸಾಯನಶಾಸ್ತ್ರ (Chemistry)',
+    'ಪರಿಸರ ವಿಜ್ಞಾನ (Environmental Science)':       'ಪರಿಸರ ವಿಜ್ಞಾನ (Environmental Science)',
+    'ಪರಿಸರ ವಿಜ್ಞಾನ (Ecology)':                     'ಪರಿಸರ ವಿಜ್ಞಾನ (Environmental Science)',
+    'ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ (General Science)':           'ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ (General Science)',
+    'General Science':                              'ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ (General Science)',
+    'ಖಗೋಳ ವಿಜ್ಞಾನ (Astronomy)':                    'ಖಗೋಳ ವಿಜ್ಞಾನ (Astronomy)',
+    'ಜೀವಶಾಸ್ತ್ರ (Biology) / ಭೌತಶಾಸ್ತ್ರ (Physics)':  'ಜೀವಶಾಸ್ತ್ರ (Biology)',
+    'ಜೀವಶಾಸ್ತ್ರ / ಪರಿಸರ ವಿಜ್ಞಾನ':                    'ಜೀವಶಾಸ್ತ್ರ (Biology)',
+}
+
+
+def canonical_domain(raw: str) -> str:
+    return DOMAIN_MAP.get(raw, raw)
 
 
 def s3_url(key: str) -> str:
-    """Build origin S3 URL — utils.cdn.cdn_url rewrites it to CloudFront at read time."""
     if not key:
         return ''
     bucket = os.getenv('AWS_BUCKET', 'azad')
@@ -45,7 +67,7 @@ def s3_url(key: str) -> str:
 
 
 def build_session(chapter: dict) -> Session:
-    domain        = chapter.get('domain', '')
+    domain        = canonical_domain(chapter.get('domain', ''))
     chapter_name  = chapter.get('chapter_name', '')
     classes       = chapter.get('classes') or []
     chapter_nums  = chapter.get('chapter_numbers') or []
@@ -81,10 +103,10 @@ def build_session(chapter: dict) -> Session:
     return Session(
         title               = title,
         locked              = False,
-        notes_locked        = True,   # no notes seeded yet
-        mcq_locked          = True,   # no mcqs seeded yet
-        descriptive_locked  = True,   # no descriptives seeded yet
-        audio_locked        = False,  # per-module podcasts surface here
+        notes_locked        = True,
+        mcq_locked          = True,
+        descriptive_locked  = True,
+        audio_locked        = False,  # ready for podcasts when added
         video_locked        = False,
         live_locked         = True,
         full_video_url      = full_video_url,
@@ -97,7 +119,12 @@ def main():
     with open(DATA_PATH, 'r', encoding='utf-8') as f:
         chapters = json.load(f)
 
-    chapters.sort(key=lambda c: (c.get('domain', ''), c.get('chapter_name', '')))
+    chapters.sort(key=lambda c: (
+        canonical_domain(c.get('domain', '')),
+        (c.get('classes') or [99])[0],
+        (c.get('chapter_numbers') or [999])[0],
+        c.get('chapter_name', ''),
+    ))
 
     exam = Exam.objects(title=EXAM_TITLE).first()
     if not exam:
@@ -130,6 +157,9 @@ def main():
     )
     total_slides = sum(int(c.get('total_slides') or 0) for c in chapters)
 
+    from collections import Counter
+    canon_counts = Counter(canonical_domain(c.get('domain', '')) for c in chapters)
+
     print(f"Updated exam: {exam.title} ({exam.exam_id})")
     print(f"  {'Replaced' if replaced else 'Added'} subject: {SUBJECT_NAME}")
     print(f"  Chapters/sessions: {len(sessions)}")
@@ -137,6 +167,9 @@ def main():
     print(f"  Total slides:      {total_slides}")
     print(f"  Full-video hours:  {total_video_secs/3600:.1f}")
     print(f"  Podcast hours:     {total_pod_secs/3600:.1f}")
+    print(f"  Domains (canonical):")
+    for d, n in canon_counts.most_common():
+        print(f"    {n:>3}  {d}")
 
 
 if __name__ == '__main__':
