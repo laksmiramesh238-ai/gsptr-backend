@@ -1,0 +1,4001 @@
+[
+  {
+    "merge_code": "ALG-AP-4",
+    "chapter_name": "Arithmetic Progressions",
+    "chapter_numbers": [
+      5
+    ],
+    "classes": [
+      10
+    ],
+    "domain": "Algebra",
+    "full_video": {
+      "duration_seconds": 6362.96,
+      "duration_display": "106m 2s",
+      "file_size_mb": 186.75,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-AP-4/ALG-AP-4_full.mp4",
+      "s3_key": "videos/ALG-AP-4/ALG-AP-4_full.mp4"
+    },
+    "generated_at": "2026-04-06T08:48:30.347868+00:00",
+    "modules": [
+      {
+        "module_id": "ALG-AP-4_concept_1",
+        "module_title": "ಸಮಾಂತರ ಶ್ರೇಢಿಯ ಪರಿಚಯ (Introduction to Arithmetic Progressions)",
+        "total_slides": 32,
+        "duration_seconds": 1508.28,
+        "duration_display": "25m 8s",
+        "file_size_mb": 48.16,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-AP-4/ALG-AP-4_concept_1.mp4",
+        "s3_key": "videos/ALG-AP-4/ALG-AP-4_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-AP-4/ALG-AP-4_concept_1.wav",
+        "podcast_s3_key": "podcasts/ALG-AP-4/ALG-AP-4_concept_1.wav",
+        "podcast_duration_display": "7m 26s",
+        "podcast_duration_seconds": 446.31
+      },
+      {
+        "module_id": "ALG-AP-4_concept_2",
+        "module_title": "ಸಮಾಂತರ ಶ್ರೇಢಿಯ nನೇ ಪದ (The n-th Term of an AP)",
+        "total_slides": 44,
+        "duration_seconds": 2092.52,
+        "duration_display": "34m 52s",
+        "file_size_mb": 64.88,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-AP-4/ALG-AP-4_concept_2.mp4",
+        "s3_key": "videos/ALG-AP-4/ALG-AP-4_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-AP-4/ALG-AP-4_concept_2.wav",
+        "podcast_s3_key": "podcasts/ALG-AP-4/ALG-AP-4_concept_2.wav",
+        "podcast_duration_display": "6m 27s",
+        "podcast_duration_seconds": 387.4
+      },
+      {
+        "module_id": "ALG-AP-4_concept_3",
+        "module_title": "ಸಮಾಂತರ ಶ್ರೇಢಿಯ ಮೊದಲ n ಪದಗಳ ಮೊತ್ತ (Sum of First n Terms of an AP)",
+        "total_slides": 46,
+        "duration_seconds": 2402.16,
+        "duration_display": "40m 2s",
+        "file_size_mb": 73.23,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-AP-4/ALG-AP-4_concept_3.mp4",
+        "s3_key": "videos/ALG-AP-4/ALG-AP-4_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-AP-4/ALG-AP-4_concept_3.wav",
+        "podcast_s3_key": "podcasts/ALG-AP-4/ALG-AP-4_concept_3.wav",
+        "podcast_duration_display": "7m 18s",
+        "podcast_duration_seconds": 438.75
+      },
+      {
+        "module_id": "ALG-AP-4_concept_4",
+        "module_title": "ಸಮಾಂತರ ಮಾಧ್ಯ (Arithmetic Mean)",
+        "total_slides": 9,
+        "duration_seconds": 383.52,
+        "duration_display": "6m 23s",
+        "file_size_mb": 15.87,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-AP-4/ALG-AP-4_concept_4.mp4",
+        "s3_key": "videos/ALG-AP-4/ALG-AP-4_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-AP-4/ALG-AP-4_concept_4.wav",
+        "podcast_s3_key": "podcasts/ALG-AP-4/ALG-AP-4_concept_4.wav",
+        "podcast_duration_display": "3m 23s",
+        "podcast_duration_seconds": 203.33
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 4,
+    "total_slides": 131,
+    "has_podcast": true,
+    "podcast_total_duration": "24m 35s"
+  },
+  {
+    "merge_code": "ALG-EQ1-1",
+    "chapter_name": "Simple Equations",
+    "chapter_numbers": [
+      4
+    ],
+    "classes": [
+      7
+    ],
+    "domain": "Algebra",
+    "full_video": {
+      "duration_seconds": 3345.48,
+      "duration_display": "55m 45s",
+      "file_size_mb": 101.12,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ1-1/ALG-EQ1-1_full.mp4",
+      "s3_key": "videos/ALG-EQ1-1/ALG-EQ1-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T09:03:23.164398+00:00",
+    "modules": [
+      {
+        "module_id": "ALG-EQ1-1_concept_1",
+        "module_title": "ಸಮೀಕರಣಗಳ ಪರಿಚಯ (Introduction to Equations)",
+        "total_slides": 19,
+        "duration_seconds": 894.08,
+        "duration_display": "14m 54s",
+        "file_size_mb": 30.96,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ1-1/ALG-EQ1-1_concept_1.mp4",
+        "s3_key": "videos/ALG-EQ1-1/ALG-EQ1-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EQ1-1/ALG-EQ1-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/ALG-EQ1-1/ALG-EQ1-1_concept_1.wav",
+        "podcast_duration_display": "5m 17s",
+        "podcast_duration_seconds": 317.94
+      },
+      {
+        "module_id": "ALG-EQ1-1_concept_2",
+        "module_title": "ಹೇಳಿಕೆಗಳಿಂದ ಸಮೀಕರಣ ರಚನೆ (Forming Equations from Statements)",
+        "total_slides": 13,
+        "duration_seconds": 542.08,
+        "duration_display": "9m 2s",
+        "file_size_mb": 20.6,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ1-1/ALG-EQ1-1_concept_2.mp4",
+        "s3_key": "videos/ALG-EQ1-1/ALG-EQ1-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EQ1-1/ALG-EQ1-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/ALG-EQ1-1/ALG-EQ1-1_concept_2.wav",
+        "podcast_duration_display": "5m 16s",
+        "podcast_duration_seconds": 316.68
+      },
+      {
+        "module_id": "ALG-EQ1-1_concept_3",
+        "module_title": "ಸಮೀಕರಣಗಳನ್ನು ಬಿಡಿಸುವುದು (Solving Equations)",
+        "total_slides": 29,
+        "duration_seconds": 1192.84,
+        "duration_display": "19m 52s",
+        "file_size_mb": 39.22,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ1-1/ALG-EQ1-1_concept_3.mp4",
+        "s3_key": "videos/ALG-EQ1-1/ALG-EQ1-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EQ1-1/ALG-EQ1-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/ALG-EQ1-1/ALG-EQ1-1_concept_3.wav",
+        "podcast_duration_display": "5m 29s",
+        "podcast_duration_seconds": 329.97
+      },
+      {
+        "module_id": "ALG-EQ1-1_concept_4",
+        "module_title": "ಪ್ರಾಯೋಗಿಕ ಸಂದರ್ಭಗಳಲ್ಲಿ ಸರಳ ಸಮೀಕರಣಗಳ ಅನ್ವಯ (Applications of Simple Equations in Practical Contexts)",
+        "total_slides": 19,
+        "duration_seconds": 739.96,
+        "duration_display": "12m 19s",
+        "file_size_mb": 25.68,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ1-1/ALG-EQ1-1_concept_4.mp4",
+        "s3_key": "videos/ALG-EQ1-1/ALG-EQ1-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EQ1-1/ALG-EQ1-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/ALG-EQ1-1/ALG-EQ1-1_concept_4.wav",
+        "podcast_duration_display": "4m 14s",
+        "podcast_duration_seconds": 254.93
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 4,
+    "total_slides": 80,
+    "has_podcast": true,
+    "podcast_total_duration": "20m 19s"
+  },
+  {
+    "merge_code": "ALG-EQ1-2",
+    "chapter_name": "Linear Equations in One Variable",
+    "chapter_numbers": [
+      2
+    ],
+    "classes": [
+      8
+    ],
+    "domain": "Algebra",
+    "full_video": {
+      "duration_seconds": 2514.0,
+      "duration_display": "41m 54s",
+      "file_size_mb": 77.26,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ1-2/ALG-EQ1-2_full.mp4",
+      "s3_key": "videos/ALG-EQ1-2/ALG-EQ1-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T09:14:31.188108+00:00",
+    "modules": [
+      {
+        "module_id": "ALG-EQ1-2_concept_1",
+        "module_title": "ರೇಖಾತ್ಮಕ ಸಮೀಕರಣಗಳ ಮೂಲಭೂತ ಅಂಶಗಳು (Fundamentals of Linear Equations)",
+        "total_slides": 27,
+        "duration_seconds": 1293.0,
+        "duration_display": "21m 33s",
+        "file_size_mb": 41.81,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ1-2/ALG-EQ1-2_concept_1.mp4",
+        "s3_key": "videos/ALG-EQ1-2/ALG-EQ1-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EQ1-2/ALG-EQ1-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/ALG-EQ1-2/ALG-EQ1-2_concept_1.wav",
+        "podcast_duration_display": "5m 48s",
+        "podcast_duration_seconds": 348.71
+      },
+      {
+        "module_id": "ALG-EQ1-2_concept_2",
+        "module_title": "ಎರಡೂ ಕಡೆ ಚರಾಕ್ಷರವಿರುವ ಸಮೀಕರಣಗಳನ್ನು ಬಿಡಿಸುವುದು (Solving Equations with Variables on Both Sides)",
+        "total_slides": 13,
+        "duration_seconds": 469.36,
+        "duration_display": "7m 49s",
+        "file_size_mb": 18.34,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ1-2/ALG-EQ1-2_concept_2.mp4",
+        "s3_key": "videos/ALG-EQ1-2/ALG-EQ1-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EQ1-2/ALG-EQ1-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/ALG-EQ1-2/ALG-EQ1-2_concept_2.wav",
+        "podcast_duration_display": "5m 1s",
+        "podcast_duration_seconds": 301.45
+      },
+      {
+        "module_id": "ALG-EQ1-2_concept_3",
+        "module_title": "ಸಮೀಕರಣಗಳನ್ನು ಸುಲಭ ರೂಪಕ್ಕೆ ತರುವುದು (Reducing Equations to Simpler Form)",
+        "total_slides": 15,
+        "duration_seconds": 767.32,
+        "duration_display": "12m 47s",
+        "file_size_mb": 27.32,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ1-2/ALG-EQ1-2_concept_3.mp4",
+        "s3_key": "videos/ALG-EQ1-2/ALG-EQ1-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EQ1-2/ALG-EQ1-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/ALG-EQ1-2/ALG-EQ1-2_concept_3.wav",
+        "podcast_duration_display": "6m 38s",
+        "podcast_duration_seconds": 398.49
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 3,
+    "total_slides": 55,
+    "has_podcast": true,
+    "podcast_total_duration": "17m 28s"
+  },
+  {
+    "merge_code": "ALG-EQ2-3",
+    "chapter_name": "Linear Equations in Two Variables",
+    "chapter_numbers": [
+      4
+    ],
+    "classes": [
+      9
+    ],
+    "domain": "Algebra",
+    "full_video": {
+      "duration_seconds": 2602.0,
+      "duration_display": "43m 22s",
+      "file_size_mb": 79.72,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ2-3/ALG-EQ2-3_full.mp4",
+      "s3_key": "videos/ALG-EQ2-3/ALG-EQ2-3_full.mp4"
+    },
+    "generated_at": "2026-04-06T09:26:02.192632+00:00",
+    "modules": [
+      {
+        "module_id": "ALG-EQ2-3_concept_1",
+        "module_title": "ರೇಖಾತ್ಮಕ ಸಮೀಕರಣಗಳ ವ್ಯಾಖ್ಯೆ ಮತ್ತು ಪ್ರಮಾಣಿತ ರೂಪ (Definition and Standard Form of Linear Equations)",
+        "total_slides": 29,
+        "duration_seconds": 1572.76,
+        "duration_display": "26m 12s",
+        "file_size_mb": 49.92,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ2-3/ALG-EQ2-3_concept_1.mp4",
+        "s3_key": "videos/ALG-EQ2-3/ALG-EQ2-3_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EQ2-3/ALG-EQ2-3_concept_1.wav",
+        "podcast_s3_key": "podcasts/ALG-EQ2-3/ALG-EQ2-3_concept_1.wav",
+        "podcast_duration_display": "6m 11s",
+        "podcast_duration_seconds": 371.3
+      },
+      {
+        "module_id": "ALG-EQ2-3_concept_2",
+        "module_title": "ರೇಖಾತ್ಮಕ ಸಮೀಕರಣಗಳ ಪರಿಹಾರಗಳು (Solutions of Linear Equations)",
+        "total_slides": 21,
+        "duration_seconds": 1037.08,
+        "duration_display": "17m 17s",
+        "file_size_mb": 34.91,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EQ2-3/ALG-EQ2-3_concept_2.mp4",
+        "s3_key": "videos/ALG-EQ2-3/ALG-EQ2-3_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EQ2-3/ALG-EQ2-3_concept_2.wav",
+        "podcast_s3_key": "podcasts/ALG-EQ2-3/ALG-EQ2-3_concept_2.wav",
+        "podcast_duration_display": "7m 48s",
+        "podcast_duration_seconds": 468.6
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 2,
+    "total_slides": 50,
+    "has_podcast": true,
+    "podcast_total_duration": "13m 59s"
+  },
+  {
+    "merge_code": "ALG-EXP-1",
+    "chapter_name": "Algebraic Expressions",
+    "chapter_numbers": [
+      10
+    ],
+    "classes": [
+      7
+    ],
+    "domain": "Algebra",
+    "full_video": {
+      "duration_seconds": 4572.96,
+      "duration_display": "76m 12s",
+      "file_size_mb": 134.45,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-1/ALG-EXP-1_full.mp4",
+      "s3_key": "videos/ALG-EXP-1/ALG-EXP-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T09:46:54.057377+00:00",
+    "modules": [
+      {
+        "module_id": "ALG-EXP-1_concept_1",
+        "module_title": "ಬೀಜೋಕ್ತಿಗಳ ಮೂಲಭೂತಾಂಶಗಳು",
+        "total_slides": 16,
+        "duration_seconds": 761.4,
+        "duration_display": "12m 41s",
+        "file_size_mb": 26.47,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-1/ALG-EXP-1_concept_1.mp4",
+        "s3_key": "videos/ALG-EXP-1/ALG-EXP-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EXP-1/ALG-EXP-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/ALG-EXP-1/ALG-EXP-1_concept_1.wav",
+        "podcast_duration_display": "4m 49s",
+        "podcast_duration_seconds": 289.68
+      },
+      {
+        "module_id": "ALG-EXP-1_concept_2",
+        "module_title": "ಪದಗಳು, ಅಪವರ್ತನಗಳು ಮತ್ತು ಸಹಗುಣಕಗಳು",
+        "total_slides": 28,
+        "duration_seconds": 1137.2,
+        "duration_display": "18m 57s",
+        "file_size_mb": 37.79,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-1/ALG-EXP-1_concept_2.mp4",
+        "s3_key": "videos/ALG-EXP-1/ALG-EXP-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EXP-1/ALG-EXP-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/ALG-EXP-1/ALG-EXP-1_concept_2.wav",
+        "podcast_duration_display": "6m 30s",
+        "podcast_duration_seconds": 390.95
+      },
+      {
+        "module_id": "ALG-EXP-1_concept_3",
+        "module_title": "ಸಜಾತಿ ಮತ್ತು ವಿಜಾತಿ ಪದಗಳು",
+        "total_slides": 24,
+        "duration_seconds": 1118.04,
+        "duration_display": "18m 38s",
+        "file_size_mb": 36.04,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-1/ALG-EXP-1_concept_3.mp4",
+        "s3_key": "videos/ALG-EXP-1/ALG-EXP-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EXP-1/ALG-EXP-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/ALG-EXP-1/ALG-EXP-1_concept_3.wav",
+        "podcast_duration_display": "4m 59s",
+        "podcast_duration_seconds": 299.14
+      },
+      {
+        "module_id": "ALG-EXP-1_concept_4",
+        "module_title": "ಬೀಜೋಕ್ತಿಗಳ ವರ್ಗೀಕರಣ",
+        "total_slides": 17,
+        "duration_seconds": 928.64,
+        "duration_display": "15m 28s",
+        "file_size_mb": 31.24,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-1/ALG-EXP-1_concept_4.mp4",
+        "s3_key": "videos/ALG-EXP-1/ALG-EXP-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EXP-1/ALG-EXP-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/ALG-EXP-1/ALG-EXP-1_concept_4.wav",
+        "podcast_duration_display": "3m 46s",
+        "podcast_duration_seconds": 226.26
+      },
+      {
+        "module_id": "ALG-EXP-1_concept_5",
+        "module_title": "ಬೀಜೋಕ್ತಿಯ ಬೆಲೆಯನ್ನು ಕಂಡುಹಿಡಿಯುವುದು",
+        "total_slides": 16,
+        "duration_seconds": 659.0,
+        "duration_display": "10m 59s",
+        "file_size_mb": 23.38,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-1/ALG-EXP-1_concept_5.mp4",
+        "s3_key": "videos/ALG-EXP-1/ALG-EXP-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EXP-1/ALG-EXP-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/ALG-EXP-1/ALG-EXP-1_concept_5.wav",
+        "podcast_duration_display": "4m 3s",
+        "podcast_duration_seconds": 243.55
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 101,
+    "has_podcast": true,
+    "podcast_total_duration": "24m 9s"
+  },
+  {
+    "merge_code": "ALG-EXP-2",
+    "chapter_name": "Algebraic Expressions and Identities",
+    "chapter_numbers": [
+      8
+    ],
+    "classes": [
+      8
+    ],
+    "domain": "Algebra",
+    "full_video": {
+      "duration_seconds": 5323.44,
+      "duration_display": "88m 43s",
+      "file_size_mb": 156.34,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-2/ALG-EXP-2_full.mp4",
+      "s3_key": "videos/ALG-EXP-2/ALG-EXP-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T10:10:13.404198+00:00",
+    "modules": [
+      {
+        "module_id": "ALG-EXP-2_concept_1",
+        "module_title": "ಬೀಜೋಕ್ತಿಗಳ ಮೂಲಭೂತ ಅಂಶಗಳು ಮತ್ತು ವಿಧಗಳು",
+        "total_slides": 38,
+        "duration_seconds": 1841.0,
+        "duration_display": "30m 41s",
+        "file_size_mb": 55.85,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-2/ALG-EXP-2_concept_1.mp4",
+        "s3_key": "videos/ALG-EXP-2/ALG-EXP-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EXP-2/ALG-EXP-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/ALG-EXP-2/ALG-EXP-2_concept_1.wav",
+        "podcast_duration_display": "5m 57s",
+        "podcast_duration_seconds": 357.69
+      },
+      {
+        "module_id": "ALG-EXP-2_concept_2",
+        "module_title": "ಬೀಜೋಕ್ತಿಗಳ ಸಂಕಲನ ಮತ್ತು ವ್ಯವಕಲನ",
+        "total_slides": 13,
+        "duration_seconds": 567.76,
+        "duration_display": "9m 27s",
+        "file_size_mb": 21.84,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-2/ALG-EXP-2_concept_2.mp4",
+        "s3_key": "videos/ALG-EXP-2/ALG-EXP-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EXP-2/ALG-EXP-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/ALG-EXP-2/ALG-EXP-2_concept_2.wav",
+        "podcast_duration_display": "5m 49s",
+        "podcast_duration_seconds": 349.0
+      },
+      {
+        "module_id": "ALG-EXP-2_concept_3",
+        "module_title": "ಏಕಪದೋಕ್ತಿಗಳ ಗುಣಾಕಾರ",
+        "total_slides": 14,
+        "duration_seconds": 644.52,
+        "duration_display": "10m 44s",
+        "file_size_mb": 23.85,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-2/ALG-EXP-2_concept_3.mp4",
+        "s3_key": "videos/ALG-EXP-2/ALG-EXP-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EXP-2/ALG-EXP-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/ALG-EXP-2/ALG-EXP-2_concept_3.wav",
+        "podcast_duration_display": "4m 22s",
+        "podcast_duration_seconds": 262.0
+      },
+      {
+        "module_id": "ALG-EXP-2_concept_4",
+        "module_title": "ಬಹುಪದೋಕ್ತಿಯಿಂದ ಏಕಪದೋಕ್ತಿಯ ಗುಣಾಕಾರ",
+        "total_slides": 28,
+        "duration_seconds": 1383.88,
+        "duration_display": "23m 3s",
+        "file_size_mb": 44.75,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-2/ALG-EXP-2_concept_4.mp4",
+        "s3_key": "videos/ALG-EXP-2/ALG-EXP-2_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EXP-2/ALG-EXP-2_concept_4.wav",
+        "podcast_s3_key": "podcasts/ALG-EXP-2/ALG-EXP-2_concept_4.wav",
+        "podcast_duration_display": "6m 50s",
+        "podcast_duration_seconds": 410.38
+      },
+      {
+        "module_id": "ALG-EXP-2_concept_5",
+        "module_title": "ಬಹುಪದೋಕ್ತಿಯಿಂದ ಬಹುಪದೋಕ್ತಿಯ ಗುಣಾಕಾರ",
+        "total_slides": 18,
+        "duration_seconds": 917.68,
+        "duration_display": "15m 17s",
+        "file_size_mb": 30.55,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-EXP-2/ALG-EXP-2_concept_5.mp4",
+        "s3_key": "videos/ALG-EXP-2/ALG-EXP-2_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-EXP-2/ALG-EXP-2_concept_5.wav",
+        "podcast_s3_key": "podcasts/ALG-EXP-2/ALG-EXP-2_concept_5.wav",
+        "podcast_duration_display": "7m 13s",
+        "podcast_duration_seconds": 433.21
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 111,
+    "has_podcast": true,
+    "podcast_total_duration": "30m 12s"
+  },
+  {
+    "merge_code": "ALG-FAC-2",
+    "chapter_name": "Factorisation",
+    "chapter_numbers": [
+      12
+    ],
+    "classes": [
+      8
+    ],
+    "domain": "Algebra",
+    "full_video": {
+      "duration_seconds": 5380.76,
+      "duration_display": "89m 40s",
+      "file_size_mb": 160.13,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-FAC-2/ALG-FAC-2_full.mp4",
+      "s3_key": "videos/ALG-FAC-2/ALG-FAC-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T10:34:53.993301+00:00",
+    "modules": [
+      {
+        "module_id": "ALG-FAC-2_concept_1",
+        "module_title": "ಅಪವರ್ತನಗಳ ಮೂಲಭೂತ ಪರಿಕಲ್ಪನೆಗಳು (Basic Concepts of Factorisation)",
+        "total_slides": 18,
+        "duration_seconds": 877.76,
+        "duration_display": "14m 37s",
+        "file_size_mb": 30.46,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-FAC-2/ALG-FAC-2_concept_1.mp4",
+        "s3_key": "videos/ALG-FAC-2/ALG-FAC-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-FAC-2/ALG-FAC-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/ALG-FAC-2/ALG-FAC-2_concept_1.wav",
+        "podcast_duration_display": "5m 58s",
+        "podcast_duration_seconds": 358.01
+      },
+      {
+        "module_id": "ALG-FAC-2_concept_2",
+        "module_title": "ಸಾಮಾನ್ಯ ಅಪವರ್ತನ ವಿಧಾನ (Method of Common Factors)",
+        "total_slides": 11,
+        "duration_seconds": 444.36,
+        "duration_display": "7m 24s",
+        "file_size_mb": 18.04,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-FAC-2/ALG-FAC-2_concept_2.mp4",
+        "s3_key": "videos/ALG-FAC-2/ALG-FAC-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-FAC-2/ALG-FAC-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/ALG-FAC-2/ALG-FAC-2_concept_2.wav",
+        "podcast_duration_display": "5m 5s",
+        "podcast_duration_seconds": 305.53
+      },
+      {
+        "module_id": "ALG-FAC-2_concept_3",
+        "module_title": "ಮರುಗುಂಪು ಮಾಡುವಿಕೆ (Factorisation by Regrouping)",
+        "total_slides": 13,
+        "duration_seconds": 622.28,
+        "duration_display": "10m 22s",
+        "file_size_mb": 22.93,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-FAC-2/ALG-FAC-2_concept_3.mp4",
+        "s3_key": "videos/ALG-FAC-2/ALG-FAC-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-FAC-2/ALG-FAC-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/ALG-FAC-2/ALG-FAC-2_concept_3.wav",
+        "podcast_duration_display": "5m 26s",
+        "podcast_duration_seconds": 326.89
+      },
+      {
+        "module_id": "ALG-FAC-2_concept_4",
+        "module_title": "ನಿತ್ಯಸಮೀಕರಣಗಳನ್ನು ಬಳಸಿ ಅಪವರ್ತಿಸುವಿಕೆ (Factorisation using Standard Identities)",
+        "total_slides": 35,
+        "duration_seconds": 1508.6,
+        "duration_display": "25m 8s",
+        "file_size_mb": 48.31,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-FAC-2/ALG-FAC-2_concept_4.mp4",
+        "s3_key": "videos/ALG-FAC-2/ALG-FAC-2_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-FAC-2/ALG-FAC-2_concept_4.wav",
+        "podcast_s3_key": "podcasts/ALG-FAC-2/ALG-FAC-2_concept_4.wav",
+        "podcast_duration_display": "5m 37s",
+        "podcast_duration_seconds": 337.86
+      },
+      {
+        "module_id": "ALG-FAC-2_concept_5",
+        "module_title": "$x^2 + (a+b)x + ab$ ರೂಪದ ಅಪವರ್ತಿಸುವಿಕೆ (Factorisation of the form $x^2 + (a+b)x + ab$)",
+        "total_slides": 23,
+        "duration_seconds": 1140.48,
+        "duration_display": "19m 0s",
+        "file_size_mb": 37.3,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-FAC-2/ALG-FAC-2_concept_5.mp4",
+        "s3_key": "videos/ALG-FAC-2/ALG-FAC-2_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-FAC-2/ALG-FAC-2_concept_5.wav",
+        "podcast_s3_key": "podcasts/ALG-FAC-2/ALG-FAC-2_concept_5.wav",
+        "podcast_duration_display": "5m 39s",
+        "podcast_duration_seconds": 339.35
+      },
+      {
+        "module_id": "ALG-FAC-2_concept_6",
+        "module_title": "ಬೀಜೋಕ್ತಿಗಳ ಭಾಗಾಕಾರ (Division of Algebraic Expressions)",
+        "total_slides": 18,
+        "duration_seconds": 826.48,
+        "duration_display": "13m 46s",
+        "file_size_mb": 28.7,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-FAC-2/ALG-FAC-2_concept_6.mp4",
+        "s3_key": "videos/ALG-FAC-2/ALG-FAC-2_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-FAC-2/ALG-FAC-2_concept_6.wav",
+        "podcast_s3_key": "podcasts/ALG-FAC-2/ALG-FAC-2_concept_6.wav",
+        "podcast_duration_display": "6m 26s",
+        "podcast_duration_seconds": 386.19
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 6,
+    "total_slides": 118,
+    "has_podcast": true,
+    "podcast_total_duration": "34m 13s"
+  },
+  {
+    "merge_code": "ALG-PAIR-4",
+    "chapter_name": "Pair of Linear Equations in Two Variables",
+    "chapter_numbers": [
+      3
+    ],
+    "classes": [
+      10
+    ],
+    "domain": "Algebra",
+    "full_video": {
+      "duration_seconds": 4487.0,
+      "duration_display": "74m 47s",
+      "file_size_mb": 135.3,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-PAIR-4/ALG-PAIR-4_full.mp4",
+      "s3_key": "videos/ALG-PAIR-4/ALG-PAIR-4_full.mp4"
+    },
+    "generated_at": "2026-04-06T10:55:39.654442+00:00",
+    "modules": [
+      {
+        "module_id": "ALG-PAIR-4_concept_1",
+        "module_title": "ರೇಖಾತ್ಮಕ ಸಮೀಕರಣಗಳ ಜೋಡಿ ಮತ್ತು ಅವುಗಳ ವಿಧಗಳು (Pair of Linear Equations and Their Types)",
+        "total_slides": 25,
+        "duration_seconds": 1218.28,
+        "duration_display": "20m 18s",
+        "file_size_mb": 39.61,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-PAIR-4/ALG-PAIR-4_concept_1.mp4",
+        "s3_key": "videos/ALG-PAIR-4/ALG-PAIR-4_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-PAIR-4/ALG-PAIR-4_concept_1.wav",
+        "podcast_s3_key": "podcasts/ALG-PAIR-4/ALG-PAIR-4_concept_1.wav",
+        "podcast_duration_display": "3m 30s",
+        "podcast_duration_seconds": 210.34
+      },
+      {
+        "module_id": "ALG-PAIR-4_concept_2",
+        "module_title": "ನಕ್ಷಾ ವಿಧಾನ ಮತ್ತು ಸಹಗುಣಕಗಳ ಅನುಪಾತ (Graphical Method and Ratio of Coefficients)",
+        "total_slides": 21,
+        "duration_seconds": 1070.36,
+        "duration_display": "17m 50s",
+        "file_size_mb": 36.18,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-PAIR-4/ALG-PAIR-4_concept_2.mp4",
+        "s3_key": "videos/ALG-PAIR-4/ALG-PAIR-4_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-PAIR-4/ALG-PAIR-4_concept_2.wav",
+        "podcast_s3_key": "podcasts/ALG-PAIR-4/ALG-PAIR-4_concept_2.wav",
+        "podcast_duration_display": "5m 27s",
+        "podcast_duration_seconds": 327.66
+      },
+      {
+        "module_id": "ALG-PAIR-4_concept_3",
+        "module_title": "ಆದೇಶ ವಿಧಾನ (Substitution Method)",
+        "total_slides": 24,
+        "duration_seconds": 1123.84,
+        "duration_display": "18m 43s",
+        "file_size_mb": 37.78,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-PAIR-4/ALG-PAIR-4_concept_3.mp4",
+        "s3_key": "videos/ALG-PAIR-4/ALG-PAIR-4_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-PAIR-4/ALG-PAIR-4_concept_3.wav",
+        "podcast_s3_key": "podcasts/ALG-PAIR-4/ALG-PAIR-4_concept_3.wav",
+        "podcast_duration_display": "7m 4s",
+        "podcast_duration_seconds": 424.41
+      },
+      {
+        "module_id": "ALG-PAIR-4_concept_4",
+        "module_title": "ವರ್ಜಿಸುವ ವಿಧಾನ (Elimination Method)",
+        "total_slides": 22,
+        "duration_seconds": 1098.0,
+        "duration_display": "18m 18s",
+        "file_size_mb": 37.13,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-PAIR-4/ALG-PAIR-4_concept_4.mp4",
+        "s3_key": "videos/ALG-PAIR-4/ALG-PAIR-4_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-PAIR-4/ALG-PAIR-4_concept_4.wav",
+        "podcast_s3_key": "podcasts/ALG-PAIR-4/ALG-PAIR-4_concept_4.wav",
+        "podcast_duration_display": "8m 6s",
+        "podcast_duration_seconds": 487.0
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 4,
+    "total_slides": 92,
+    "has_podcast": true,
+    "podcast_total_duration": "24m 9s"
+  },
+  {
+    "merge_code": "ALG-POL-3",
+    "chapter_name": "Polynomials",
+    "chapter_numbers": [
+      2
+    ],
+    "classes": [
+      9,
+      10
+    ],
+    "domain": "Algebra",
+    "full_video": {
+      "duration_seconds": 12218.12,
+      "duration_display": "203m 38s",
+      "file_size_mb": 354.09,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-POL-3/ALG-POL-3_full.mp4",
+      "s3_key": "videos/ALG-POL-3/ALG-POL-3_full.mp4"
+    },
+    "generated_at": "2026-04-06T11:51:26.813089+00:00",
+    "modules": [
+      {
+        "module_id": "ALG-POL-3_concept_1",
+        "module_title": "ಬಹುಪದೋಕ್ತಿಗಳ ಪರಿಚಯ ಮತ್ತು ವರ್ಗೀಕರಣ (Introduction and Classification of Polynomials)",
+        "total_slides": 54,
+        "duration_seconds": 2683.92,
+        "duration_display": "44m 43s",
+        "file_size_mb": 78.95,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-POL-3/ALG-POL-3_concept_1.mp4",
+        "s3_key": "videos/ALG-POL-3/ALG-POL-3_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-POL-3/ALG-POL-3_concept_1.wav",
+        "podcast_s3_key": "podcasts/ALG-POL-3/ALG-POL-3_concept_1.wav",
+        "podcast_duration_display": "4m 49s",
+        "podcast_duration_seconds": 289.58
+      },
+      {
+        "module_id": "ALG-POL-3_concept_2",
+        "module_title": "ಬಹುಪದೋಕ್ತಿಯ ಬೆಲೆ ಮತ್ತು ಶೂನ್ಯತೆಗಳು (Value and Zeros of a Polynomial)",
+        "total_slides": 29,
+        "duration_seconds": 1237.16,
+        "duration_display": "20m 37s",
+        "file_size_mb": 39.08,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-POL-3/ALG-POL-3_concept_2.mp4",
+        "s3_key": "videos/ALG-POL-3/ALG-POL-3_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-POL-3/ALG-POL-3_concept_2.wav",
+        "podcast_s3_key": "podcasts/ALG-POL-3/ALG-POL-3_concept_2.wav",
+        "podcast_duration_display": "5m 21s",
+        "podcast_duration_seconds": 321.93
+      },
+      {
+        "module_id": "ALG-POL-3_concept_3",
+        "module_title": "ಶೂನ್ಯತೆಗಳ ರೇಖಾಗಣಿತೀಯ ಅರ್ಥ (Geometrical Meaning of Zeros)",
+        "total_slides": 12,
+        "duration_seconds": 647.08,
+        "duration_display": "10m 47s",
+        "file_size_mb": 24.97,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-POL-3/ALG-POL-3_concept_3.mp4",
+        "s3_key": "videos/ALG-POL-3/ALG-POL-3_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-POL-3/ALG-POL-3_concept_3.wav",
+        "podcast_s3_key": "podcasts/ALG-POL-3/ALG-POL-3_concept_3.wav",
+        "podcast_duration_display": "4m 39s",
+        "podcast_duration_seconds": 279.51
+      },
+      {
+        "module_id": "ALG-POL-3_concept_4",
+        "module_title": "ಶೇಷ ಮತ್ತು ಅಪವರ್ತನ ಪ್ರಮೇಯಗಳು (Remainder and Factor Theorems)",
+        "total_slides": 29,
+        "duration_seconds": 1518.6,
+        "duration_display": "25m 18s",
+        "file_size_mb": 48.85,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-POL-3/ALG-POL-3_concept_4.mp4",
+        "s3_key": "videos/ALG-POL-3/ALG-POL-3_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-POL-3/ALG-POL-3_concept_4.wav",
+        "podcast_s3_key": "podcasts/ALG-POL-3/ALG-POL-3_concept_4.wav",
+        "podcast_duration_display": "4m 46s",
+        "podcast_duration_seconds": 286.08
+      },
+      {
+        "module_id": "ALG-POL-3_concept_5",
+        "module_title": "ಶೂನ್ಯತೆಗಳು ಮತ್ತು ಸಹಗುಣಕಗಳ ನಡುವಿನ ಸಂಬಂಧ (Relationship between Zeros and Coefficients)",
+        "total_slides": 32,
+        "duration_seconds": 1476.72,
+        "duration_display": "24m 36s",
+        "file_size_mb": 46.9,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-POL-3/ALG-POL-3_concept_5.mp4",
+        "s3_key": "videos/ALG-POL-3/ALG-POL-3_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-POL-3/ALG-POL-3_concept_5.wav",
+        "podcast_s3_key": "podcasts/ALG-POL-3/ALG-POL-3_concept_5.wav",
+        "podcast_duration_display": "8m 3s",
+        "podcast_duration_seconds": 483.88
+      },
+      {
+        "module_id": "ALG-POL-3_concept_6",
+        "module_title": "ಬೈಜಿಕ ನಿತ್ಯಸಮೀಕರಣಗಳು (Algebraic Identities)",
+        "total_slides": 94,
+        "duration_seconds": 4693.88,
+        "duration_display": "78m 13s",
+        "file_size_mb": 140.91,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-POL-3/ALG-POL-3_concept_6.mp4",
+        "s3_key": "videos/ALG-POL-3/ALG-POL-3_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-POL-3/ALG-POL-3_concept_6.wav",
+        "podcast_s3_key": "podcasts/ALG-POL-3/ALG-POL-3_concept_6.wav",
+        "podcast_duration_display": "11m 23s",
+        "podcast_duration_seconds": 683.71
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 6,
+    "total_slides": 250,
+    "has_podcast": true,
+    "podcast_total_duration": "39m 4s"
+  },
+  {
+    "merge_code": "ALG-QUAD-4",
+    "chapter_name": "Quadratic Equations",
+    "chapter_numbers": [
+      4
+    ],
+    "classes": [
+      10
+    ],
+    "domain": "Algebra",
+    "full_video": {
+      "duration_seconds": 3966.16,
+      "duration_display": "66m 6s",
+      "file_size_mb": 118.02,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-QUAD-4/ALG-QUAD-4_full.mp4",
+      "s3_key": "videos/ALG-QUAD-4/ALG-QUAD-4_full.mp4"
+    },
+    "generated_at": "2026-04-06T12:09:20.686877+00:00",
+    "modules": [
+      {
+        "module_id": "ALG-QUAD-4_concept_1",
+        "module_title": "ವರ್ಗ ಸಮೀಕರಣಗಳ ಪರಿಚಯ ಮತ್ತು ಆದರ್ಶ ರೂಪ (Introduction and Standard Form of Quadratic Equations)",
+        "total_slides": 26,
+        "duration_seconds": 1265.96,
+        "duration_display": "21m 5s",
+        "file_size_mb": 40.53,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-QUAD-4/ALG-QUAD-4_concept_1.mp4",
+        "s3_key": "videos/ALG-QUAD-4/ALG-QUAD-4_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-QUAD-4/ALG-QUAD-4_concept_1.wav",
+        "podcast_s3_key": "podcasts/ALG-QUAD-4/ALG-QUAD-4_concept_1.wav",
+        "podcast_duration_display": "4m 31s",
+        "podcast_duration_seconds": 271.71
+      },
+      {
+        "module_id": "ALG-QUAD-4_concept_2",
+        "module_title": "ಅಪವರ್ತನ ವಿಧಾನದಿಂದ ವರ್ಗ ಸಮೀಕರಣವನ್ನು ಬಿಡಿಸುವುದು (Solving Quadratic Equations by Factorization)",
+        "total_slides": 25,
+        "duration_seconds": 1116.24,
+        "duration_display": "18m 36s",
+        "file_size_mb": 35.96,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-QUAD-4/ALG-QUAD-4_concept_2.mp4",
+        "s3_key": "videos/ALG-QUAD-4/ALG-QUAD-4_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-QUAD-4/ALG-QUAD-4_concept_2.wav",
+        "podcast_s3_key": "podcasts/ALG-QUAD-4/ALG-QUAD-4_concept_2.wav",
+        "podcast_duration_display": "7m 46s",
+        "podcast_duration_seconds": 466.68
+      },
+      {
+        "module_id": "ALG-QUAD-4_concept_3",
+        "module_title": "ಮೂಲಗಳ ಸ್ವಭಾವ (Nature of Roots)",
+        "total_slides": 29,
+        "duration_seconds": 1599.64,
+        "duration_display": "26m 39s",
+        "file_size_mb": 51.74,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/ALG-QUAD-4/ALG-QUAD-4_concept_3.mp4",
+        "s3_key": "videos/ALG-QUAD-4/ALG-QUAD-4_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/ALG-QUAD-4/ALG-QUAD-4_concept_3.wav",
+        "podcast_s3_key": "podcasts/ALG-QUAD-4/ALG-QUAD-4_concept_3.wav",
+        "podcast_duration_display": "6m 57s",
+        "podcast_duration_seconds": 417.87
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 3,
+    "total_slides": 80,
+    "has_podcast": true,
+    "podcast_total_duration": "19m 16s"
+  },
+  {
+    "merge_code": "COOR-ADV-2",
+    "chapter_name": "Coordinate Geometry",
+    "chapter_numbers": [
+      7
+    ],
+    "classes": [
+      10
+    ],
+    "domain": "Coordinate Geometry",
+    "full_video": {
+      "duration_seconds": 4200.24,
+      "duration_display": "70m 0s",
+      "file_size_mb": 126.6,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/COOR-ADV-2/COOR-ADV-2_full.mp4",
+      "s3_key": "videos/COOR-ADV-2/COOR-ADV-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T12:28:09.513840+00:00",
+    "modules": [
+      {
+        "module_id": "COOR-ADV-2_concept_1",
+        "module_title": "ದೂರ ಸೂತ್ರ (Distance Formula)",
+        "total_slides": 49,
+        "duration_seconds": 2370.84,
+        "duration_display": "39m 30s",
+        "file_size_mb": 73.98,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/COOR-ADV-2/COOR-ADV-2_concept_1.mp4",
+        "s3_key": "videos/COOR-ADV-2/COOR-ADV-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/COOR-ADV-2/COOR-ADV-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/COOR-ADV-2/COOR-ADV-2_concept_1.wav",
+        "podcast_duration_display": "8m 46s",
+        "podcast_duration_seconds": 526.74
+      },
+      {
+        "module_id": "COOR-ADV-2_concept_2",
+        "module_title": "ಭಾಗ ಪ್ರಮಾಣ ಸೂತ್ರ (Section Formula)",
+        "total_slides": 36,
+        "duration_seconds": 1837.24,
+        "duration_display": "30m 37s",
+        "file_size_mb": 57.78,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/COOR-ADV-2/COOR-ADV-2_concept_2.mp4",
+        "s3_key": "videos/COOR-ADV-2/COOR-ADV-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/COOR-ADV-2/COOR-ADV-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/COOR-ADV-2/COOR-ADV-2_concept_2.wav",
+        "podcast_duration_display": "8m 38s",
+        "podcast_duration_seconds": 518.21
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 2,
+    "total_slides": 85,
+    "has_podcast": true,
+    "podcast_total_duration": "17m 24s"
+  },
+  {
+    "merge_code": "COOR-BAS-1",
+    "chapter_name": "Coordinate Geometry",
+    "chapter_numbers": [
+      3
+    ],
+    "classes": [
+      9
+    ],
+    "domain": "Coordinate Geometry",
+    "full_video": {
+      "duration_seconds": 3389.56,
+      "duration_display": "56m 29s",
+      "file_size_mb": 105.02,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/COOR-BAS-1/COOR-BAS-1_full.mp4",
+      "s3_key": "videos/COOR-BAS-1/COOR-BAS-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T12:44:18.513458+00:00",
+    "modules": [
+      {
+        "module_id": "COOR-BAS-1_concept_1",
+        "module_title": "ಕಾರ್ಟಿಷಿಯನ್ ನಿರ್ದೇಶಾಂಕ ಪದ್ಧತಿ (Cartesian Coordinate System)",
+        "total_slides": 70,
+        "duration_seconds": 3389.56,
+        "duration_display": "56m 29s",
+        "file_size_mb": 105.02,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/COOR-BAS-1/COOR-BAS-1_concept_1.mp4",
+        "s3_key": "videos/COOR-BAS-1/COOR-BAS-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/COOR-BAS-1/COOR-BAS-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/COOR-BAS-1/COOR-BAS-1_concept_1.wav",
+        "podcast_duration_display": "7m 1s",
+        "podcast_duration_seconds": 421.7
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 1,
+    "total_slides": 70,
+    "has_podcast": true,
+    "podcast_total_duration": "7m 1s"
+  },
+  {
+    "merge_code": "DATA-BAS-1",
+    "chapter_name": "Data Handling and Presentation",
+    "chapter_numbers": [
+      3,
+      4
+    ],
+    "classes": [
+      6,
+      7,
+      8
+    ],
+    "domain": "Data Handling Statistics",
+    "full_video": {
+      "duration_seconds": 6121.32,
+      "duration_display": "102m 1s",
+      "file_size_mb": 184.74,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-BAS-1/DATA-BAS-1_full.mp4",
+      "s3_key": "videos/DATA-BAS-1/DATA-BAS-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T13:12:06.293999+00:00",
+    "modules": [
+      {
+        "module_id": "DATA-BAS-1_concept_1",
+        "module_title": "ದತ್ತಾಂಶಗಳ ಪರಿಚಯ ಮತ್ತು ಸಂಘಟನೆ",
+        "total_slides": 20,
+        "duration_seconds": 888.6,
+        "duration_display": "14m 48s",
+        "file_size_mb": 31.44,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-BAS-1/DATA-BAS-1_concept_1.mp4",
+        "s3_key": "videos/DATA-BAS-1/DATA-BAS-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-BAS-1/DATA-BAS-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/DATA-BAS-1/DATA-BAS-1_concept_1.wav",
+        "podcast_duration_display": "5m 0s",
+        "podcast_duration_seconds": 300.11
+      },
+      {
+        "module_id": "DATA-BAS-1_concept_2",
+        "module_title": "ಕೇಂದ್ರೀಯ ಪ್ರವೃತ್ತಿಯ ಅಳತೆಗಳು",
+        "total_slides": 44,
+        "duration_seconds": 2038.8,
+        "duration_display": "33m 58s",
+        "file_size_mb": 62.22,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-BAS-1/DATA-BAS-1_concept_2.mp4",
+        "s3_key": "videos/DATA-BAS-1/DATA-BAS-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-BAS-1/DATA-BAS-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/DATA-BAS-1/DATA-BAS-1_concept_2.wav",
+        "podcast_duration_display": "5m 59s",
+        "podcast_duration_seconds": 359.68
+      },
+      {
+        "module_id": "DATA-BAS-1_concept_3",
+        "module_title": "ದತ್ತಾಂಶಗಳ ದೃಶ್ಯ ನಿರೂಪಣೆ",
+        "total_slides": 35,
+        "duration_seconds": 1627.16,
+        "duration_display": "27m 7s",
+        "file_size_mb": 54.24,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-BAS-1/DATA-BAS-1_concept_3.mp4",
+        "s3_key": "videos/DATA-BAS-1/DATA-BAS-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-BAS-1/DATA-BAS-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/DATA-BAS-1/DATA-BAS-1_concept_3.wav",
+        "podcast_duration_display": "6m 14s",
+        "podcast_duration_seconds": 374.83
+      },
+      {
+        "module_id": "DATA-BAS-1_concept_4",
+        "module_title": "ಸಂಭವನೀಯತೆ",
+        "total_slides": 36,
+        "duration_seconds": 1590.24,
+        "duration_display": "26m 30s",
+        "file_size_mb": 52.3,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-BAS-1/DATA-BAS-1_concept_4.mp4",
+        "s3_key": "videos/DATA-BAS-1/DATA-BAS-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-BAS-1/DATA-BAS-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/DATA-BAS-1/DATA-BAS-1_concept_4.wav",
+        "podcast_duration_display": "5m 10s",
+        "podcast_duration_seconds": 310.63
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 4,
+    "total_slides": 135,
+    "has_podcast": true,
+    "podcast_total_duration": "22m 25s"
+  },
+  {
+    "merge_code": "DATA-GRAPH-2",
+    "chapter_name": "Introduction to Graphs",
+    "chapter_numbers": [
+      13
+    ],
+    "classes": [
+      8
+    ],
+    "domain": "Data Handling Statistics",
+    "full_video": {
+      "duration_seconds": 3139.56,
+      "duration_display": "52m 19s",
+      "file_size_mb": 100.88,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-GRAPH-2/DATA-GRAPH-2_full.mp4",
+      "s3_key": "videos/DATA-GRAPH-2/DATA-GRAPH-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T13:26:53.853947+00:00",
+    "modules": [
+      {
+        "module_id": "DATA-GRAPH-2_concept_1",
+        "module_title": "ರೇಖಾನಕ್ಷೆ (Line Graph)",
+        "total_slides": 24,
+        "duration_seconds": 1117.64,
+        "duration_display": "18m 37s",
+        "file_size_mb": 40.87,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-GRAPH-2/DATA-GRAPH-2_concept_1.mp4",
+        "s3_key": "videos/DATA-GRAPH-2/DATA-GRAPH-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-GRAPH-2/DATA-GRAPH-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/DATA-GRAPH-2/DATA-GRAPH-2_concept_1.wav",
+        "podcast_duration_display": "8m 21s",
+        "podcast_duration_seconds": 501.37
+      },
+      {
+        "module_id": "DATA-GRAPH-2_concept_2",
+        "module_title": "ರೇಖಾತ್ಮಕ ನಕ್ಷೆಗಳು (Linear Graphs) ಮತ್ತು ಚರ ಪರಿಮಾಣಗಳು (Variables)",
+        "total_slides": 37,
+        "duration_seconds": 1697.16,
+        "duration_display": "28m 17s",
+        "file_size_mb": 54.97,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-GRAPH-2/DATA-GRAPH-2_concept_2.mp4",
+        "s3_key": "videos/DATA-GRAPH-2/DATA-GRAPH-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-GRAPH-2/DATA-GRAPH-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/DATA-GRAPH-2/DATA-GRAPH-2_concept_2.wav",
+        "podcast_duration_display": "6m 0s",
+        "podcast_duration_seconds": 360.11
+      },
+      {
+        "module_id": "DATA-GRAPH-2_concept_3",
+        "module_title": "ನಕ್ಷೆಗಳ ಸಾಧ್ಯತೆ ಮತ್ತು ವ್ಯಾಖ್ಯಾನ (Possibility and Interpretation of Graphs)",
+        "total_slides": 7,
+        "duration_seconds": 340.44,
+        "duration_display": "5m 40s",
+        "file_size_mb": 15.25,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-GRAPH-2/DATA-GRAPH-2_concept_3.mp4",
+        "s3_key": "videos/DATA-GRAPH-2/DATA-GRAPH-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-GRAPH-2/DATA-GRAPH-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/DATA-GRAPH-2/DATA-GRAPH-2_concept_3.wav",
+        "podcast_duration_display": "3m 10s",
+        "podcast_duration_seconds": 190.4
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 3,
+    "total_slides": 68,
+    "has_podcast": true,
+    "podcast_total_duration": "17m 31s"
+  },
+  {
+    "merge_code": "DATA-STAT-2",
+    "chapter_name": "Statistics",
+    "chapter_numbers": [
+      12,
+      13
+    ],
+    "classes": [
+      9,
+      10
+    ],
+    "domain": "Data Handling Statistics",
+    "full_video": {
+      "duration_seconds": 6989.84,
+      "duration_display": "116m 29s",
+      "file_size_mb": 206.54,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-STAT-2/DATA-STAT-2_full.mp4",
+      "s3_key": "videos/DATA-STAT-2/DATA-STAT-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T13:58:25.768204+00:00",
+    "modules": [
+      {
+        "module_id": "DATA-STAT-2_concept_1",
+        "module_title": "ದತ್ತಾಂಶಗಳ ನಕ್ಷಾ ನಿರೂಪಣೆ",
+        "total_slides": 31,
+        "duration_seconds": 1633.88,
+        "duration_display": "27m 13s",
+        "file_size_mb": 56.75,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-STAT-2/DATA-STAT-2_concept_1.mp4",
+        "s3_key": "videos/DATA-STAT-2/DATA-STAT-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-STAT-2/DATA-STAT-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/DATA-STAT-2/DATA-STAT-2_concept_1.wav",
+        "podcast_duration_display": "7m 28s",
+        "podcast_duration_seconds": 448.88
+      },
+      {
+        "module_id": "DATA-STAT-2_concept_2",
+        "module_title": "ವರ್ಗೀಕೃತ ದತ್ತಾಂಶಗಳ ಸರಾಸರಿ",
+        "total_slides": 50,
+        "duration_seconds": 2543.2,
+        "duration_display": "42m 23s",
+        "file_size_mb": 76.01,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-STAT-2/DATA-STAT-2_concept_2.mp4",
+        "s3_key": "videos/DATA-STAT-2/DATA-STAT-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-STAT-2/DATA-STAT-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/DATA-STAT-2/DATA-STAT-2_concept_2.wav",
+        "podcast_duration_display": "8m 36s",
+        "podcast_duration_seconds": 516.72
+      },
+      {
+        "module_id": "DATA-STAT-2_concept_3",
+        "module_title": "ವರ್ಗೀಕೃತ ದತ್ತಾಂಶಗಳ ಬಹುಲಕ",
+        "total_slides": 22,
+        "duration_seconds": 996.6,
+        "duration_display": "16m 36s",
+        "file_size_mb": 32.68,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-STAT-2/DATA-STAT-2_concept_3.mp4",
+        "s3_key": "videos/DATA-STAT-2/DATA-STAT-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-STAT-2/DATA-STAT-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/DATA-STAT-2/DATA-STAT-2_concept_3.wav",
+        "podcast_duration_display": "5m 59s",
+        "podcast_duration_seconds": 359.22
+      },
+      {
+        "module_id": "DATA-STAT-2_concept_4",
+        "module_title": "ವರ್ಗೀಕೃತ ದತ್ತಾಂಶಗಳ ಮಧ್ಯಾಂಕ",
+        "total_slides": 27,
+        "duration_seconds": 1413.92,
+        "duration_display": "23m 33s",
+        "file_size_mb": 43.91,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-STAT-2/DATA-STAT-2_concept_4.mp4",
+        "s3_key": "videos/DATA-STAT-2/DATA-STAT-2_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-STAT-2/DATA-STAT-2_concept_4.wav",
+        "podcast_s3_key": "podcasts/DATA-STAT-2/DATA-STAT-2_concept_4.wav",
+        "podcast_duration_display": "7m 54s",
+        "podcast_duration_seconds": 474.39
+      },
+      {
+        "module_id": "DATA-STAT-2_concept_5",
+        "module_title": "ಕೇಂದ್ರೀಯ ಪ್ರವೃತ್ತಿಯ ಅಳತೆಗಳ ನಡುವಿನ ಪ್ರಾಯೋಗಿಕ ಸಂಬಂಧ",
+        "total_slides": 9,
+        "duration_seconds": 433.56,
+        "duration_display": "7m 13s",
+        "file_size_mb": 17.61,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/DATA-STAT-2/DATA-STAT-2_concept_5.mp4",
+        "s3_key": "videos/DATA-STAT-2/DATA-STAT-2_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/DATA-STAT-2/DATA-STAT-2_concept_5.wav",
+        "podcast_s3_key": "podcasts/DATA-STAT-2/DATA-STAT-2_concept_5.wav",
+        "podcast_duration_display": "2m 43s",
+        "podcast_duration_seconds": 163.62
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 139,
+    "has_podcast": true,
+    "podcast_total_duration": "32m 42s"
+  },
+  {
+    "merge_code": "GEO-CIR-2",
+    "chapter_name": "Circles",
+    "chapter_numbers": [
+      9,
+      10
+    ],
+    "classes": [
+      9,
+      10
+    ],
+    "domain": "Geometry",
+    "full_video": {
+      "duration_seconds": 6791.84,
+      "duration_display": "113m 11s",
+      "file_size_mb": 207.68,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-CIR-2/GEO-CIR-2_full.mp4",
+      "s3_key": "videos/GEO-CIR-2/GEO-CIR-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T14:28:52.762266+00:00",
+    "modules": [
+      {
+        "module_id": "GEO-CIR-2_concept_1",
+        "module_title": "ವೃತ್ತದ ಮೂಲಭೂತ ಪರಿಕಲ್ಪನೆಗಳು",
+        "total_slides": 22,
+        "duration_seconds": 993.84,
+        "duration_display": "16m 33s",
+        "file_size_mb": 34.0,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-CIR-2/GEO-CIR-2_concept_1.mp4",
+        "s3_key": "videos/GEO-CIR-2/GEO-CIR-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-CIR-2/GEO-CIR-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/GEO-CIR-2/GEO-CIR-2_concept_1.wav",
+        "podcast_duration_display": "4m 1s",
+        "podcast_duration_seconds": 241.08
+      },
+      {
+        "module_id": "GEO-CIR-2_concept_2",
+        "module_title": "ಜ್ಯಾಗಳ ಗುಣಲಕ್ಷಣಗಳು",
+        "total_slides": 27,
+        "duration_seconds": 1284.64,
+        "duration_display": "21m 24s",
+        "file_size_mb": 44.24,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-CIR-2/GEO-CIR-2_concept_2.mp4",
+        "s3_key": "videos/GEO-CIR-2/GEO-CIR-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-CIR-2/GEO-CIR-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/GEO-CIR-2/GEO-CIR-2_concept_2.wav",
+        "podcast_duration_display": "5m 52s",
+        "podcast_duration_seconds": 352.92
+      },
+      {
+        "module_id": "GEO-CIR-2_concept_3",
+        "module_title": "ಕಂಸಗಳಿಂದ ಉಂಟಾದ ಕೋನಗಳು",
+        "total_slides": 26,
+        "duration_seconds": 1279.56,
+        "duration_display": "21m 19s",
+        "file_size_mb": 43.27,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-CIR-2/GEO-CIR-2_concept_3.mp4",
+        "s3_key": "videos/GEO-CIR-2/GEO-CIR-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-CIR-2/GEO-CIR-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/GEO-CIR-2/GEO-CIR-2_concept_3.wav",
+        "podcast_duration_display": "6m 12s",
+        "podcast_duration_seconds": 372.22
+      },
+      {
+        "module_id": "GEO-CIR-2_concept_4",
+        "module_title": "ಚಕ್ರೀಯ ಚತುರ್ಭುಜ",
+        "total_slides": 22,
+        "duration_seconds": 1126.92,
+        "duration_display": "18m 46s",
+        "file_size_mb": 37.65,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-CIR-2/GEO-CIR-2_concept_4.mp4",
+        "s3_key": "videos/GEO-CIR-2/GEO-CIR-2_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-CIR-2/GEO-CIR-2_concept_4.wav",
+        "podcast_s3_key": "podcasts/GEO-CIR-2/GEO-CIR-2_concept_4.wav",
+        "podcast_duration_display": "5m 11s",
+        "podcast_duration_seconds": 311.01
+      },
+      {
+        "module_id": "GEO-CIR-2_concept_5",
+        "module_title": "ಸ್ಪರ್ಶಕಗಳು ಮತ್ತು ಛೇದಕಗಳು",
+        "total_slides": 16,
+        "duration_seconds": 735.36,
+        "duration_display": "12m 15s",
+        "file_size_mb": 26.11,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-CIR-2/GEO-CIR-2_concept_5.mp4",
+        "s3_key": "videos/GEO-CIR-2/GEO-CIR-2_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-CIR-2/GEO-CIR-2_concept_5.wav",
+        "podcast_s3_key": "podcasts/GEO-CIR-2/GEO-CIR-2_concept_5.wav",
+        "podcast_duration_display": "4m 53s",
+        "podcast_duration_seconds": 293.79
+      },
+      {
+        "module_id": "GEO-CIR-2_concept_6",
+        "module_title": "ಸ್ಪರ್ಶಕಗಳ ಗುಣಲಕ್ಷಣಗಳು",
+        "total_slides": 27,
+        "duration_seconds": 1410.76,
+        "duration_display": "23m 30s",
+        "file_size_mb": 47.94,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-CIR-2/GEO-CIR-2_concept_6.mp4",
+        "s3_key": "videos/GEO-CIR-2/GEO-CIR-2_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-CIR-2/GEO-CIR-2_concept_6.wav",
+        "podcast_s3_key": "podcasts/GEO-CIR-2/GEO-CIR-2_concept_6.wav",
+        "podcast_duration_display": "5m 1s",
+        "podcast_duration_seconds": 301.13
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 6,
+    "total_slides": 140,
+    "has_podcast": true,
+    "podcast_total_duration": "31m 12s"
+  },
+  {
+    "merge_code": "GEO-EUC-2",
+    "chapter_name": "Introduction to Euclid's Geometry",
+    "chapter_numbers": [
+      5
+    ],
+    "classes": [
+      9
+    ],
+    "domain": "Geometry",
+    "full_video": {
+      "duration_seconds": 2888.52,
+      "duration_display": "48m 8s",
+      "file_size_mb": 89.1,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-EUC-2/GEO-EUC-2_full.mp4",
+      "s3_key": "videos/GEO-EUC-2/GEO-EUC-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T14:41:33.866491+00:00",
+    "modules": [
+      {
+        "module_id": "GEO-EUC-2_concept_1",
+        "module_title": "ರೇಖಾಗಣಿತದ ಮೂಲಪದಗಳು ಮತ್ತು ವ್ಯಾಖ್ಯೆಗಳು",
+        "total_slides": 29,
+        "duration_seconds": 1351.2,
+        "duration_display": "22m 31s",
+        "file_size_mb": 43.53,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-EUC-2/GEO-EUC-2_concept_1.mp4",
+        "s3_key": "videos/GEO-EUC-2/GEO-EUC-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-EUC-2/GEO-EUC-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/GEO-EUC-2/GEO-EUC-2_concept_1.wav",
+        "podcast_duration_display": "4m 14s",
+        "podcast_duration_seconds": 254.32
+      },
+      {
+        "module_id": "GEO-EUC-2_concept_2",
+        "module_title": "ಯೂಕ್ಲಿಡನ ಸ್ವಯಂಸಿದ್ಧಗಳು ಮತ್ತು ಆಧಾರ ಪ್ರತಿಜ್ಞೆಗಳು",
+        "total_slides": 17,
+        "duration_seconds": 887.56,
+        "duration_display": "14m 47s",
+        "file_size_mb": 31.79,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-EUC-2/GEO-EUC-2_concept_2.mp4",
+        "s3_key": "videos/GEO-EUC-2/GEO-EUC-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-EUC-2/GEO-EUC-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/GEO-EUC-2/GEO-EUC-2_concept_2.wav",
+        "podcast_duration_display": "6m 9s",
+        "podcast_duration_seconds": 369.85
+      },
+      {
+        "module_id": "GEO-EUC-2_concept_3",
+        "module_title": "ಪ್ರಮೇಯಗಳು ಮತ್ತು ಸಾಧನೆಗಳು",
+        "total_slides": 15,
+        "duration_seconds": 665.44,
+        "duration_display": "11m 5s",
+        "file_size_mb": 23.99,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-EUC-2/GEO-EUC-2_concept_3.mp4",
+        "s3_key": "videos/GEO-EUC-2/GEO-EUC-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-EUC-2/GEO-EUC-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/GEO-EUC-2/GEO-EUC-2_concept_3.wav",
+        "podcast_duration_display": "7m 25s",
+        "podcast_duration_seconds": 445.48
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 3,
+    "total_slides": 61,
+    "has_podcast": true,
+    "podcast_total_duration": "17m 49s"
+  },
+  {
+    "merge_code": "GEO-LA-1",
+    "chapter_name": "Lines and Angles",
+    "chapter_numbers": [
+      2,
+      5
+    ],
+    "classes": [
+      6,
+      7
+    ],
+    "domain": "Geometry",
+    "full_video": {
+      "duration_seconds": 7560.88,
+      "duration_display": "126m 0s",
+      "file_size_mb": 229.83,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-LA-1/GEO-LA-1_full.mp4",
+      "s3_key": "videos/GEO-LA-1/GEO-LA-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T15:16:13.770797+00:00",
+    "modules": [
+      {
+        "module_id": "GEO-LA-1_concept_1",
+        "module_title": "ಮೂಲಭೂತ ಜ್ಯಾಮಿತೀಯ ಕಲ್ಪನೆಗಳು (Basic Geometric Concepts)",
+        "total_slides": 17,
+        "duration_seconds": 772.08,
+        "duration_display": "12m 52s",
+        "file_size_mb": 27.89,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-LA-1/GEO-LA-1_concept_1.mp4",
+        "s3_key": "videos/GEO-LA-1/GEO-LA-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-LA-1/GEO-LA-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/GEO-LA-1/GEO-LA-1_concept_1.wav",
+        "podcast_duration_display": "4m 38s",
+        "podcast_duration_seconds": 278.71
+      },
+      {
+        "module_id": "GEO-LA-1_concept_2",
+        "module_title": "ಕೋನಗಳು: ವ್ಯಾಖ್ಯೆ, ಅಳತೆ ಮತ್ತು ವಿಧಗಳು (Angles: Definition, Measurement, and Types)",
+        "total_slides": 64,
+        "duration_seconds": 2713.2,
+        "duration_display": "45m 13s",
+        "file_size_mb": 87.28,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-LA-1/GEO-LA-1_concept_2.mp4",
+        "s3_key": "videos/GEO-LA-1/GEO-LA-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-LA-1/GEO-LA-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/GEO-LA-1/GEO-LA-1_concept_2.wav",
+        "podcast_duration_display": "7m 12s",
+        "podcast_duration_seconds": 432.51
+      },
+      {
+        "module_id": "GEO-LA-1_concept_3",
+        "module_title": "ಸಂಬಂಧಿತ ಕೋನಗಳ ಜೋಡಿಗಳು (Pairs of Related Angles)",
+        "total_slides": 36,
+        "duration_seconds": 1661.56,
+        "duration_display": "27m 41s",
+        "file_size_mb": 52.66,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-LA-1/GEO-LA-1_concept_3.mp4",
+        "s3_key": "videos/GEO-LA-1/GEO-LA-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-LA-1/GEO-LA-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/GEO-LA-1/GEO-LA-1_concept_3.wav",
+        "podcast_duration_display": "5m 29s",
+        "podcast_duration_seconds": 329.92
+      },
+      {
+        "module_id": "GEO-LA-1_concept_4",
+        "module_title": "ಸಮಾಂತರ ರೇಖೆಗಳು ಮತ್ತು ಛೇದಕ (Parallel Lines and Transversal)",
+        "total_slides": 58,
+        "duration_seconds": 2437.56,
+        "duration_display": "40m 37s",
+        "file_size_mb": 77.35,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-LA-1/GEO-LA-1_concept_4.mp4",
+        "s3_key": "videos/GEO-LA-1/GEO-LA-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-LA-1/GEO-LA-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/GEO-LA-1/GEO-LA-1_concept_4.wav",
+        "podcast_duration_display": "6m 36s",
+        "podcast_duration_seconds": 396.56
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 4,
+    "total_slides": 175,
+    "has_podcast": true,
+    "podcast_total_duration": "23m 57s"
+  },
+  {
+    "merge_code": "GEO-LA-2",
+    "chapter_name": "Lines and Angles",
+    "chapter_numbers": [
+      6
+    ],
+    "classes": [
+      9
+    ],
+    "domain": "Geometry",
+    "full_video": {
+      "duration_seconds": 6083.12,
+      "duration_display": "101m 23s",
+      "file_size_mb": 183.17,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-LA-2/GEO-LA-2_full.mp4",
+      "s3_key": "videos/GEO-LA-2/GEO-LA-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T15:44:09.797235+00:00",
+    "modules": [
+      {
+        "module_id": "GEO-LA-2_concept_1",
+        "module_title": "ಮೂಲ ರೇಖಾಗಣಿತದ ಪದಗಳು ಮತ್ತು ಕೋನಗಳ ವಿಧಗಳು (Basic Geometric Terms and Types of Angles)",
+        "total_slides": 36,
+        "duration_seconds": 1621.44,
+        "duration_display": "27m 1s",
+        "file_size_mb": 52.34,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-LA-2/GEO-LA-2_concept_1.mp4",
+        "s3_key": "videos/GEO-LA-2/GEO-LA-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-LA-2/GEO-LA-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/GEO-LA-2/GEO-LA-2_concept_1.wav",
+        "podcast_duration_display": "5m 31s",
+        "podcast_duration_seconds": 331.73
+      },
+      {
+        "module_id": "GEO-LA-2_concept_2",
+        "module_title": "ಕೋನಗಳ ಜೋಡಿಗಳು ಮತ್ತು ಅವುಗಳ ಗುಣಲಕ್ಷಣಗಳು (Pairs of Angles and their Properties)",
+        "total_slides": 49,
+        "duration_seconds": 2250.92,
+        "duration_display": "37m 30s",
+        "file_size_mb": 70.69,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-LA-2/GEO-LA-2_concept_2.mp4",
+        "s3_key": "videos/GEO-LA-2/GEO-LA-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-LA-2/GEO-LA-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/GEO-LA-2/GEO-LA-2_concept_2.wav",
+        "podcast_duration_display": "6m 52s",
+        "podcast_duration_seconds": 412.11
+      },
+      {
+        "module_id": "GEO-LA-2_concept_3",
+        "module_title": "ಸಮಾಂತರ ರೇಖೆಗಳು ಮತ್ತು ಛೇದಕ (Parallel Lines and Transversal)",
+        "total_slides": 45,
+        "duration_seconds": 2226.36,
+        "duration_display": "37m 6s",
+        "file_size_mb": 70.43,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-LA-2/GEO-LA-2_concept_3.mp4",
+        "s3_key": "videos/GEO-LA-2/GEO-LA-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-LA-2/GEO-LA-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/GEO-LA-2/GEO-LA-2_concept_3.wav",
+        "podcast_duration_display": "9m 18s",
+        "podcast_duration_seconds": 558.35
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 3,
+    "total_slides": 130,
+    "has_podcast": true,
+    "podcast_total_duration": "21m 42s"
+  },
+  {
+    "merge_code": "GEO-QUAD-1",
+    "chapter_name": "Understanding Quadrilaterals",
+    "chapter_numbers": [
+      3
+    ],
+    "classes": [
+      8
+    ],
+    "domain": "Geometry",
+    "full_video": {
+      "duration_seconds": 6376.12,
+      "duration_display": "106m 16s",
+      "file_size_mb": 188.6,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-1/GEO-QUAD-1_full.mp4",
+      "s3_key": "videos/GEO-QUAD-1/GEO-QUAD-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T16:14:11.948442+00:00",
+    "modules": [
+      {
+        "module_id": "GEO-QUAD-1_concept_1",
+        "module_title": "ಬಹುಭುಜಗಳ ಪರಿಚಯ (Introduction to Polygons)",
+        "total_slides": 38,
+        "duration_seconds": 1761.48,
+        "duration_display": "29m 21s",
+        "file_size_mb": 52.76,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-1/GEO-QUAD-1_concept_1.mp4",
+        "s3_key": "videos/GEO-QUAD-1/GEO-QUAD-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-QUAD-1/GEO-QUAD-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/GEO-QUAD-1/GEO-QUAD-1_concept_1.wav",
+        "podcast_duration_display": "5m 38s",
+        "podcast_duration_seconds": 338.48
+      },
+      {
+        "module_id": "GEO-QUAD-1_concept_2",
+        "module_title": "ಬಹುಭುಜದ ಕೋನಗಳ ಮೊತ್ತದ ಗುಣಲಕ್ಷಣಗಳು (Angle Sum Properties of a Polygon)",
+        "total_slides": 29,
+        "duration_seconds": 1345.52,
+        "duration_display": "22m 25s",
+        "file_size_mb": 45.05,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-1/GEO-QUAD-1_concept_2.mp4",
+        "s3_key": "videos/GEO-QUAD-1/GEO-QUAD-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-QUAD-1/GEO-QUAD-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/GEO-QUAD-1/GEO-QUAD-1_concept_2.wav",
+        "podcast_duration_display": "5m 39s",
+        "podcast_duration_seconds": 339.84
+      },
+      {
+        "module_id": "GEO-QUAD-1_concept_3",
+        "module_title": "ಚತುರ್ಭುಜಗಳ ವಿಧಗಳು: ತ್ರಾಪಿಜ್ಯ ಮತ್ತು ಪತಂಗ (Types of Quadrilaterals: Trapezium and Kite)",
+        "total_slides": 17,
+        "duration_seconds": 811.8,
+        "duration_display": "13m 31s",
+        "file_size_mb": 28.64,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-1/GEO-QUAD-1_concept_3.mp4",
+        "s3_key": "videos/GEO-QUAD-1/GEO-QUAD-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-QUAD-1/GEO-QUAD-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/GEO-QUAD-1/GEO-QUAD-1_concept_3.wav",
+        "podcast_duration_display": "5m 33s",
+        "podcast_duration_seconds": 333.76
+      },
+      {
+        "module_id": "GEO-QUAD-1_concept_4",
+        "module_title": "ಸಮಾಂತರ ಚತುರ್ಭುಜ ಮತ್ತು ಅದರ ಗುಣಲಕ್ಷಣಗಳು (Parallelogram and its Properties)",
+        "total_slides": 30,
+        "duration_seconds": 1263.84,
+        "duration_display": "21m 3s",
+        "file_size_mb": 41.87,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-1/GEO-QUAD-1_concept_4.mp4",
+        "s3_key": "videos/GEO-QUAD-1/GEO-QUAD-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-QUAD-1/GEO-QUAD-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/GEO-QUAD-1/GEO-QUAD-1_concept_4.wav",
+        "podcast_duration_display": "7m 30s",
+        "podcast_duration_seconds": 450.1
+      },
+      {
+        "module_id": "GEO-QUAD-1_concept_5",
+        "module_title": "ವಿಶೇಷ ಸಮಾಂತರ ಚತುರ್ಭುಜಗಳು: ವಜ್ರಾಕೃತಿ, ಆಯತ, ಚೌಕ (Special Parallelograms: Rhombus, Rectangle, Square)",
+        "total_slides": 28,
+        "duration_seconds": 1224.8,
+        "duration_display": "20m 24s",
+        "file_size_mb": 40.82,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-1/GEO-QUAD-1_concept_5.mp4",
+        "s3_key": "videos/GEO-QUAD-1/GEO-QUAD-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-QUAD-1/GEO-QUAD-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/GEO-QUAD-1/GEO-QUAD-1_concept_5.wav",
+        "podcast_duration_display": "6m 8s",
+        "podcast_duration_seconds": 368.13
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 142,
+    "has_podcast": true,
+    "podcast_total_duration": "30m 30s"
+  },
+  {
+    "merge_code": "GEO-QUAD-2",
+    "chapter_name": "Quadrilaterals",
+    "chapter_numbers": [
+      8
+    ],
+    "classes": [
+      9
+    ],
+    "domain": "Geometry",
+    "full_video": {
+      "duration_seconds": 6808.76,
+      "duration_display": "113m 28s",
+      "file_size_mb": 213.38,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-2/GEO-QUAD-2_full.mp4",
+      "s3_key": "videos/GEO-QUAD-2/GEO-QUAD-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T16:45:03.945975+00:00",
+    "modules": [
+      {
+        "module_id": "GEO-QUAD-2_concept_1",
+        "module_title": "ಸಮಾಂತರ ಚತುರ್ಭುಜದ ಮೂಲ ಗುಣಲಕ್ಷಣಗಳು (Basic Properties of Parallelograms)",
+        "total_slides": 55,
+        "duration_seconds": 2819.24,
+        "duration_display": "46m 59s",
+        "file_size_mb": 92.8,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-2/GEO-QUAD-2_concept_1.mp4",
+        "s3_key": "videos/GEO-QUAD-2/GEO-QUAD-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-QUAD-2/GEO-QUAD-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/GEO-QUAD-2/GEO-QUAD-2_concept_1.wav",
+        "podcast_duration_display": "6m 8s",
+        "podcast_duration_seconds": 368.7
+      },
+      {
+        "module_id": "GEO-QUAD-2_concept_2",
+        "module_title": "ವಿಶೇಷ ಸಮಾಂತರ ಚತುರ್ಭುಜಗಳು (Special Parallelograms)",
+        "total_slides": 27,
+        "duration_seconds": 1219.36,
+        "duration_display": "20m 19s",
+        "file_size_mb": 40.4,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-2/GEO-QUAD-2_concept_2.mp4",
+        "s3_key": "videos/GEO-QUAD-2/GEO-QUAD-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-QUAD-2/GEO-QUAD-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/GEO-QUAD-2/GEO-QUAD-2_concept_2.wav",
+        "podcast_duration_display": "5m 34s",
+        "podcast_duration_seconds": 334.87
+      },
+      {
+        "module_id": "GEO-QUAD-2_concept_3",
+        "module_title": "ಸಮಾಂತರ ಚತುರ್ಭುಜಗಳ ಅನ್ವಯಿಕ ಸಮಸ್ಯೆಗಳು (Applied Problems on Parallelograms)",
+        "total_slides": 17,
+        "duration_seconds": 836.2,
+        "duration_display": "13m 56s",
+        "file_size_mb": 29.98,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-2/GEO-QUAD-2_concept_3.mp4",
+        "s3_key": "videos/GEO-QUAD-2/GEO-QUAD-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-QUAD-2/GEO-QUAD-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/GEO-QUAD-2/GEO-QUAD-2_concept_3.wav",
+        "podcast_duration_display": "6m 30s",
+        "podcast_duration_seconds": 390.42
+      },
+      {
+        "module_id": "GEO-QUAD-2_concept_4",
+        "module_title": "ಮಧ್ಯಬಿಂದು ಪ್ರಮೇಯ ಮತ್ತು ಅದರ ವಿಲೋಮ (Mid-point Theorem and its Converse)",
+        "total_slides": 24,
+        "duration_seconds": 1210.08,
+        "duration_display": "20m 10s",
+        "file_size_mb": 42.73,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-2/GEO-QUAD-2_concept_4.mp4",
+        "s3_key": "videos/GEO-QUAD-2/GEO-QUAD-2_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-QUAD-2/GEO-QUAD-2_concept_4.wav",
+        "podcast_s3_key": "podcasts/GEO-QUAD-2/GEO-QUAD-2_concept_4.wav",
+        "podcast_duration_display": "5m 9s",
+        "podcast_duration_seconds": 309.73
+      },
+      {
+        "module_id": "GEO-QUAD-2_concept_5",
+        "module_title": "ಮಧ್ಯಬಿಂದು ಪ್ರಮೇಯದ ಅನ್ವಯಗಳು (Applications of the Mid-point Theorem)",
+        "total_slides": 17,
+        "duration_seconds": 755.28,
+        "duration_display": "12m 35s",
+        "file_size_mb": 27.87,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-QUAD-2/GEO-QUAD-2_concept_5.mp4",
+        "s3_key": "videos/GEO-QUAD-2/GEO-QUAD-2_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-QUAD-2/GEO-QUAD-2_concept_5.wav",
+        "podcast_s3_key": "podcasts/GEO-QUAD-2/GEO-QUAD-2_concept_5.wav",
+        "podcast_duration_display": "6m 6s",
+        "podcast_duration_seconds": 366.85
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 140,
+    "has_podcast": true,
+    "podcast_total_duration": "29m 30s"
+  },
+  {
+    "merge_code": "GEO-TRI-1",
+    "chapter_name": "The Triangle and its Properties",
+    "chapter_numbers": [
+      6
+    ],
+    "classes": [
+      7
+    ],
+    "domain": "Geometry",
+    "full_video": {
+      "duration_seconds": 5336.28,
+      "duration_display": "88m 56s",
+      "file_size_mb": 164.23,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-1/GEO-TRI-1_full.mp4",
+      "s3_key": "videos/GEO-TRI-1/GEO-TRI-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T17:09:30.870347+00:00",
+    "modules": [
+      {
+        "module_id": "GEO-TRI-1_concept_1",
+        "module_title": "ತ್ರಿಭುಜದ ಮೂಲ ಅಂಶಗಳು ಮತ್ತು ರೇಖೆಗಳು (Basic Elements and Lines in a Triangle)",
+        "total_slides": 24,
+        "duration_seconds": 1073.96,
+        "duration_display": "17m 53s",
+        "file_size_mb": 37.16,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-1/GEO-TRI-1_concept_1.mp4",
+        "s3_key": "videos/GEO-TRI-1/GEO-TRI-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-TRI-1/GEO-TRI-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/GEO-TRI-1/GEO-TRI-1_concept_1.wav",
+        "podcast_duration_display": "5m 29s",
+        "podcast_duration_seconds": 329.55
+      },
+      {
+        "module_id": "GEO-TRI-1_concept_2",
+        "module_title": "ತ್ರಿಭುಜದ ಕೋನಗಳ ಗುಣಗಳು (Angle Properties of a Triangle)",
+        "total_slides": 32,
+        "duration_seconds": 1458.32,
+        "duration_display": "24m 18s",
+        "file_size_mb": 48.81,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-1/GEO-TRI-1_concept_2.mp4",
+        "s3_key": "videos/GEO-TRI-1/GEO-TRI-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-TRI-1/GEO-TRI-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/GEO-TRI-1/GEO-TRI-1_concept_2.wav",
+        "podcast_duration_display": "6m 33s",
+        "podcast_duration_seconds": 393.59
+      },
+      {
+        "module_id": "GEO-TRI-1_concept_3",
+        "module_title": "ವಿಶೇಷ ತ್ರಿಭುಜಗಳು (Special Triangles)",
+        "total_slides": 14,
+        "duration_seconds": 658.12,
+        "duration_display": "10m 58s",
+        "file_size_mb": 23.89,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-1/GEO-TRI-1_concept_3.mp4",
+        "s3_key": "videos/GEO-TRI-1/GEO-TRI-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-TRI-1/GEO-TRI-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/GEO-TRI-1/GEO-TRI-1_concept_3.wav",
+        "podcast_duration_display": "4m 25s",
+        "podcast_duration_seconds": 265.75
+      },
+      {
+        "module_id": "GEO-TRI-1_concept_4",
+        "module_title": "ತ್ರಿಭುಜದ ಅಸಮಾನತೆಯ ಗುಣ (Triangle Inequality Property)",
+        "total_slides": 11,
+        "duration_seconds": 504.68,
+        "duration_display": "8m 24s",
+        "file_size_mb": 20.69,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-1/GEO-TRI-1_concept_4.mp4",
+        "s3_key": "videos/GEO-TRI-1/GEO-TRI-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-TRI-1/GEO-TRI-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/GEO-TRI-1/GEO-TRI-1_concept_4.wav",
+        "podcast_duration_display": "5m 53s",
+        "podcast_duration_seconds": 353.23
+      },
+      {
+        "module_id": "GEO-TRI-1_concept_5",
+        "module_title": "ಪೈಥಾಗೊರಸ್ ಪ್ರಮೇಯ (Pythagoras Theorem)",
+        "total_slides": 39,
+        "duration_seconds": 1672.6,
+        "duration_display": "27m 52s",
+        "file_size_mb": 54.08,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-1/GEO-TRI-1_concept_5.mp4",
+        "s3_key": "videos/GEO-TRI-1/GEO-TRI-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-TRI-1/GEO-TRI-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/GEO-TRI-1/GEO-TRI-1_concept_5.wav",
+        "podcast_duration_display": "5m 21s",
+        "podcast_duration_seconds": 321.96
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 120,
+    "has_podcast": true,
+    "podcast_total_duration": "27m 44s"
+  },
+  {
+    "merge_code": "GEO-TRI-2",
+    "chapter_name": "Triangles",
+    "chapter_numbers": [
+      6,
+      7
+    ],
+    "classes": [
+      9,
+      10
+    ],
+    "domain": "Geometry",
+    "full_video": {
+      "duration_seconds": 10903.52,
+      "duration_display": "181m 43s",
+      "file_size_mb": 334.51,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-2/GEO-TRI-2_full.mp4",
+      "s3_key": "videos/GEO-TRI-2/GEO-TRI-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T17:58:14.745056+00:00",
+    "modules": [
+      {
+        "module_id": "GEO-TRI-2_concept_1",
+        "module_title": "ತ್ರಿಭುಜಗಳ ಸರ್ವಸಮತೆ (Congruence of Triangles)",
+        "total_slides": 68,
+        "duration_seconds": 3539.0,
+        "duration_display": "58m 59s",
+        "file_size_mb": 113.27,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-2/GEO-TRI-2_concept_1.mp4",
+        "s3_key": "videos/GEO-TRI-2/GEO-TRI-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-TRI-2/GEO-TRI-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/GEO-TRI-2/GEO-TRI-2_concept_1.wav",
+        "podcast_duration_display": "7m 20s",
+        "podcast_duration_seconds": 440.37
+      },
+      {
+        "module_id": "GEO-TRI-2_concept_2",
+        "module_title": "ಸಮದ್ವಿಬಾಹು ತ್ರಿಭುಜಗಳ ಗುಣಲಕ್ಷಣಗಳು (Properties of Isosceles Triangles)",
+        "total_slides": 29,
+        "duration_seconds": 1457.44,
+        "duration_display": "24m 17s",
+        "file_size_mb": 48.22,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-2/GEO-TRI-2_concept_2.mp4",
+        "s3_key": "videos/GEO-TRI-2/GEO-TRI-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-TRI-2/GEO-TRI-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/GEO-TRI-2/GEO-TRI-2_concept_2.wav",
+        "podcast_duration_display": "7m 17s",
+        "podcast_duration_seconds": 437.6
+      },
+      {
+        "module_id": "GEO-TRI-2_concept_3",
+        "module_title": "ಸಮರೂಪ ಆಕೃತಿಗಳು (Similar Figures)",
+        "total_slides": 21,
+        "duration_seconds": 1121.08,
+        "duration_display": "18m 41s",
+        "file_size_mb": 38.57,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-2/GEO-TRI-2_concept_3.mp4",
+        "s3_key": "videos/GEO-TRI-2/GEO-TRI-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-TRI-2/GEO-TRI-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/GEO-TRI-2/GEO-TRI-2_concept_3.wav",
+        "podcast_duration_display": "5m 13s",
+        "podcast_duration_seconds": 313.39
+      },
+      {
+        "module_id": "GEO-TRI-2_concept_4",
+        "module_title": "ಮೂಲ ಸಮಾನುಪಾತತೆಯ ಪ್ರಮೇಯ (Basic Proportionality Theorem - BPT)",
+        "total_slides": 28,
+        "duration_seconds": 1447.24,
+        "duration_display": "24m 7s",
+        "file_size_mb": 46.97,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-2/GEO-TRI-2_concept_4.mp4",
+        "s3_key": "videos/GEO-TRI-2/GEO-TRI-2_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-TRI-2/GEO-TRI-2_concept_4.wav",
+        "podcast_s3_key": "podcasts/GEO-TRI-2/GEO-TRI-2_concept_4.wav",
+        "podcast_duration_display": "4m 26s",
+        "podcast_duration_seconds": 266.57
+      },
+      {
+        "module_id": "GEO-TRI-2_concept_5",
+        "module_title": "ತ್ರಿಭುಜಗಳ ಸಮರೂಪತೆಯ ನಿರ್ಧಾರಕ ಗುಣಗಳು (Criteria for Similarity of Triangles)",
+        "total_slides": 62,
+        "duration_seconds": 3370.12,
+        "duration_display": "56m 10s",
+        "file_size_mb": 107.96,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/GEO-TRI-2/GEO-TRI-2_concept_5.mp4",
+        "s3_key": "videos/GEO-TRI-2/GEO-TRI-2_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/GEO-TRI-2/GEO-TRI-2_concept_5.wav",
+        "podcast_s3_key": "podcasts/GEO-TRI-2/GEO-TRI-2_concept_5.wav",
+        "podcast_duration_display": "7m 37s",
+        "podcast_duration_seconds": 457.2
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 208,
+    "has_podcast": true,
+    "podcast_total_duration": "31m 55s"
+  },
+  {
+    "merge_code": "MEN-AREA-1",
+    "chapter_name": "Perimeter and Area",
+    "chapter_numbers": [
+      6,
+      9
+    ],
+    "classes": [
+      6,
+      7
+    ],
+    "domain": "Mensuration",
+    "full_video": {
+      "duration_seconds": 7027.44,
+      "duration_display": "117m 7s",
+      "file_size_mb": 210.34,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-AREA-1/MEN-AREA-1_full.mp4",
+      "s3_key": "videos/MEN-AREA-1/MEN-AREA-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T18:29:55.882198+00:00",
+    "modules": [
+      {
+        "module_id": "MEN-AREA-1_concept_1",
+        "module_title": "ಬಹುಭುಜಾಕೃತಿಗಳ ಸುತ್ತಳತೆ (Perimeter of Polygons)",
+        "total_slides": 44,
+        "duration_seconds": 1966.8,
+        "duration_display": "32m 46s",
+        "file_size_mb": 61.07,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-AREA-1/MEN-AREA-1_concept_1.mp4",
+        "s3_key": "videos/MEN-AREA-1/MEN-AREA-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-AREA-1/MEN-AREA-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/MEN-AREA-1/MEN-AREA-1_concept_1.wav",
+        "podcast_duration_display": "6m 1s",
+        "podcast_duration_seconds": 361.49
+      },
+      {
+        "module_id": "MEN-AREA-1_concept_2",
+        "module_title": "ಬಹುಭುಜಾಕೃತಿಗಳ ವಿಸ್ತೀರ್ಣ (Area of Polygons)",
+        "total_slides": 27,
+        "duration_seconds": 1229.32,
+        "duration_display": "20m 29s",
+        "file_size_mb": 41.33,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-AREA-1/MEN-AREA-1_concept_2.mp4",
+        "s3_key": "videos/MEN-AREA-1/MEN-AREA-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-AREA-1/MEN-AREA-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/MEN-AREA-1/MEN-AREA-1_concept_2.wav",
+        "podcast_duration_display": "5m 49s",
+        "podcast_duration_seconds": 349.44
+      },
+      {
+        "module_id": "MEN-AREA-1_concept_3",
+        "module_title": "ಸಮಾಂತರ ಚತುರ್ಭುಜದ ವಿಸ್ತೀರ್ಣ (Area of a Parallelogram)",
+        "total_slides": 18,
+        "duration_seconds": 734.88,
+        "duration_display": "12m 14s",
+        "file_size_mb": 26.78,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-AREA-1/MEN-AREA-1_concept_3.mp4",
+        "s3_key": "videos/MEN-AREA-1/MEN-AREA-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-AREA-1/MEN-AREA-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/MEN-AREA-1/MEN-AREA-1_concept_3.wav",
+        "podcast_duration_display": "5m 34s",
+        "podcast_duration_seconds": 334.67
+      },
+      {
+        "module_id": "MEN-AREA-1_concept_4",
+        "module_title": "ತ್ರಿಭುಜದ ವಿಸ್ತೀರ್ಣ (Area of a Triangle)",
+        "total_slides": 17,
+        "duration_seconds": 712.92,
+        "duration_display": "11m 52s",
+        "file_size_mb": 25.96,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-AREA-1/MEN-AREA-1_concept_4.mp4",
+        "s3_key": "videos/MEN-AREA-1/MEN-AREA-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-AREA-1/MEN-AREA-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/MEN-AREA-1/MEN-AREA-1_concept_4.wav",
+        "podcast_duration_display": "6m 4s",
+        "podcast_duration_seconds": 364.06
+      },
+      {
+        "module_id": "MEN-AREA-1_concept_5",
+        "module_title": "ವೃತ್ತದ ಪರಿಧಿ (Circumference of a Circle)",
+        "total_slides": 35,
+        "duration_seconds": 1503.8,
+        "duration_display": "25m 3s",
+        "file_size_mb": 48.69,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-AREA-1/MEN-AREA-1_concept_5.mp4",
+        "s3_key": "videos/MEN-AREA-1/MEN-AREA-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-AREA-1/MEN-AREA-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/MEN-AREA-1/MEN-AREA-1_concept_5.wav",
+        "podcast_duration_display": "5m 46s",
+        "podcast_duration_seconds": 346.31
+      },
+      {
+        "module_id": "MEN-AREA-1_concept_6",
+        "module_title": "ವೃತ್ತದ ವಿಸ್ತೀರ್ಣ (Area of a Circle)",
+        "total_slides": 21,
+        "duration_seconds": 918.92,
+        "duration_display": "15m 18s",
+        "file_size_mb": 32.12,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-AREA-1/MEN-AREA-1_concept_6.mp4",
+        "s3_key": "videos/MEN-AREA-1/MEN-AREA-1_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-AREA-1/MEN-AREA-1_concept_6.wav",
+        "podcast_s3_key": "podcasts/MEN-AREA-1/MEN-AREA-1_concept_6.wav",
+        "podcast_duration_display": "4m 50s",
+        "podcast_duration_seconds": 290.19
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 6,
+    "total_slides": 162,
+    "has_podcast": true,
+    "podcast_total_duration": "34m 6s"
+  },
+  {
+    "merge_code": "MEN-CIR-3",
+    "chapter_name": "Areas Related to Circles",
+    "chapter_numbers": [
+      11
+    ],
+    "classes": [
+      10
+    ],
+    "domain": "Mensuration",
+    "full_video": {
+      "duration_seconds": 3304.04,
+      "duration_display": "55m 4s",
+      "file_size_mb": 102.53,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-CIR-3/MEN-CIR-3_full.mp4",
+      "s3_key": "videos/MEN-CIR-3/MEN-CIR-3_full.mp4"
+    },
+    "generated_at": "2026-04-06T18:45:05.870204+00:00",
+    "modules": [
+      {
+        "module_id": "MEN-CIR-3_concept_1",
+        "module_title": "ವೃತ್ತದ ತ್ರಿಜ್ಯಾಂತರ ಖಂಡ (Sector of a Circle)",
+        "total_slides": 40,
+        "duration_seconds": 1936.52,
+        "duration_display": "32m 16s",
+        "file_size_mb": 62.8,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-CIR-3/MEN-CIR-3_concept_1.mp4",
+        "s3_key": "videos/MEN-CIR-3/MEN-CIR-3_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-CIR-3/MEN-CIR-3_concept_1.wav",
+        "podcast_s3_key": "podcasts/MEN-CIR-3/MEN-CIR-3_concept_1.wav",
+        "podcast_duration_display": "7m 32s",
+        "podcast_duration_seconds": 452.33
+      },
+      {
+        "module_id": "MEN-CIR-3_concept_2",
+        "module_title": "ವೃತ್ತಖಂಡ (Segment of a Circle)",
+        "total_slides": 31,
+        "duration_seconds": 1375.36,
+        "duration_display": "22m 55s",
+        "file_size_mb": 44.85,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-CIR-3/MEN-CIR-3_concept_2.mp4",
+        "s3_key": "videos/MEN-CIR-3/MEN-CIR-3_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-CIR-3/MEN-CIR-3_concept_2.wav",
+        "podcast_s3_key": "podcasts/MEN-CIR-3/MEN-CIR-3_concept_2.wav",
+        "podcast_duration_display": "6m 47s",
+        "podcast_duration_seconds": 407.18
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 2,
+    "total_slides": 71,
+    "has_podcast": true,
+    "podcast_total_duration": "14m 19s"
+  },
+  {
+    "merge_code": "MEN-HER-3",
+    "chapter_name": "Heron's Formula",
+    "chapter_numbers": [
+      10
+    ],
+    "classes": [
+      9
+    ],
+    "domain": "Mensuration",
+    "full_video": {
+      "duration_seconds": 2534.32,
+      "duration_display": "42m 14s",
+      "file_size_mb": 76.01,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-HER-3/MEN-HER-3_full.mp4",
+      "s3_key": "videos/MEN-HER-3/MEN-HER-3_full.mp4"
+    },
+    "generated_at": "2026-04-06T18:55:55.198070+00:00",
+    "modules": [
+      {
+        "module_id": "MEN-HER-3_concept_1",
+        "module_title": "ಹೆರಾನ್‌ನ ಸೂತ್ರ ಮತ್ತು ಅದರ ಅನ್ವಯಗಳು (Heron's Formula and its Applications)",
+        "total_slides": 48,
+        "duration_seconds": 2534.32,
+        "duration_display": "42m 14s",
+        "file_size_mb": 76.01,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-HER-3/MEN-HER-3_concept_1.mp4",
+        "s3_key": "videos/MEN-HER-3/MEN-HER-3_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-HER-3/MEN-HER-3_concept_1.wav",
+        "podcast_s3_key": "podcasts/MEN-HER-3/MEN-HER-3_concept_1.wav",
+        "podcast_duration_display": "6m 48s",
+        "podcast_duration_seconds": 408.32
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 1,
+    "total_slides": 48,
+    "has_podcast": true,
+    "podcast_total_duration": "6m 48s"
+  },
+  {
+    "merge_code": "MEN-MEN-2",
+    "chapter_name": "Mensuration",
+    "chapter_numbers": [
+      9
+    ],
+    "classes": [
+      8
+    ],
+    "domain": "Mensuration",
+    "full_video": {
+      "duration_seconds": 7421.24,
+      "duration_display": "123m 41s",
+      "file_size_mb": 227.16,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-MEN-2/MEN-MEN-2_full.mp4",
+      "s3_key": "videos/MEN-MEN-2/MEN-MEN-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T19:28:07.405418+00:00",
+    "modules": [
+      {
+        "module_id": "MEN-MEN-2_concept_1",
+        "module_title": "ಬಹುಭುಜಾಕೃತಿಗಳ ವಿಸ್ತೀರ್ಣ",
+        "total_slides": 39,
+        "duration_seconds": 1746.6,
+        "duration_display": "29m 6s",
+        "file_size_mb": 57.22,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-MEN-2/MEN-MEN-2_concept_1.mp4",
+        "s3_key": "videos/MEN-MEN-2/MEN-MEN-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-MEN-2/MEN-MEN-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/MEN-MEN-2/MEN-MEN-2_concept_1.wav",
+        "podcast_duration_display": "6m 14s",
+        "podcast_duration_seconds": 374.3
+      },
+      {
+        "module_id": "MEN-MEN-2_concept_2",
+        "module_title": "ಘನವಸ್ತುಗಳ ಮೇಲ್ಮೈ ವಿಸ್ತೀರ್ಣ",
+        "total_slides": 61,
+        "duration_seconds": 2843.0,
+        "duration_display": "47m 23s",
+        "file_size_mb": 92.18,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-MEN-2/MEN-MEN-2_concept_2.mp4",
+        "s3_key": "videos/MEN-MEN-2/MEN-MEN-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-MEN-2/MEN-MEN-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/MEN-MEN-2/MEN-MEN-2_concept_2.wav",
+        "podcast_duration_display": "9m 27s",
+        "podcast_duration_seconds": 567.55
+      },
+      {
+        "module_id": "MEN-MEN-2_concept_3",
+        "module_title": "ಘನವಸ್ತುಗಳ ಗಾತ್ರ ಮತ್ತು ಸಾಮರ್ಥ್ಯ",
+        "total_slides": 62,
+        "duration_seconds": 2847.32,
+        "duration_display": "47m 27s",
+        "file_size_mb": 88.0,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-MEN-2/MEN-MEN-2_concept_3.mp4",
+        "s3_key": "videos/MEN-MEN-2/MEN-MEN-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-MEN-2/MEN-MEN-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/MEN-MEN-2/MEN-MEN-2_concept_3.wav",
+        "podcast_duration_display": "6m 56s",
+        "podcast_duration_seconds": 416.11
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 3,
+    "total_slides": 162,
+    "has_podcast": true,
+    "podcast_total_duration": "22m 37s"
+  },
+  {
+    "merge_code": "MEN-VOL-3",
+    "chapter_name": "Surface Areas and Volumes",
+    "chapter_numbers": [
+      11,
+      12
+    ],
+    "classes": [
+      9,
+      10
+    ],
+    "domain": "Mensuration",
+    "full_video": {
+      "duration_seconds": 6664.72,
+      "duration_display": "111m 4s",
+      "file_size_mb": 201.19,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-VOL-3/MEN-VOL-3_full.mp4",
+      "s3_key": "videos/MEN-VOL-3/MEN-VOL-3_full.mp4"
+    },
+    "generated_at": "2026-04-06T19:56:51.442384+00:00",
+    "modules": [
+      {
+        "module_id": "MEN-VOL-3_concept_1",
+        "module_title": "ನೇರವೃತ್ತಪಾದ ಶಂಕು (Right Circular Cone)",
+        "total_slides": 58,
+        "duration_seconds": 2880.88,
+        "duration_display": "48m 0s",
+        "file_size_mb": 88.09,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-VOL-3/MEN-VOL-3_concept_1.mp4",
+        "s3_key": "videos/MEN-VOL-3/MEN-VOL-3_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-VOL-3/MEN-VOL-3_concept_1.wav",
+        "podcast_s3_key": "podcasts/MEN-VOL-3/MEN-VOL-3_concept_1.wav",
+        "podcast_duration_display": "9m 6s",
+        "podcast_duration_seconds": 546.08
+      },
+      {
+        "module_id": "MEN-VOL-3_concept_2",
+        "module_title": "ಗೋಳ ಮತ್ತು ಅರ್ಧಗೋಳ (Sphere and Hemisphere)",
+        "total_slides": 54,
+        "duration_seconds": 2389.96,
+        "duration_display": "39m 49s",
+        "file_size_mb": 74.92,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-VOL-3/MEN-VOL-3_concept_2.mp4",
+        "s3_key": "videos/MEN-VOL-3/MEN-VOL-3_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-VOL-3/MEN-VOL-3_concept_2.wav",
+        "podcast_s3_key": "podcasts/MEN-VOL-3/MEN-VOL-3_concept_2.wav",
+        "podcast_duration_display": "7m 30s",
+        "podcast_duration_seconds": 450.02
+      },
+      {
+        "module_id": "MEN-VOL-3_concept_3",
+        "module_title": "ಜೋಡಿಸಿದ ಘನಗಳ ಮೇಲೈ ವಿಸ್ತೀರ್ಣ (Surface Area of Combination of Solids)",
+        "total_slides": 14,
+        "duration_seconds": 795.24,
+        "duration_display": "13m 15s",
+        "file_size_mb": 29.2,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-VOL-3/MEN-VOL-3_concept_3.mp4",
+        "s3_key": "videos/MEN-VOL-3/MEN-VOL-3_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-VOL-3/MEN-VOL-3_concept_3.wav",
+        "podcast_s3_key": "podcasts/MEN-VOL-3/MEN-VOL-3_concept_3.wav",
+        "podcast_duration_display": "8m 42s",
+        "podcast_duration_seconds": 522.41
+      },
+      {
+        "module_id": "MEN-VOL-3_concept_4",
+        "module_title": "ಜೋಡಿಸಿದ ಘನಗಳ ಘನಫಲ (Volume of Combination of Solids)",
+        "total_slides": 12,
+        "duration_seconds": 622.16,
+        "duration_display": "10m 22s",
+        "file_size_mb": 24.36,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/MEN-VOL-3/MEN-VOL-3_concept_4.mp4",
+        "s3_key": "videos/MEN-VOL-3/MEN-VOL-3_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/MEN-VOL-3/MEN-VOL-3_concept_4.wav",
+        "podcast_s3_key": "podcasts/MEN-VOL-3/MEN-VOL-3_concept_4.wav",
+        "podcast_duration_display": "5m 59s",
+        "podcast_duration_seconds": 359.13
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 4,
+    "total_slides": 138,
+    "has_podcast": true,
+    "podcast_total_duration": "31m 17s"
+  },
+  {
+    "merge_code": "NS-CUBE-2",
+    "chapter_name": "Cubes and Cube Roots",
+    "chapter_numbers": [
+      6
+    ],
+    "classes": [
+      8
+    ],
+    "domain": "Number System & Arithmetic Foundations",
+    "full_video": {
+      "duration_seconds": 3632.76,
+      "duration_display": "60m 32s",
+      "file_size_mb": 110.52,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-CUBE-2/NS-CUBE-2_full.mp4",
+      "s3_key": "videos/NS-CUBE-2/NS-CUBE-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T20:13:35.532976+00:00",
+    "modules": [
+      {
+        "module_id": "NS-CUBE-2_concept_1",
+        "module_title": "ಘನ ಸಂಖ್ಯೆಗಳು ಮತ್ತು ಅವುಗಳ ಗುಣಲಕ್ಷಣಗಳು (Cube Numbers and their Properties)",
+        "total_slides": 9,
+        "duration_seconds": 434.52,
+        "duration_display": "7m 14s",
+        "file_size_mb": 18.14,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-CUBE-2/NS-CUBE-2_concept_1.mp4",
+        "s3_key": "videos/NS-CUBE-2/NS-CUBE-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-CUBE-2/NS-CUBE-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/NS-CUBE-2/NS-CUBE-2_concept_1.wav",
+        "podcast_duration_display": "4m 35s",
+        "podcast_duration_seconds": 275.77
+      },
+      {
+        "module_id": "NS-CUBE-2_concept_2",
+        "module_title": "ಘನ ಸಂಖ್ಯೆಗಳ ಮಾದರಿಗಳು (Patterns in Cube Numbers)",
+        "total_slides": 5,
+        "duration_seconds": 238.08,
+        "duration_display": "3m 58s",
+        "file_size_mb": 11.71,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-CUBE-2/NS-CUBE-2_concept_2.mp4",
+        "s3_key": "videos/NS-CUBE-2/NS-CUBE-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-CUBE-2/NS-CUBE-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/NS-CUBE-2/NS-CUBE-2_concept_2.wav",
+        "podcast_duration_display": "4m 37s",
+        "podcast_duration_seconds": 277.78
+      },
+      {
+        "module_id": "NS-CUBE-2_concept_3",
+        "module_title": "ಪೂರ್ಣ ಘನಗಳ ಪರಿಶೀಲನೆ ಮತ್ತು ಅವಿಭಾಜ್ಯ ಅಪವರ್ತನ (Testing for Perfect Cubes and Prime Factorization)",
+        "total_slides": 10,
+        "duration_seconds": 445.96,
+        "duration_display": "7m 25s",
+        "file_size_mb": 18.04,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-CUBE-2/NS-CUBE-2_concept_3.mp4",
+        "s3_key": "videos/NS-CUBE-2/NS-CUBE-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-CUBE-2/NS-CUBE-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/NS-CUBE-2/NS-CUBE-2_concept_3.wav",
+        "podcast_duration_display": "3m 39s",
+        "podcast_duration_seconds": 219.79
+      },
+      {
+        "module_id": "NS-CUBE-2_concept_4",
+        "module_title": "ಪೂರ್ಣ ಘನವನ್ನಾಗಿಸಲು ಗುಣಾಕಾರ ಮತ್ತು ಭಾಗಾಕಾರ (Multiplication and Division to make a Perfect Cube)",
+        "total_slides": 19,
+        "duration_seconds": 808.96,
+        "duration_display": "13m 28s",
+        "file_size_mb": 28.54,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-CUBE-2/NS-CUBE-2_concept_4.mp4",
+        "s3_key": "videos/NS-CUBE-2/NS-CUBE-2_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-CUBE-2/NS-CUBE-2_concept_4.wav",
+        "podcast_s3_key": "podcasts/NS-CUBE-2/NS-CUBE-2_concept_4.wav",
+        "podcast_duration_display": "4m 6s",
+        "podcast_duration_seconds": 246.22
+      },
+      {
+        "module_id": "NS-CUBE-2_concept_5",
+        "module_title": "ಘನಮೂಲ ಮತ್ತು ಅವಿಭಾಜ್ಯ ಅಪವರ್ತನ ವಿಧಾನ (Cube Root and Prime Factorization Method)",
+        "total_slides": 28,
+        "duration_seconds": 1231.12,
+        "duration_display": "20m 31s",
+        "file_size_mb": 40.02,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-CUBE-2/NS-CUBE-2_concept_5.mp4",
+        "s3_key": "videos/NS-CUBE-2/NS-CUBE-2_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-CUBE-2/NS-CUBE-2_concept_5.wav",
+        "podcast_s3_key": "podcasts/NS-CUBE-2/NS-CUBE-2_concept_5.wav",
+        "podcast_duration_display": "6m 22s",
+        "podcast_duration_seconds": 382.96
+      },
+      {
+        "module_id": "NS-CUBE-2_concept_6",
+        "module_title": "ಹಾರ್ಡಿ-ರಾಮಾನುಜನ್ ಸಂಖ್ಯೆಗಳು (Hardy-Ramanujan Numbers)",
+        "total_slides": 11,
+        "duration_seconds": 513.36,
+        "duration_display": "8m 33s",
+        "file_size_mb": 19.58,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-CUBE-2/NS-CUBE-2_concept_6.mp4",
+        "s3_key": "videos/NS-CUBE-2/NS-CUBE-2_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-CUBE-2/NS-CUBE-2_concept_6.wav",
+        "podcast_s3_key": "podcasts/NS-CUBE-2/NS-CUBE-2_concept_6.wav",
+        "podcast_duration_display": "3m 18s",
+        "podcast_duration_seconds": 198.58
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 6,
+    "total_slides": 82,
+    "has_podcast": true,
+    "podcast_total_duration": "26m 41s"
+  },
+  {
+    "merge_code": "NS-EXP-2",
+    "chapter_name": "Exponents and Powers",
+    "chapter_numbers": [
+      10,
+      11
+    ],
+    "classes": [
+      7,
+      8
+    ],
+    "domain": "Number System & Arithmetic Foundations",
+    "full_video": {
+      "duration_seconds": 4719.56,
+      "duration_display": "78m 39s",
+      "file_size_mb": 136.28,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-EXP-2/NS-EXP-2_full.mp4",
+      "s3_key": "videos/NS-EXP-2/NS-EXP-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T20:35:27.905517+00:00",
+    "modules": [
+      {
+        "module_id": "NS-EXP-2_concept_1",
+        "module_title": "ಘಾತಾಂಕಗಳ ಮೂಲಭೂತ ಪರಿಕಲ್ಪನೆಗಳು",
+        "total_slides": 31,
+        "duration_seconds": 1405.52,
+        "duration_display": "23m 25s",
+        "file_size_mb": 43.39,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-EXP-2/NS-EXP-2_concept_1.mp4",
+        "s3_key": "videos/NS-EXP-2/NS-EXP-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-EXP-2/NS-EXP-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/NS-EXP-2/NS-EXP-2_concept_1.wav",
+        "podcast_duration_display": "4m 46s",
+        "podcast_duration_seconds": 286.25
+      },
+      {
+        "module_id": "NS-EXP-2_concept_2",
+        "module_title": "ಘಾತಾಂಕಗಳ ನಿಯಮಗಳು",
+        "total_slides": 48,
+        "duration_seconds": 2207.0,
+        "duration_display": "36m 47s",
+        "file_size_mb": 66.78,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-EXP-2/NS-EXP-2_concept_2.mp4",
+        "s3_key": "videos/NS-EXP-2/NS-EXP-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-EXP-2/NS-EXP-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/NS-EXP-2/NS-EXP-2_concept_2.wav",
+        "podcast_duration_display": "6m 36s",
+        "podcast_duration_seconds": 396.66
+      },
+      {
+        "module_id": "NS-EXP-2_concept_3",
+        "module_title": "ಸಂಖ್ಯೆಗಳ ಆದರ್ಶ ಮತ್ತು ವಿಸ್ತೃತ ರೂಪ",
+        "total_slides": 27,
+        "duration_seconds": 1122.72,
+        "duration_display": "18m 42s",
+        "file_size_mb": 36.3,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-EXP-2/NS-EXP-2_concept_3.mp4",
+        "s3_key": "videos/NS-EXP-2/NS-EXP-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-EXP-2/NS-EXP-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/NS-EXP-2/NS-EXP-2_concept_3.wav",
+        "podcast_duration_display": "6m 58s",
+        "podcast_duration_seconds": 418.35
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 3,
+    "total_slides": 106,
+    "has_podcast": true,
+    "podcast_total_duration": "18m 21s"
+  },
+  {
+    "merge_code": "NS-FRA-1",
+    "chapter_name": "Fractions and Decimals",
+    "chapter_numbers": [
+      2,
+      7
+    ],
+    "classes": [
+      6,
+      7
+    ],
+    "domain": "Number System & Arithmetic Foundations",
+    "full_video": {
+      "duration_seconds": 6536.4,
+      "duration_display": "108m 56s",
+      "file_size_mb": 196.84,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-FRA-1/NS-FRA-1_full.mp4",
+      "s3_key": "videos/NS-FRA-1/NS-FRA-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T21:05:11.361787+00:00",
+    "modules": [
+      {
+        "module_id": "NS-FRA-1_concept_1",
+        "module_title": "ಭಿನ್ನರಾಶಿಯ ಮೂಲ ಪರಿಕಲ್ಪನೆಗಳು",
+        "total_slides": 25,
+        "duration_seconds": 1126.84,
+        "duration_display": "18m 46s",
+        "file_size_mb": 39.4,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-FRA-1/NS-FRA-1_concept_1.mp4",
+        "s3_key": "videos/NS-FRA-1/NS-FRA-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-FRA-1/NS-FRA-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/NS-FRA-1/NS-FRA-1_concept_1.wav",
+        "podcast_duration_display": "4m 44s",
+        "podcast_duration_seconds": 284.24
+      },
+      {
+        "module_id": "NS-FRA-1_concept_2",
+        "module_title": "ಭಿನ್ನರಾಶಿಗಳ ವಿಧಗಳು ಮತ್ತು ಪರಿವರ್ತನೆ",
+        "total_slides": 20,
+        "duration_seconds": 952.04,
+        "duration_display": "15m 52s",
+        "file_size_mb": 32.28,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-FRA-1/NS-FRA-1_concept_2.mp4",
+        "s3_key": "videos/NS-FRA-1/NS-FRA-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-FRA-1/NS-FRA-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/NS-FRA-1/NS-FRA-1_concept_2.wav",
+        "podcast_duration_display": "5m 10s",
+        "podcast_duration_seconds": 310.41
+      },
+      {
+        "module_id": "NS-FRA-1_concept_3",
+        "module_title": "ಸಮಾನ ಭಿನ್ನರಾಶಿಗಳು ಮತ್ತು ಸಂಕ್ಷಿಪ್ತ ರೂಪ",
+        "total_slides": 19,
+        "duration_seconds": 951.92,
+        "duration_display": "15m 51s",
+        "file_size_mb": 32.63,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-FRA-1/NS-FRA-1_concept_3.mp4",
+        "s3_key": "videos/NS-FRA-1/NS-FRA-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-FRA-1/NS-FRA-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/NS-FRA-1/NS-FRA-1_concept_3.wav",
+        "podcast_duration_display": "5m 2s",
+        "podcast_duration_seconds": 302.02
+      },
+      {
+        "module_id": "NS-FRA-1_concept_4",
+        "module_title": "ಭಿನ್ನರಾಶಿಗಳ ಸಂಕಲನ ಮತ್ತು ವ್ಯವಕಲನ",
+        "total_slides": 13,
+        "duration_seconds": 607.52,
+        "duration_display": "10m 7s",
+        "file_size_mb": 22.66,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-FRA-1/NS-FRA-1_concept_4.mp4",
+        "s3_key": "videos/NS-FRA-1/NS-FRA-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-FRA-1/NS-FRA-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/NS-FRA-1/NS-FRA-1_concept_4.wav",
+        "podcast_duration_display": "5m 0s",
+        "podcast_duration_seconds": 300.94
+      },
+      {
+        "module_id": "NS-FRA-1_concept_5",
+        "module_title": "ಭಿನ್ನರಾಶಿಗಳ ಗುಣಾಕಾರ",
+        "total_slides": 25,
+        "duration_seconds": 1056.88,
+        "duration_display": "17m 36s",
+        "file_size_mb": 35.37,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-FRA-1/NS-FRA-1_concept_5.mp4",
+        "s3_key": "videos/NS-FRA-1/NS-FRA-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-FRA-1/NS-FRA-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/NS-FRA-1/NS-FRA-1_concept_5.wav",
+        "podcast_duration_display": "5m 16s",
+        "podcast_duration_seconds": 316.64
+      },
+      {
+        "module_id": "NS-FRA-1_concept_6",
+        "module_title": "ಭಿನ್ನರಾಶಿಗಳ ಭಾಗಾಕಾರ",
+        "total_slides": 25,
+        "duration_seconds": 1056.2,
+        "duration_display": "17m 36s",
+        "file_size_mb": 35.61,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-FRA-1/NS-FRA-1_concept_6.mp4",
+        "s3_key": "videos/NS-FRA-1/NS-FRA-1_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-FRA-1/NS-FRA-1_concept_6.wav",
+        "podcast_s3_key": "podcasts/NS-FRA-1/NS-FRA-1_concept_6.wav",
+        "podcast_duration_display": "4m 14s",
+        "podcast_duration_seconds": 254.67
+      },
+      {
+        "module_id": "NS-FRA-1_concept_7",
+        "module_title": "ದಶಮಾಂಶ ಸಂಖ್ಯೆಗಳ ಗುಣಾಕಾರ",
+        "total_slides": 8,
+        "duration_seconds": 361.08,
+        "duration_display": "6m 1s",
+        "file_size_mb": 15.68,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-FRA-1/NS-FRA-1_concept_7.mp4",
+        "s3_key": "videos/NS-FRA-1/NS-FRA-1_concept_7.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-FRA-1/NS-FRA-1_concept_7.wav",
+        "podcast_s3_key": "podcasts/NS-FRA-1/NS-FRA-1_concept_7.wav",
+        "podcast_duration_display": "4m 18s",
+        "podcast_duration_seconds": 258.42
+      },
+      {
+        "module_id": "NS-FRA-1_concept_8",
+        "module_title": "ದಶಮಾಂಶ ಸಂಖ್ಯೆಗಳ ಭಾಗಾಕಾರ",
+        "total_slides": 9,
+        "duration_seconds": 478.84,
+        "duration_display": "7m 58s",
+        "file_size_mb": 19.02,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-FRA-1/NS-FRA-1_concept_8.mp4",
+        "s3_key": "videos/NS-FRA-1/NS-FRA-1_concept_8.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-FRA-1/NS-FRA-1_concept_8.wav",
+        "podcast_s3_key": "podcasts/NS-FRA-1/NS-FRA-1_concept_8.wav",
+        "podcast_duration_display": "4m 41s",
+        "podcast_duration_seconds": 281.38
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 8,
+    "total_slides": 144,
+    "has_podcast": true,
+    "podcast_total_duration": "38m 28s"
+  },
+  {
+    "merge_code": "NS-INT-1",
+    "chapter_name": "Integers",
+    "chapter_numbers": [
+      1,
+      10
+    ],
+    "classes": [
+      6,
+      7
+    ],
+    "domain": "Number System & Arithmetic Foundations",
+    "full_video": {
+      "duration_seconds": 4080.6,
+      "duration_display": "68m 0s",
+      "file_size_mb": 124.67,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-INT-1/NS-INT-1_full.mp4",
+      "s3_key": "videos/NS-INT-1/NS-INT-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T21:23:43.875662+00:00",
+    "modules": [
+      {
+        "module_id": "NS-INT-1_concept_1",
+        "module_title": "ಪೂರ್ಣಾಂಕಗಳ ಪರಿಚಯ",
+        "total_slides": 24,
+        "duration_seconds": 1118.44,
+        "duration_display": "18m 38s",
+        "file_size_mb": 36.73,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-INT-1/NS-INT-1_concept_1.mp4",
+        "s3_key": "videos/NS-INT-1/NS-INT-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-INT-1/NS-INT-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/NS-INT-1/NS-INT-1_concept_1.wav",
+        "podcast_duration_display": "5m 35s",
+        "podcast_duration_seconds": 335.2
+      },
+      {
+        "module_id": "NS-INT-1_concept_2",
+        "module_title": "ಸಂಖ್ಯಾ ರೇಖೆಯ ಮೇಲೆ ಪೂರ್ಣಾಂಕಗಳು",
+        "total_slides": 9,
+        "duration_seconds": 406.0,
+        "duration_display": "6m 46s",
+        "file_size_mb": 17.53,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-INT-1/NS-INT-1_concept_2.mp4",
+        "s3_key": "videos/NS-INT-1/NS-INT-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-INT-1/NS-INT-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/NS-INT-1/NS-INT-1_concept_2.wav",
+        "podcast_duration_display": "4m 37s",
+        "podcast_duration_seconds": 277.9
+      },
+      {
+        "module_id": "NS-INT-1_concept_3",
+        "module_title": "ಪೂರ್ಣಾಂಕಗಳ ಸಂಕಲನ ಮತ್ತು ವ್ಯವಕಲನ",
+        "total_slides": 15,
+        "duration_seconds": 713.24,
+        "duration_display": "11m 53s",
+        "file_size_mb": 26.23,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-INT-1/NS-INT-1_concept_3.mp4",
+        "s3_key": "videos/NS-INT-1/NS-INT-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-INT-1/NS-INT-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/NS-INT-1/NS-INT-1_concept_3.wav",
+        "podcast_duration_display": "6m 3s",
+        "podcast_duration_seconds": 363.86
+      },
+      {
+        "module_id": "NS-INT-1_concept_4",
+        "module_title": "ಸಂಕಲನ ಮತ್ತು ವ್ಯವಕಲನದ ಗುಣಗಳು",
+        "total_slides": 11,
+        "duration_seconds": 474.28,
+        "duration_display": "7m 54s",
+        "file_size_mb": 18.5,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-INT-1/NS-INT-1_concept_4.mp4",
+        "s3_key": "videos/NS-INT-1/NS-INT-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-INT-1/NS-INT-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/NS-INT-1/NS-INT-1_concept_4.wav",
+        "podcast_duration_display": "5m 24s",
+        "podcast_duration_seconds": 324.62
+      },
+      {
+        "module_id": "NS-INT-1_concept_5",
+        "module_title": "ಪೂರ್ಣಾಂಕಗಳ ಗುಣಾಕಾರ ಮತ್ತು ಭಾಗಾಕಾರ",
+        "total_slides": 12,
+        "duration_seconds": 674.44,
+        "duration_display": "11m 14s",
+        "file_size_mb": 25.07,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-INT-1/NS-INT-1_concept_5.mp4",
+        "s3_key": "videos/NS-INT-1/NS-INT-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-INT-1/NS-INT-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/NS-INT-1/NS-INT-1_concept_5.wav",
+        "podcast_duration_display": "5m 8s",
+        "podcast_duration_seconds": 308.51
+      },
+      {
+        "module_id": "NS-INT-1_concept_6",
+        "module_title": "ಗುಣಾಕಾರ ಮತ್ತು ಭಾಗಾಕಾರದ ಗುಣಗಳು",
+        "total_slides": 15,
+        "duration_seconds": 733.36,
+        "duration_display": "12m 13s",
+        "file_size_mb": 26.18,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-INT-1/NS-INT-1_concept_6.mp4",
+        "s3_key": "videos/NS-INT-1/NS-INT-1_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-INT-1/NS-INT-1_concept_6.wav",
+        "podcast_s3_key": "podcasts/NS-INT-1/NS-INT-1_concept_6.wav",
+        "podcast_duration_display": "4m 44s",
+        "podcast_duration_seconds": 284.07
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 6,
+    "total_slides": 86,
+    "has_podcast": true,
+    "podcast_total_duration": "31m 34s"
+  },
+  {
+    "merge_code": "NS-NUM-1",
+    "chapter_name": "Number Play",
+    "chapter_numbers": [
+      3
+    ],
+    "classes": [
+      6
+    ],
+    "domain": "Number System & Arithmetic Foundations",
+    "full_video": {
+      "duration_seconds": 4753.24,
+      "duration_display": "79m 13s",
+      "file_size_mb": 144.77,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-NUM-1/NS-NUM-1_full.mp4",
+      "s3_key": "videos/NS-NUM-1/NS-NUM-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T21:45:49.120944+00:00",
+    "modules": [
+      {
+        "module_id": "NS-NUM-1_concept_1",
+        "module_title": "ಸೂಪರ್ ಸೆಲ್ (Super Cell)",
+        "total_slides": 13,
+        "duration_seconds": 608.6,
+        "duration_display": "10m 8s",
+        "file_size_mb": 22.85,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-NUM-1/NS-NUM-1_concept_1.mp4",
+        "s3_key": "videos/NS-NUM-1/NS-NUM-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-NUM-1/NS-NUM-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/NS-NUM-1/NS-NUM-1_concept_1.wav",
+        "podcast_duration_display": "4m 40s",
+        "podcast_duration_seconds": 280.72
+      },
+      {
+        "module_id": "NS-NUM-1_concept_2",
+        "module_title": "ಅಂಕಿಗಳ ಮೊತ್ತ ಮತ್ತು ಎಣಿಕೆ (Sum and Count of Digits)",
+        "total_slides": 14,
+        "duration_seconds": 712.16,
+        "duration_display": "11m 52s",
+        "file_size_mb": 25.9,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-NUM-1/NS-NUM-1_concept_2.mp4",
+        "s3_key": "videos/NS-NUM-1/NS-NUM-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-NUM-1/NS-NUM-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/NS-NUM-1/NS-NUM-1_concept_2.wav",
+        "podcast_duration_display": "5m 49s",
+        "podcast_duration_seconds": 349.81
+      },
+      {
+        "module_id": "NS-NUM-1_concept_3",
+        "module_title": "ಪಾಲಿಂಡ್ರೋಮ್ ಸಂಖ್ಯೆಗಳು (Palindrome Numbers)",
+        "total_slides": 17,
+        "duration_seconds": 656.76,
+        "duration_display": "10m 56s",
+        "file_size_mb": 23.79,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-NUM-1/NS-NUM-1_concept_3.mp4",
+        "s3_key": "videos/NS-NUM-1/NS-NUM-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-NUM-1/NS-NUM-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/NS-NUM-1/NS-NUM-1_concept_3.wav",
+        "podcast_duration_display": "4m 1s",
+        "podcast_duration_seconds": 241.07
+      },
+      {
+        "module_id": "NS-NUM-1_concept_4",
+        "module_title": "ಸಂಖ್ಯಾತ್ಮಕ ಸ್ಥಿರಾಂಕಗಳು ಮತ್ತು ಊಹೆಗಳು (Numerical Constants and Conjectures)",
+        "total_slides": 26,
+        "duration_seconds": 1173.48,
+        "duration_display": "19m 33s",
+        "file_size_mb": 38.79,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-NUM-1/NS-NUM-1_concept_4.mp4",
+        "s3_key": "videos/NS-NUM-1/NS-NUM-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-NUM-1/NS-NUM-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/NS-NUM-1/NS-NUM-1_concept_4.wav",
+        "podcast_duration_display": "7m 10s",
+        "podcast_duration_seconds": 430.1
+      },
+      {
+        "module_id": "NS-NUM-1_concept_5",
+        "module_title": "ಮಾನಸಿಕ ಗಣಿತ ಮತ್ತು ಅಂದಾಜು (Mental Math and Estimation)",
+        "total_slides": 17,
+        "duration_seconds": 790.92,
+        "duration_display": "13m 10s",
+        "file_size_mb": 28.37,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-NUM-1/NS-NUM-1_concept_5.mp4",
+        "s3_key": "videos/NS-NUM-1/NS-NUM-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-NUM-1/NS-NUM-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/NS-NUM-1/NS-NUM-1_concept_5.wav",
+        "podcast_duration_display": "4m 33s",
+        "podcast_duration_seconds": 273.5
+      },
+      {
+        "module_id": "NS-NUM-1_concept_6",
+        "module_title": "ಆಟಗಳು ಮತ್ತು ಗೆಲ್ಲುವ ತಂತ್ರಗಳು (Games and Winning Strategies)",
+        "total_slides": 17,
+        "duration_seconds": 850.52,
+        "duration_display": "14m 10s",
+        "file_size_mb": 30.65,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-NUM-1/NS-NUM-1_concept_6.mp4",
+        "s3_key": "videos/NS-NUM-1/NS-NUM-1_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-NUM-1/NS-NUM-1_concept_6.wav",
+        "podcast_s3_key": "podcasts/NS-NUM-1/NS-NUM-1_concept_6.wav",
+        "podcast_duration_display": "4m 19s",
+        "podcast_duration_seconds": 259.53
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 6,
+    "total_slides": 104,
+    "has_podcast": true,
+    "podcast_total_duration": "30m 34s"
+  },
+  {
+    "merge_code": "NS-PRI-1",
+    "chapter_name": "Prime Time",
+    "chapter_numbers": [
+      5
+    ],
+    "classes": [
+      6
+    ],
+    "domain": "Number System & Arithmetic Foundations",
+    "full_video": {
+      "duration_seconds": 5198.72,
+      "duration_display": "86m 38s",
+      "file_size_mb": 156.38,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-PRI-1/NS-PRI-1_full.mp4",
+      "s3_key": "videos/NS-PRI-1/NS-PRI-1_full.mp4"
+    },
+    "generated_at": "2026-04-06T22:09:32.887185+00:00",
+    "modules": [
+      {
+        "module_id": "NS-PRI-1_concept_1",
+        "module_title": "ಅಪವರ್ತ್ಯಗಳು ಮತ್ತು ಅಪವರ್ತನಗಳು (Multiples and Factors)",
+        "total_slides": 37,
+        "duration_seconds": 1651.0,
+        "duration_display": "27m 31s",
+        "file_size_mb": 52.15,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-PRI-1/NS-PRI-1_concept_1.mp4",
+        "s3_key": "videos/NS-PRI-1/NS-PRI-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-PRI-1/NS-PRI-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/NS-PRI-1/NS-PRI-1_concept_1.wav",
+        "podcast_duration_display": "6m 39s",
+        "podcast_duration_seconds": 399.65
+      },
+      {
+        "module_id": "NS-PRI-1_concept_2",
+        "module_title": "ಅವಿಭಾಜ್ಯ ಮತ್ತು ಸಂಯುಕ್ತ ಸಂಖ್ಯೆಗಳು (Prime and Composite Numbers)",
+        "total_slides": 23,
+        "duration_seconds": 1111.92,
+        "duration_display": "18m 31s",
+        "file_size_mb": 36.41,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-PRI-1/NS-PRI-1_concept_2.mp4",
+        "s3_key": "videos/NS-PRI-1/NS-PRI-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-PRI-1/NS-PRI-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/NS-PRI-1/NS-PRI-1_concept_2.wav",
+        "podcast_duration_display": "6m 36s",
+        "podcast_duration_seconds": 396.72
+      },
+      {
+        "module_id": "NS-PRI-1_concept_3",
+        "module_title": "ಅವಿಭಾಜ್ಯ ಅಪವರ್ತಿಕರಣ (Prime Factorization)",
+        "total_slides": 21,
+        "duration_seconds": 952.72,
+        "duration_display": "15m 52s",
+        "file_size_mb": 32.54,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-PRI-1/NS-PRI-1_concept_3.mp4",
+        "s3_key": "videos/NS-PRI-1/NS-PRI-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-PRI-1/NS-PRI-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/NS-PRI-1/NS-PRI-1_concept_3.wav",
+        "podcast_duration_display": "5m 30s",
+        "podcast_duration_seconds": 330.27
+      },
+      {
+        "module_id": "NS-PRI-1_concept_4",
+        "module_title": "ಸಹಅವಿಭಾಜ್ಯ ಸಂಖ್ಯೆಗಳು (Co-prime Numbers)",
+        "total_slides": 16,
+        "duration_seconds": 755.48,
+        "duration_display": "12m 35s",
+        "file_size_mb": 27.21,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-PRI-1/NS-PRI-1_concept_4.mp4",
+        "s3_key": "videos/NS-PRI-1/NS-PRI-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-PRI-1/NS-PRI-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/NS-PRI-1/NS-PRI-1_concept_4.wav",
+        "podcast_duration_display": "5m 49s",
+        "podcast_duration_seconds": 349.85
+      },
+      {
+        "module_id": "NS-PRI-1_concept_5",
+        "module_title": "ಭಾಜ್ಯತೆಯ ನಿಯಮಗಳು (Divisibility Rules)",
+        "total_slides": 13,
+        "duration_seconds": 759.0,
+        "duration_display": "12m 39s",
+        "file_size_mb": 28.52,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-PRI-1/NS-PRI-1_concept_5.mp4",
+        "s3_key": "videos/NS-PRI-1/NS-PRI-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-PRI-1/NS-PRI-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/NS-PRI-1/NS-PRI-1_concept_5.wav",
+        "podcast_duration_display": "8m 35s",
+        "podcast_duration_seconds": 515.6
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 110,
+    "has_podcast": true,
+    "podcast_total_duration": "33m 12s"
+  },
+  {
+    "merge_code": "NS-RAT-2",
+    "chapter_name": "Rational Numbers",
+    "chapter_numbers": [
+      1,
+      8
+    ],
+    "classes": [
+      7,
+      8
+    ],
+    "domain": "Number System & Arithmetic Foundations",
+    "full_video": {
+      "duration_seconds": 5934.32,
+      "duration_display": "98m 54s",
+      "file_size_mb": 173.19,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-RAT-2/NS-RAT-2_full.mp4",
+      "s3_key": "videos/NS-RAT-2/NS-RAT-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T22:36:19.979895+00:00",
+    "modules": [
+      {
+        "module_id": "NS-RAT-2_concept_1",
+        "module_title": "ಭಾಗಲಬ್ಧ ಸಂಖ್ಯೆಗಳ ಪರಿಚಯ ಮತ್ತು ನಿರೂಪಣೆ",
+        "total_slides": 31,
+        "duration_seconds": 1517.36,
+        "duration_display": "25m 17s",
+        "file_size_mb": 47.38,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-RAT-2/NS-RAT-2_concept_1.mp4",
+        "s3_key": "videos/NS-RAT-2/NS-RAT-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-RAT-2/NS-RAT-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/NS-RAT-2/NS-RAT-2_concept_1.wav",
+        "podcast_duration_display": "7m 20s",
+        "podcast_duration_seconds": 440.75
+      },
+      {
+        "module_id": "NS-RAT-2_concept_2",
+        "module_title": "ಭಾಗಲಬ್ಧ ಸಂಖ್ಯೆಗಳ ಹೋಲಿಕೆ ಮತ್ತು ಅವುಗಳ ನಡುವಿನ ಸಂಖ್ಯೆಗಳು",
+        "total_slides": 15,
+        "duration_seconds": 734.24,
+        "duration_display": "12m 14s",
+        "file_size_mb": 26.15,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-RAT-2/NS-RAT-2_concept_2.mp4",
+        "s3_key": "videos/NS-RAT-2/NS-RAT-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-RAT-2/NS-RAT-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/NS-RAT-2/NS-RAT-2_concept_2.wav",
+        "podcast_duration_display": "5m 55s",
+        "podcast_duration_seconds": 355.74
+      },
+      {
+        "module_id": "NS-RAT-2_concept_3",
+        "module_title": "ಭಾಗಲಬ್ಧ ಸಂಖ್ಯೆಗಳ ಗುಣಲಕ್ಷಣಗಳು",
+        "total_slides": 13,
+        "duration_seconds": 844.8,
+        "duration_display": "14m 4s",
+        "file_size_mb": 29.44,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-RAT-2/NS-RAT-2_concept_3.mp4",
+        "s3_key": "videos/NS-RAT-2/NS-RAT-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-RAT-2/NS-RAT-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/NS-RAT-2/NS-RAT-2_concept_3.wav",
+        "podcast_duration_display": "4m 34s",
+        "podcast_duration_seconds": 274.2
+      },
+      {
+        "module_id": "NS-RAT-2_concept_4",
+        "module_title": "ವಿಶೇಷ ಪಾತ್ರಗಳು ಮತ್ತು ವಿತರಣಾ ನಿಯಮ",
+        "total_slides": 36,
+        "duration_seconds": 1588.12,
+        "duration_display": "26m 28s",
+        "file_size_mb": 49.38,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-RAT-2/NS-RAT-2_concept_4.mp4",
+        "s3_key": "videos/NS-RAT-2/NS-RAT-2_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-RAT-2/NS-RAT-2_concept_4.wav",
+        "podcast_s3_key": "podcasts/NS-RAT-2/NS-RAT-2_concept_4.wav",
+        "podcast_duration_display": "6m 54s",
+        "podcast_duration_seconds": 414.01
+      },
+      {
+        "module_id": "NS-RAT-2_concept_5",
+        "module_title": "ಭಾಗಲಬ್ಧ ಸಂಖ್ಯೆಗಳ ಮೇಲಿನ ಮೂಲಕ್ರಿಯೆಗಳು",
+        "total_slides": 27,
+        "duration_seconds": 1281.2,
+        "duration_display": "21m 21s",
+        "file_size_mb": 41.18,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-RAT-2/NS-RAT-2_concept_5.mp4",
+        "s3_key": "videos/NS-RAT-2/NS-RAT-2_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-RAT-2/NS-RAT-2_concept_5.wav",
+        "podcast_s3_key": "podcasts/NS-RAT-2/NS-RAT-2_concept_5.wav",
+        "podcast_duration_display": "5m 24s",
+        "podcast_duration_seconds": 325.0
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 122,
+    "has_podcast": true,
+    "podcast_total_duration": "30m 9s"
+  },
+  {
+    "merge_code": "NS-REAL-4",
+    "chapter_name": "Real Numbers",
+    "chapter_numbers": [
+      1
+    ],
+    "classes": [
+      10
+    ],
+    "domain": "Number System & Arithmetic Foundations",
+    "full_video": {
+      "duration_seconds": 5192.88,
+      "duration_display": "86m 32s",
+      "file_size_mb": 153.5,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-REAL-4/NS-REAL-4_full.mp4",
+      "s3_key": "videos/NS-REAL-4/NS-REAL-4_full.mp4"
+    },
+    "generated_at": "2026-04-06T22:59:59.773419+00:00",
+    "modules": [
+      {
+        "module_id": "NS-REAL-4_concept_1",
+        "module_title": "ಅಂಕಗಣಿತದ ಮೂಲ ಪ್ರಮೇಯ (Fundamental Theorem of Arithmetic)",
+        "total_slides": 66,
+        "duration_seconds": 3206.52,
+        "duration_display": "53m 26s",
+        "file_size_mb": 96.36,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-REAL-4/NS-REAL-4_concept_1.mp4",
+        "s3_key": "videos/NS-REAL-4/NS-REAL-4_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-REAL-4/NS-REAL-4_concept_1.wav",
+        "podcast_s3_key": "podcasts/NS-REAL-4/NS-REAL-4_concept_1.wav",
+        "podcast_duration_display": "7m 46s",
+        "podcast_duration_seconds": 466.93
+      },
+      {
+        "module_id": "NS-REAL-4_concept_2",
+        "module_title": "ಅಭಾಗಲಬ್ಧ ಸಂಖ್ಯೆಗಳು (Irrational Numbers)",
+        "total_slides": 41,
+        "duration_seconds": 1994.24,
+        "duration_display": "33m 14s",
+        "file_size_mb": 62.27,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-REAL-4/NS-REAL-4_concept_2.mp4",
+        "s3_key": "videos/NS-REAL-4/NS-REAL-4_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-REAL-4/NS-REAL-4_concept_2.wav",
+        "podcast_s3_key": "podcasts/NS-REAL-4/NS-REAL-4_concept_2.wav",
+        "podcast_duration_display": "9m 22s",
+        "podcast_duration_seconds": 562.77
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 2,
+    "total_slides": 107,
+    "has_podcast": true,
+    "podcast_total_duration": "17m 9s"
+  },
+  {
+    "merge_code": "NS-SQR-2",
+    "chapter_name": "Squares and Square Roots",
+    "chapter_numbers": [
+      5
+    ],
+    "classes": [
+      8
+    ],
+    "domain": "Number System & Arithmetic Foundations",
+    "full_video": {
+      "duration_seconds": 7045.4,
+      "duration_display": "117m 25s",
+      "file_size_mb": 209.74,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SQR-2/NS-SQR-2_full.mp4",
+      "s3_key": "videos/NS-SQR-2/NS-SQR-2_full.mp4"
+    },
+    "generated_at": "2026-04-06T23:32:37.353515+00:00",
+    "modules": [
+      {
+        "module_id": "NS-SQR-2_concept_1",
+        "module_title": "ವರ್ಗ ಸಂಖ್ಯೆಗಳು (Square Numbers)",
+        "total_slides": 12,
+        "duration_seconds": 508.28,
+        "duration_display": "8m 28s",
+        "file_size_mb": 19.48,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SQR-2/NS-SQR-2_concept_1.mp4",
+        "s3_key": "videos/NS-SQR-2/NS-SQR-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SQR-2/NS-SQR-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/NS-SQR-2/NS-SQR-2_concept_1.wav",
+        "podcast_duration_display": "4m 8s",
+        "podcast_duration_seconds": 248.82
+      },
+      {
+        "module_id": "NS-SQR-2_concept_2",
+        "module_title": "ವರ್ಗ ಸಂಖ್ಯೆಗಳ ಗುಣಲಕ್ಷಣಗಳು (Properties of Square Numbers)",
+        "total_slides": 11,
+        "duration_seconds": 501.56,
+        "duration_display": "8m 21s",
+        "file_size_mb": 19.33,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SQR-2/NS-SQR-2_concept_2.mp4",
+        "s3_key": "videos/NS-SQR-2/NS-SQR-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SQR-2/NS-SQR-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/NS-SQR-2/NS-SQR-2_concept_2.wav",
+        "podcast_duration_display": "5m 24s",
+        "podcast_duration_seconds": 324.51
+      },
+      {
+        "module_id": "NS-SQR-2_concept_3",
+        "module_title": "ವರ್ಗ ಸಂಖ್ಯೆಗಳಲ್ಲಿನ ಮಾದರಿಗಳು (Patterns in Square Numbers)",
+        "total_slides": 12,
+        "duration_seconds": 599.84,
+        "duration_display": "9m 59s",
+        "file_size_mb": 22.68,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SQR-2/NS-SQR-2_concept_3.mp4",
+        "s3_key": "videos/NS-SQR-2/NS-SQR-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SQR-2/NS-SQR-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/NS-SQR-2/NS-SQR-2_concept_3.wav",
+        "podcast_duration_display": "6m 14s",
+        "podcast_duration_seconds": 374.84
+      },
+      {
+        "module_id": "NS-SQR-2_concept_4",
+        "module_title": "ವರ್ಗಗಳನ್ನು ಕಂಡುಹಿಡಿಯುವ ವಿಧಾನಗಳು (Methods to Find Squares)",
+        "total_slides": 23,
+        "duration_seconds": 946.16,
+        "duration_display": "15m 46s",
+        "file_size_mb": 30.71,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SQR-2/NS-SQR-2_concept_4.mp4",
+        "s3_key": "videos/NS-SQR-2/NS-SQR-2_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SQR-2/NS-SQR-2_concept_4.wav",
+        "podcast_s3_key": "podcasts/NS-SQR-2/NS-SQR-2_concept_4.wav",
+        "podcast_duration_display": "3m 0s",
+        "podcast_duration_seconds": 180.95
+      },
+      {
+        "module_id": "NS-SQR-2_concept_5",
+        "module_title": "ಪೈಥಾಗೋರಸ್ ತ್ರಿವಳಿಗಳು (Pythagorean Triplets)",
+        "total_slides": 25,
+        "duration_seconds": 1112.04,
+        "duration_display": "18m 32s",
+        "file_size_mb": 37.77,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SQR-2/NS-SQR-2_concept_5.mp4",
+        "s3_key": "videos/NS-SQR-2/NS-SQR-2_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SQR-2/NS-SQR-2_concept_5.wav",
+        "podcast_s3_key": "podcasts/NS-SQR-2/NS-SQR-2_concept_5.wav",
+        "podcast_duration_display": "6m 6s",
+        "podcast_duration_seconds": 366.23
+      },
+      {
+        "module_id": "NS-SQR-2_concept_6",
+        "module_title": "ವರ್ಗಮೂಲಗಳು (Square Roots)",
+        "total_slides": 15,
+        "duration_seconds": 711.52,
+        "duration_display": "11m 51s",
+        "file_size_mb": 24.34,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SQR-2/NS-SQR-2_concept_6.mp4",
+        "s3_key": "videos/NS-SQR-2/NS-SQR-2_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SQR-2/NS-SQR-2_concept_6.wav",
+        "podcast_s3_key": "podcasts/NS-SQR-2/NS-SQR-2_concept_6.wav",
+        "podcast_duration_display": "3m 17s",
+        "podcast_duration_seconds": 197.29
+      },
+      {
+        "module_id": "NS-SQR-2_concept_7",
+        "module_title": "ವರ್ಗಮೂಲವನ್ನು ಕಂಡುಹಿಡಿಯುವ ವಿಧಾನಗಳು (Methods to Find Square Roots)",
+        "total_slides": 41,
+        "duration_seconds": 2011.92,
+        "duration_display": "33m 31s",
+        "file_size_mb": 65.27,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SQR-2/NS-SQR-2_concept_7.mp4",
+        "s3_key": "videos/NS-SQR-2/NS-SQR-2_concept_7.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SQR-2/NS-SQR-2_concept_7.wav",
+        "podcast_s3_key": "podcasts/NS-SQR-2/NS-SQR-2_concept_7.wav",
+        "podcast_duration_display": "9m 2s",
+        "podcast_duration_seconds": 542.25
+      },
+      {
+        "module_id": "NS-SQR-2_concept_8",
+        "module_title": "ದಶಮಾಂಶ ಸಂಖ್ಯೆಗಳ ವರ್ಗಮೂಲಗಳು (Square Roots of Decimal Numbers)",
+        "total_slides": 17,
+        "duration_seconds": 708.96,
+        "duration_display": "11m 48s",
+        "file_size_mb": 26.01,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SQR-2/NS-SQR-2_concept_8.mp4",
+        "s3_key": "videos/NS-SQR-2/NS-SQR-2_concept_8.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SQR-2/NS-SQR-2_concept_8.wav",
+        "podcast_s3_key": "podcasts/NS-SQR-2/NS-SQR-2_concept_8.wav",
+        "podcast_duration_display": "5m 25s",
+        "podcast_duration_seconds": 325.22
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 8,
+    "total_slides": 156,
+    "has_podcast": true,
+    "podcast_total_duration": "42m 40s"
+  },
+  {
+    "merge_code": "NS-SYS-3",
+    "chapter_name": "Number Systems",
+    "chapter_numbers": [
+      1
+    ],
+    "classes": [
+      9
+    ],
+    "domain": "Number System & Arithmetic Foundations",
+    "full_video": {
+      "duration_seconds": 9466.24,
+      "duration_display": "157m 46s",
+      "file_size_mb": 276.59,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SYS-3/NS-SYS-3_full.mp4",
+      "s3_key": "videos/NS-SYS-3/NS-SYS-3_full.mp4"
+    },
+    "generated_at": "2026-04-07T00:13:10.748539+00:00",
+    "modules": [
+      {
+        "module_id": "NS-SYS-3_concept_1",
+        "module_title": "ಸಂಖ್ಯಾ ವ್ಯವಸ್ಥೆಗಳ ಪರಿಚಯ (Introduction to Number Systems)",
+        "total_slides": 35,
+        "duration_seconds": 1557.04,
+        "duration_display": "25m 57s",
+        "file_size_mb": 50.05,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SYS-3/NS-SYS-3_concept_1.mp4",
+        "s3_key": "videos/NS-SYS-3/NS-SYS-3_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SYS-3/NS-SYS-3_concept_1.wav",
+        "podcast_s3_key": "podcasts/NS-SYS-3/NS-SYS-3_concept_1.wav",
+        "podcast_duration_display": "7m 33s",
+        "podcast_duration_seconds": 453.58
+      },
+      {
+        "module_id": "NS-SYS-3_concept_2",
+        "module_title": "ಅಭಾಗಲಬ್ಧ ಮತ್ತು ವಾಸ್ತವ ಸಂಖ್ಯೆಗಳು (Irrational and Real Numbers)",
+        "total_slides": 25,
+        "duration_seconds": 1154.2,
+        "duration_display": "19m 14s",
+        "file_size_mb": 40.01,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SYS-3/NS-SYS-3_concept_2.mp4",
+        "s3_key": "videos/NS-SYS-3/NS-SYS-3_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SYS-3/NS-SYS-3_concept_2.wav",
+        "podcast_s3_key": "podcasts/NS-SYS-3/NS-SYS-3_concept_2.wav",
+        "podcast_duration_display": "6m 24s",
+        "podcast_duration_seconds": 384.37
+      },
+      {
+        "module_id": "NS-SYS-3_concept_3",
+        "module_title": "ದಶಮಾಂಶ ವಿಸ್ತರಣೆಗಳು (Decimal Expansions)",
+        "total_slides": 22,
+        "duration_seconds": 977.32,
+        "duration_display": "16m 17s",
+        "file_size_mb": 33.45,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SYS-3/NS-SYS-3_concept_3.mp4",
+        "s3_key": "videos/NS-SYS-3/NS-SYS-3_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SYS-3/NS-SYS-3_concept_3.wav",
+        "podcast_s3_key": "podcasts/NS-SYS-3/NS-SYS-3_concept_3.wav",
+        "podcast_duration_display": "6m 11s",
+        "podcast_duration_seconds": 371.03
+      },
+      {
+        "module_id": "NS-SYS-3_concept_4",
+        "module_title": "ವಾಸ್ತವ ಸಂಖ್ಯೆಗಳ ಮೇಲಿನ ಕ್ರಿಯೆಗಳು ಮತ್ತು ಕರಣಿಗಳು (Operations on Real Numbers and Surds)",
+        "total_slides": 53,
+        "duration_seconds": 2538.0,
+        "duration_display": "42m 18s",
+        "file_size_mb": 77.44,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SYS-3/NS-SYS-3_concept_4.mp4",
+        "s3_key": "videos/NS-SYS-3/NS-SYS-3_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SYS-3/NS-SYS-3_concept_4.wav",
+        "podcast_s3_key": "podcasts/NS-SYS-3/NS-SYS-3_concept_4.wav",
+        "podcast_duration_display": "7m 4s",
+        "podcast_duration_seconds": 424.07
+      },
+      {
+        "module_id": "NS-SYS-3_concept_5",
+        "module_title": "ಛೇದದ ಅಕರಣೀಕರಣ (Rationalizing the Denominator)",
+        "total_slides": 26,
+        "duration_seconds": 1085.04,
+        "duration_display": "18m 5s",
+        "file_size_mb": 35.65,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SYS-3/NS-SYS-3_concept_5.mp4",
+        "s3_key": "videos/NS-SYS-3/NS-SYS-3_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SYS-3/NS-SYS-3_concept_5.wav",
+        "podcast_s3_key": "podcasts/NS-SYS-3/NS-SYS-3_concept_5.wav",
+        "podcast_duration_display": "6m 7s",
+        "podcast_duration_seconds": 367.17
+      },
+      {
+        "module_id": "NS-SYS-3_concept_6",
+        "module_title": "ವಾಸ್ತವ ಸಂಖ್ಯೆಗಳಿಗೆ ಘಾತಾಂಕಗಳ ನಿಯಮಗಳು (Laws of Exponents for Real Numbers)",
+        "total_slides": 44,
+        "duration_seconds": 2193.8,
+        "duration_display": "36m 33s",
+        "file_size_mb": 65.72,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/NS-SYS-3/NS-SYS-3_concept_6.mp4",
+        "s3_key": "videos/NS-SYS-3/NS-SYS-3_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/NS-SYS-3/NS-SYS-3_concept_6.wav",
+        "podcast_s3_key": "podcasts/NS-SYS-3/NS-SYS-3_concept_6.wav",
+        "podcast_duration_display": "6m 16s",
+        "podcast_duration_seconds": 376.23
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 6,
+    "total_slides": 205,
+    "has_podcast": true,
+    "podcast_total_duration": "39m 36s"
+  },
+  {
+    "merge_code": "PROB-BAS-1",
+    "chapter_name": "Probability",
+    "chapter_numbers": [
+      14
+    ],
+    "classes": [
+      10
+    ],
+    "domain": "Probability",
+    "full_video": {
+      "duration_seconds": 6400.44,
+      "duration_display": "106m 40s",
+      "file_size_mb": 191.27,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/PROB-BAS-1/PROB-BAS-1_full.mp4",
+      "s3_key": "videos/PROB-BAS-1/PROB-BAS-1_full.mp4"
+    },
+    "generated_at": "2026-04-07T00:41:43.280617+00:00",
+    "modules": [
+      {
+        "module_id": "PROB-BAS-1_concept_1",
+        "module_title": "ಸಂಭವನೀಯತೆಯ ಮೂಲಭೂತ ಪರಿಕಲ್ಪನೆಗಳು (Fundamental Concepts of Probability)",
+        "total_slides": 19,
+        "duration_seconds": 930.0,
+        "duration_display": "15m 30s",
+        "file_size_mb": 32.81,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/PROB-BAS-1/PROB-BAS-1_concept_1.mp4",
+        "s3_key": "videos/PROB-BAS-1/PROB-BAS-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/PROB-BAS-1/PROB-BAS-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/PROB-BAS-1/PROB-BAS-1_concept_1.wav",
+        "podcast_duration_display": "4m 9s",
+        "podcast_duration_seconds": 249.57
+      },
+      {
+        "module_id": "PROB-BAS-1_concept_2",
+        "module_title": "ಸಂಭವನೀಯತೆಯ ಸೈದ್ಧಾಂತಿಕ ವ್ಯಾಖ್ಯಾನ (Theoretical Definition of Probability)",
+        "total_slides": 47,
+        "duration_seconds": 1887.56,
+        "duration_display": "31m 27s",
+        "file_size_mb": 59.61,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/PROB-BAS-1/PROB-BAS-1_concept_2.mp4",
+        "s3_key": "videos/PROB-BAS-1/PROB-BAS-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/PROB-BAS-1/PROB-BAS-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/PROB-BAS-1/PROB-BAS-1_concept_2.wav",
+        "podcast_duration_display": "6m 35s",
+        "podcast_duration_seconds": 395.03
+      },
+      {
+        "module_id": "PROB-BAS-1_concept_3",
+        "module_title": "ಪೂರಕ ಘಟನೆಗಳು (Complementary Events)",
+        "total_slides": 32,
+        "duration_seconds": 1404.88,
+        "duration_display": "23m 24s",
+        "file_size_mb": 45.47,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/PROB-BAS-1/PROB-BAS-1_concept_3.mp4",
+        "s3_key": "videos/PROB-BAS-1/PROB-BAS-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/PROB-BAS-1/PROB-BAS-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/PROB-BAS-1/PROB-BAS-1_concept_3.wav",
+        "podcast_duration_display": "5m 14s",
+        "podcast_duration_seconds": 314.33
+      },
+      {
+        "module_id": "PROB-BAS-1_concept_4",
+        "module_title": "ಮಾದರಿ ಅವಕಾಶ ಮತ್ತು ಸಂಯುಕ್ತ ಘಟನೆಗಳು (Sample Space and Compound Events)",
+        "total_slides": 29,
+        "duration_seconds": 1274.64,
+        "duration_display": "21m 14s",
+        "file_size_mb": 41.39,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/PROB-BAS-1/PROB-BAS-1_concept_4.mp4",
+        "s3_key": "videos/PROB-BAS-1/PROB-BAS-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/PROB-BAS-1/PROB-BAS-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/PROB-BAS-1/PROB-BAS-1_concept_4.wav",
+        "podcast_duration_display": "7m 49s",
+        "podcast_duration_seconds": 469.75
+      },
+      {
+        "module_id": "PROB-BAS-1_concept_5",
+        "module_title": "ಜ್ಯಾಮಿತೀಯ ಸಂಭವನೀಯತೆ (Geometric Probability)",
+        "total_slides": 20,
+        "duration_seconds": 934.68,
+        "duration_display": "15m 34s",
+        "file_size_mb": 32.42,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/PROB-BAS-1/PROB-BAS-1_concept_5.mp4",
+        "s3_key": "videos/PROB-BAS-1/PROB-BAS-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/PROB-BAS-1/PROB-BAS-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/PROB-BAS-1/PROB-BAS-1_concept_5.wav",
+        "podcast_duration_display": "5m 39s",
+        "podcast_duration_seconds": 339.07
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 147,
+    "has_podcast": true,
+    "podcast_total_duration": "29m 27s"
+  },
+  {
+    "merge_code": "RPP-COMP-1",
+    "chapter_name": "Comparing Quantities",
+    "chapter_numbers": [
+      7
+    ],
+    "classes": [
+      7,
+      8
+    ],
+    "domain": "Ratio Percentage Proportion",
+    "full_video": {
+      "duration_seconds": 8411.16,
+      "duration_display": "140m 11s",
+      "file_size_mb": 245.97,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/RPP-COMP-1/RPP-COMP-1_full.mp4",
+      "s3_key": "videos/RPP-COMP-1/RPP-COMP-1_full.mp4"
+    },
+    "generated_at": "2026-04-07T01:21:12.825579+00:00",
+    "modules": [
+      {
+        "module_id": "RPP-COMP-1_concept_1",
+        "module_title": "ಅನುಪಾತ ಮತ್ತು ಶೇಕಡಾವಾರು",
+        "total_slides": 43,
+        "duration_seconds": 1953.24,
+        "duration_display": "32m 33s",
+        "file_size_mb": 60.34,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/RPP-COMP-1/RPP-COMP-1_concept_1.mp4",
+        "s3_key": "videos/RPP-COMP-1/RPP-COMP-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/RPP-COMP-1/RPP-COMP-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/RPP-COMP-1/RPP-COMP-1_concept_1.wav",
+        "podcast_duration_display": "6m 31s",
+        "podcast_duration_seconds": 391.24
+      },
+      {
+        "module_id": "RPP-COMP-1_concept_2",
+        "module_title": "ಶೇಕಡಾವಾರು ಏರಿಕೆ ಮತ್ತು ಇಳಿಕೆ",
+        "total_slides": 15,
+        "duration_seconds": 187.04,
+        "duration_display": "3m 7s",
+        "file_size_mb": 10.44,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/RPP-COMP-1/RPP-COMP-1_concept_2.mp4",
+        "s3_key": "videos/RPP-COMP-1/RPP-COMP-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/RPP-COMP-1/RPP-COMP-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/RPP-COMP-1/RPP-COMP-1_concept_2.wav",
+        "podcast_duration_display": "3m 44s",
+        "podcast_duration_seconds": 224.03
+      },
+      {
+        "module_id": "RPP-COMP-1_concept_3",
+        "module_title": "ಕೊಂಡ ಬೆಲೆ, ಮಾರಿದ ಬೆಲೆ, ಲಾಭ ಮತ್ತು ನಷ್ಟ",
+        "total_slides": 42,
+        "duration_seconds": 1800.68,
+        "duration_display": "30m 0s",
+        "file_size_mb": 56.52,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/RPP-COMP-1/RPP-COMP-1_concept_3.mp4",
+        "s3_key": "videos/RPP-COMP-1/RPP-COMP-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/RPP-COMP-1/RPP-COMP-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/RPP-COMP-1/RPP-COMP-1_concept_3.wav",
+        "podcast_duration_display": "5m 47s",
+        "podcast_duration_seconds": 347.88
+      },
+      {
+        "module_id": "RPP-COMP-1_concept_4",
+        "module_title": "ರಿಯಾಯಿತಿ ಮತ್ತು ತೆರಿಗೆಗಳು",
+        "total_slides": 40,
+        "duration_seconds": 1777.72,
+        "duration_display": "29m 37s",
+        "file_size_mb": 57.24,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/RPP-COMP-1/RPP-COMP-1_concept_4.mp4",
+        "s3_key": "videos/RPP-COMP-1/RPP-COMP-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/RPP-COMP-1/RPP-COMP-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/RPP-COMP-1/RPP-COMP-1_concept_4.wav",
+        "podcast_duration_display": "6m 29s",
+        "podcast_duration_seconds": 389.08
+      },
+      {
+        "module_id": "RPP-COMP-1_concept_5",
+        "module_title": "ಸರಳ ಬಡ್ಡಿ",
+        "total_slides": 33,
+        "duration_seconds": 1471.72,
+        "duration_display": "24m 31s",
+        "file_size_mb": 47.13,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/RPP-COMP-1/RPP-COMP-1_concept_5.mp4",
+        "s3_key": "videos/RPP-COMP-1/RPP-COMP-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/RPP-COMP-1/RPP-COMP-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/RPP-COMP-1/RPP-COMP-1_concept_5.wav",
+        "podcast_duration_display": "5m 56s",
+        "podcast_duration_seconds": 356.94
+      },
+      {
+        "module_id": "RPP-COMP-1_concept_6",
+        "module_title": "ಚಕ್ರಬಡ್ಡಿ",
+        "total_slides": 26,
+        "duration_seconds": 1259.96,
+        "duration_display": "20m 59s",
+        "file_size_mb": 39.96,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/RPP-COMP-1/RPP-COMP-1_concept_6.mp4",
+        "s3_key": "videos/RPP-COMP-1/RPP-COMP-1_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/RPP-COMP-1/RPP-COMP-1_concept_6.wav",
+        "podcast_s3_key": "podcasts/RPP-COMP-1/RPP-COMP-1_concept_6.wav",
+        "podcast_duration_display": "5m 36s",
+        "podcast_duration_seconds": 336.72
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 6,
+    "total_slides": 199,
+    "has_podcast": true,
+    "podcast_total_duration": "39m 57s"
+  },
+  {
+    "merge_code": "RPP-PROP-2",
+    "chapter_name": "Direct and Inverse Proportions",
+    "chapter_numbers": [
+      11
+    ],
+    "classes": [
+      8
+    ],
+    "domain": "Ratio Percentage Proportion",
+    "full_video": {
+      "duration_seconds": 3066.64,
+      "duration_display": "51m 6s",
+      "file_size_mb": 94.9,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/RPP-PROP-2/RPP-PROP-2_full.mp4",
+      "s3_key": "videos/RPP-PROP-2/RPP-PROP-2_full.mp4"
+    },
+    "generated_at": "2026-04-07T01:35:52.451795+00:00",
+    "modules": [
+      {
+        "module_id": "RPP-PROP-2_concept_1",
+        "module_title": "ನೇರ ಅನುಪಾತ (Direct Proportion)",
+        "total_slides": 35,
+        "duration_seconds": 1736.64,
+        "duration_display": "28m 56s",
+        "file_size_mb": 55.35,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/RPP-PROP-2/RPP-PROP-2_concept_1.mp4",
+        "s3_key": "videos/RPP-PROP-2/RPP-PROP-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/RPP-PROP-2/RPP-PROP-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/RPP-PROP-2/RPP-PROP-2_concept_1.wav",
+        "podcast_duration_display": "7m 22s",
+        "podcast_duration_seconds": 442.17
+      },
+      {
+        "module_id": "RPP-PROP-2_concept_2",
+        "module_title": "ವಿಲೋಮ ಅನುಪಾತ (Inverse Proportion)",
+        "total_slides": 27,
+        "duration_seconds": 1337.84,
+        "duration_display": "22m 17s",
+        "file_size_mb": 44.64,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/RPP-PROP-2/RPP-PROP-2_concept_2.mp4",
+        "s3_key": "videos/RPP-PROP-2/RPP-PROP-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/RPP-PROP-2/RPP-PROP-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/RPP-PROP-2/RPP-PROP-2_concept_2.wav",
+        "podcast_duration_display": "6m 7s",
+        "podcast_duration_seconds": 367.25
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 2,
+    "total_slides": 62,
+    "has_podcast": true,
+    "podcast_total_duration": "13m 29s"
+  },
+  {
+    "merge_code": "TRI-APP-2",
+    "chapter_name": "Some Applications of Trigonometry",
+    "chapter_numbers": [
+      9
+    ],
+    "classes": [
+      10
+    ],
+    "domain": "Trigonometry",
+    "full_video": {
+      "duration_seconds": 3171.4,
+      "duration_display": "52m 51s",
+      "file_size_mb": 101.1,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/TRI-APP-2/TRI-APP-2_full.mp4",
+      "s3_key": "videos/TRI-APP-2/TRI-APP-2_full.mp4"
+    },
+    "generated_at": "2026-04-07T01:49:58.491731+00:00",
+    "modules": [
+      {
+        "module_id": "TRI-APP-2_concept_1",
+        "module_title": "ಎತ್ತರ ಮತ್ತು ದೂರಗಳು: ಉನ್ನತ ಮತ್ತು ಅವನತ ಕೋನಗಳು",
+        "total_slides": 60,
+        "duration_seconds": 3171.4,
+        "duration_display": "52m 51s",
+        "file_size_mb": 101.1,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/TRI-APP-2/TRI-APP-2_concept_1.mp4",
+        "s3_key": "videos/TRI-APP-2/TRI-APP-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/TRI-APP-2/TRI-APP-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/TRI-APP-2/TRI-APP-2_concept_1.wav",
+        "podcast_duration_display": "6m 40s",
+        "podcast_duration_seconds": 400.29
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 1,
+    "total_slides": 60,
+    "has_podcast": true,
+    "podcast_total_duration": "6m 40s"
+  },
+  {
+    "merge_code": "TRI-INTRO-1",
+    "chapter_name": "Introduction to Trigonometry",
+    "chapter_numbers": [
+      8
+    ],
+    "classes": [
+      10
+    ],
+    "domain": "Trigonometry",
+    "full_video": {
+      "duration_seconds": 7830.56,
+      "duration_display": "130m 30s",
+      "file_size_mb": 227.38,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/TRI-INTRO-1/TRI-INTRO-1_full.mp4",
+      "s3_key": "videos/TRI-INTRO-1/TRI-INTRO-1_full.mp4"
+    },
+    "generated_at": "2026-04-07T02:24:45.611248+00:00",
+    "modules": [
+      {
+        "module_id": "TRI-INTRO-1_concept_1",
+        "module_title": "ತ್ರಿಕೋನಮಿತಿಯ ಅನುಪಾತಗಳು",
+        "total_slides": 93,
+        "duration_seconds": 4627.8,
+        "duration_display": "77m 7s",
+        "file_size_mb": 138.6,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/TRI-INTRO-1/TRI-INTRO-1_concept_1.mp4",
+        "s3_key": "videos/TRI-INTRO-1/TRI-INTRO-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/TRI-INTRO-1/TRI-INTRO-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/TRI-INTRO-1/TRI-INTRO-1_concept_1.wav",
+        "podcast_duration_display": "9m 46s",
+        "podcast_duration_seconds": 586.39
+      },
+      {
+        "module_id": "TRI-INTRO-1_concept_2",
+        "module_title": "ನಿರ್ದಿಷ್ಟ ಕೋನಗಳ ತ್ರಿಕೋನಮಿತಿ ಅನುಪಾತಗಳು",
+        "total_slides": 29,
+        "duration_seconds": 1320.44,
+        "duration_display": "22m 0s",
+        "file_size_mb": 42.42,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/TRI-INTRO-1/TRI-INTRO-1_concept_2.mp4",
+        "s3_key": "videos/TRI-INTRO-1/TRI-INTRO-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/TRI-INTRO-1/TRI-INTRO-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/TRI-INTRO-1/TRI-INTRO-1_concept_2.wav",
+        "podcast_duration_display": "7m 16s",
+        "podcast_duration_seconds": 436.53
+      },
+      {
+        "module_id": "TRI-INTRO-1_concept_3",
+        "module_title": "ತ್ರಿಕೋನಮಿತಿಯ ನಿತ್ಯಸಮೀಕರಣಗಳು",
+        "total_slides": 43,
+        "duration_seconds": 1897.96,
+        "duration_display": "31m 37s",
+        "file_size_mb": 56.67,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/TRI-INTRO-1/TRI-INTRO-1_concept_3.mp4",
+        "s3_key": "videos/TRI-INTRO-1/TRI-INTRO-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/TRI-INTRO-1/TRI-INTRO-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/TRI-INTRO-1/TRI-INTRO-1_concept_3.wav",
+        "podcast_duration_display": "7m 6s",
+        "podcast_duration_seconds": 426.97
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 3,
+    "total_slides": 165,
+    "has_podcast": true,
+    "podcast_total_duration": "24m 9s"
+  },
+  {
+    "merge_code": "VIS-CON-1",
+    "chapter_name": "Playing with Constructions",
+    "chapter_numbers": [
+      8
+    ],
+    "classes": [
+      6
+    ],
+    "domain": "Visualization Geometry",
+    "full_video": {
+      "duration_seconds": 3432.88,
+      "duration_display": "57m 12s",
+      "file_size_mb": 110.06,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-CON-1/VIS-CON-1_full.mp4",
+      "s3_key": "videos/VIS-CON-1/VIS-CON-1_full.mp4"
+    },
+    "generated_at": "2026-04-07T02:40:57.038478+00:00",
+    "modules": [
+      {
+        "module_id": "VIS-CON-1_concept_1",
+        "module_title": "ವೃತ್ತ ಮತ್ತು ಕೈವಾರದ ಮೂಲಭೂತಗಳು (Fundamentals of Circle and Compass)",
+        "total_slides": 22,
+        "duration_seconds": 891.2,
+        "duration_display": "14m 51s",
+        "file_size_mb": 31.37,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-CON-1/VIS-CON-1_concept_1.mp4",
+        "s3_key": "videos/VIS-CON-1/VIS-CON-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-CON-1/VIS-CON-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/VIS-CON-1/VIS-CON-1_concept_1.wav",
+        "podcast_duration_display": "4m 11s",
+        "podcast_duration_seconds": 251.09
+      },
+      {
+        "module_id": "VIS-CON-1_concept_2",
+        "module_title": "ಚೌಕ ಮತ್ತು ಆಯತಗಳ ಗುಣಲಕ್ಷಣಗಳು (Properties of Squares and Rectangles)",
+        "total_slides": 23,
+        "duration_seconds": 1025.2,
+        "duration_display": "17m 5s",
+        "file_size_mb": 36.35,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-CON-1/VIS-CON-1_concept_2.mp4",
+        "s3_key": "videos/VIS-CON-1/VIS-CON-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-CON-1/VIS-CON-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/VIS-CON-1/VIS-CON-1_concept_2.wav",
+        "podcast_duration_display": "5m 3s",
+        "podcast_duration_seconds": 303.72
+      },
+      {
+        "module_id": "VIS-CON-1_concept_3",
+        "module_title": "ದತ್ತ ಬಾಹುವಿರುವ ಚೌಕದ ರಚನೆ (Construction of a Square with a given side)",
+        "total_slides": 7,
+        "duration_seconds": 305.0,
+        "duration_display": "5m 5s",
+        "file_size_mb": 14.05,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-CON-1/VIS-CON-1_concept_3.mp4",
+        "s3_key": "videos/VIS-CON-1/VIS-CON-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-CON-1/VIS-CON-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/VIS-CON-1/VIS-CON-1_concept_3.wav",
+        "podcast_duration_display": "4m 36s",
+        "podcast_duration_seconds": 276.62
+      },
+      {
+        "module_id": "VIS-CON-1_concept_4",
+        "module_title": "ದತ್ತ ಬಾಹು ಮತ್ತು ಕರ್ಣವಿರುವ ಆಯತದ ರಚನೆ (Construction of a Rectangle with a given side and diagonal)",
+        "total_slides": 8,
+        "duration_seconds": 357.44,
+        "duration_display": "5m 57s",
+        "file_size_mb": 16.17,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-CON-1/VIS-CON-1_concept_4.mp4",
+        "s3_key": "videos/VIS-CON-1/VIS-CON-1_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-CON-1/VIS-CON-1_concept_4.wav",
+        "podcast_s3_key": "podcasts/VIS-CON-1/VIS-CON-1_concept_4.wav",
+        "podcast_duration_display": "4m 29s",
+        "podcast_duration_seconds": 269.6
+      },
+      {
+        "module_id": "VIS-CON-1_concept_5",
+        "module_title": "ಎರಡು ಬಿಂದುಗಳಿಂದ ಸಮದೂರದಲ್ಲಿರುವ ಬಿಂದುವಿನ ರಚನೆ (Construction of a Point Equidistant from Two Points)",
+        "total_slides": 7,
+        "duration_seconds": 321.84,
+        "duration_display": "5m 21s",
+        "file_size_mb": 14.64,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-CON-1/VIS-CON-1_concept_5.mp4",
+        "s3_key": "videos/VIS-CON-1/VIS-CON-1_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-CON-1/VIS-CON-1_concept_5.wav",
+        "podcast_s3_key": "podcasts/VIS-CON-1/VIS-CON-1_concept_5.wav",
+        "podcast_duration_display": "3m 28s",
+        "podcast_duration_seconds": 208.77
+      },
+      {
+        "module_id": "VIS-CON-1_concept_6",
+        "module_title": "ಆಯತಗಳ ವಿಶೇಷ ರಚನೆಗಳು (Special Constructions of Rectangles)",
+        "total_slides": 12,
+        "duration_seconds": 571.36,
+        "duration_display": "9m 31s",
+        "file_size_mb": 23.02,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-CON-1/VIS-CON-1_concept_6.mp4",
+        "s3_key": "videos/VIS-CON-1/VIS-CON-1_concept_6.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-CON-1/VIS-CON-1_concept_6.wav",
+        "podcast_s3_key": "podcasts/VIS-CON-1/VIS-CON-1_concept_6.wav",
+        "podcast_duration_display": "4m 49s",
+        "podcast_duration_seconds": 289.51
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 6,
+    "total_slides": 79,
+    "has_podcast": true,
+    "podcast_total_duration": "26m 39s"
+  },
+  {
+    "merge_code": "VIS-SOLID-2",
+    "chapter_name": "Visualising Solid Shapes",
+    "chapter_numbers": [
+      13
+    ],
+    "classes": [
+      7
+    ],
+    "domain": "Visualization Geometry",
+    "full_video": {
+      "duration_seconds": 3608.16,
+      "duration_display": "60m 8s",
+      "file_size_mb": 114.94,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-SOLID-2/VIS-SOLID-2_full.mp4",
+      "s3_key": "videos/VIS-SOLID-2/VIS-SOLID-2_full.mp4"
+    },
+    "generated_at": "2026-04-07T02:57:32.123865+00:00",
+    "modules": [
+      {
+        "module_id": "VIS-SOLID-2_concept_1",
+        "module_title": "ಸಮತಲ ಮತ್ತು ಘನಾಕೃತಿಗಳು (Plane and Solid Shapes)",
+        "total_slides": 13,
+        "duration_seconds": 649.96,
+        "duration_display": "10m 49s",
+        "file_size_mb": 24.54,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-SOLID-2/VIS-SOLID-2_concept_1.mp4",
+        "s3_key": "videos/VIS-SOLID-2/VIS-SOLID-2_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-SOLID-2/VIS-SOLID-2_concept_1.wav",
+        "podcast_s3_key": "podcasts/VIS-SOLID-2/VIS-SOLID-2_concept_1.wav",
+        "podcast_duration_display": "4m 4s",
+        "podcast_duration_seconds": 244.3
+      },
+      {
+        "module_id": "VIS-SOLID-2_concept_2",
+        "module_title": "ಘನಾಕೃತಿಗಳ ಭಾಗಗಳು (Parts of a Solid Shape)",
+        "total_slides": 13,
+        "duration_seconds": 535.76,
+        "duration_display": "8m 55s",
+        "file_size_mb": 20.83,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-SOLID-2/VIS-SOLID-2_concept_2.mp4",
+        "s3_key": "videos/VIS-SOLID-2/VIS-SOLID-2_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-SOLID-2/VIS-SOLID-2_concept_2.wav",
+        "podcast_s3_key": "podcasts/VIS-SOLID-2/VIS-SOLID-2_concept_2.wav",
+        "podcast_duration_display": "5m 21s",
+        "podcast_duration_seconds": 321.51
+      },
+      {
+        "module_id": "VIS-SOLID-2_concept_3",
+        "module_title": "ಘನಾಕೃತಿಗಳ ಜಾಲಗಳು (Nets of Solid Shapes)",
+        "total_slides": 13,
+        "duration_seconds": 635.76,
+        "duration_display": "10m 35s",
+        "file_size_mb": 23.97,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-SOLID-2/VIS-SOLID-2_concept_3.mp4",
+        "s3_key": "videos/VIS-SOLID-2/VIS-SOLID-2_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-SOLID-2/VIS-SOLID-2_concept_3.wav",
+        "podcast_s3_key": "podcasts/VIS-SOLID-2/VIS-SOLID-2_concept_3.wav",
+        "podcast_duration_display": "4m 35s",
+        "podcast_duration_seconds": 275.32
+      },
+      {
+        "module_id": "VIS-SOLID-2_concept_4",
+        "module_title": "ಘನಾಕೃತಿಗಳ ರೇಖಾಚಿತ್ರಗಳು (Drawing Solid Shapes)",
+        "total_slides": 18,
+        "duration_seconds": 828.0,
+        "duration_display": "13m 48s",
+        "file_size_mb": 30.0,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-SOLID-2/VIS-SOLID-2_concept_4.mp4",
+        "s3_key": "videos/VIS-SOLID-2/VIS-SOLID-2_concept_4.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-SOLID-2/VIS-SOLID-2_concept_4.wav",
+        "podcast_s3_key": "podcasts/VIS-SOLID-2/VIS-SOLID-2_concept_4.wav",
+        "podcast_duration_display": "4m 48s",
+        "podcast_duration_seconds": 288.01
+      },
+      {
+        "module_id": "VIS-SOLID-2_concept_5",
+        "module_title": "ಘನಾಕೃತಿಗಳ ವೀಕ್ಷಣೆ ಮತ್ತು ದೃಶ್ಯೀಕರಣ (Viewing and Visualising Solids)",
+        "total_slides": 22,
+        "duration_seconds": 990.04,
+        "duration_display": "16m 30s",
+        "file_size_mb": 36.06,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-SOLID-2/VIS-SOLID-2_concept_5.mp4",
+        "s3_key": "videos/VIS-SOLID-2/VIS-SOLID-2_concept_5.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-SOLID-2/VIS-SOLID-2_concept_5.wav",
+        "podcast_s3_key": "podcasts/VIS-SOLID-2/VIS-SOLID-2_concept_5.wav",
+        "podcast_duration_display": "4m 11s",
+        "podcast_duration_seconds": 251.67
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 5,
+    "total_slides": 79,
+    "has_podcast": true,
+    "podcast_total_duration": "23m 0s"
+  },
+  {
+    "merge_code": "VIS-SYM-1",
+    "chapter_name": "Symmetry",
+    "chapter_numbers": [
+      9,
+      12
+    ],
+    "classes": [
+      6,
+      7
+    ],
+    "domain": "Visualization Geometry",
+    "full_video": {
+      "duration_seconds": 3502.28,
+      "duration_display": "58m 22s",
+      "file_size_mb": 111.18,
+      "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-SYM-1/VIS-SYM-1_full.mp4",
+      "s3_key": "videos/VIS-SYM-1/VIS-SYM-1_full.mp4"
+    },
+    "generated_at": "2026-04-07T03:13:21.358714+00:00",
+    "modules": [
+      {
+        "module_id": "VIS-SYM-1_concept_1",
+        "module_title": "ರೇಖಾ ಸಮಮಿತಿ (Line Symmetry)",
+        "total_slides": 30,
+        "duration_seconds": 1407.6,
+        "duration_display": "23m 27s",
+        "file_size_mb": 46.58,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-SYM-1/VIS-SYM-1_concept_1.mp4",
+        "s3_key": "videos/VIS-SYM-1/VIS-SYM-1_concept_1.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-SYM-1/VIS-SYM-1_concept_1.wav",
+        "podcast_s3_key": "podcasts/VIS-SYM-1/VIS-SYM-1_concept_1.wav",
+        "podcast_duration_display": "4m 54s",
+        "podcast_duration_seconds": 294.45
+      },
+      {
+        "module_id": "VIS-SYM-1_concept_2",
+        "module_title": "ಭ್ರಮಣ ಸಮಮಿತಿ (Rotational Symmetry)",
+        "total_slides": 29,
+        "duration_seconds": 1279.92,
+        "duration_display": "21m 19s",
+        "file_size_mb": 43.17,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-SYM-1/VIS-SYM-1_concept_2.mp4",
+        "s3_key": "videos/VIS-SYM-1/VIS-SYM-1_concept_2.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-SYM-1/VIS-SYM-1_concept_2.wav",
+        "podcast_s3_key": "podcasts/VIS-SYM-1/VIS-SYM-1_concept_2.wav",
+        "podcast_duration_display": "4m 41s",
+        "podcast_duration_seconds": 281.43
+      },
+      {
+        "module_id": "VIS-SYM-1_concept_3",
+        "module_title": "ರೇಖಾ ಮತ್ತು ಭ್ರಮಣ ಸಮಮಿತಿಗಳ ಸಂಯೋಜನೆ (Combined Line and Rotational Symmetry)",
+        "total_slides": 17,
+        "duration_seconds": 830.44,
+        "duration_display": "13m 50s",
+        "file_size_mb": 31.62,
+        "s3_url": "https://azad.s3.us-east-1.amazonaws.com/videos/VIS-SYM-1/VIS-SYM-1_concept_3.mp4",
+        "s3_key": "videos/VIS-SYM-1/VIS-SYM-1_concept_3.mp4",
+        "podcast_s3_url": "https://azad.s3.us-east-1.amazonaws.com/podcasts/VIS-SYM-1/VIS-SYM-1_concept_3.wav",
+        "podcast_s3_key": "podcasts/VIS-SYM-1/VIS-SYM-1_concept_3.wav",
+        "podcast_duration_display": "4m 40s",
+        "podcast_duration_seconds": 280.23
+      }
+    ],
+    "s3_bucket": "azad",
+    "status": "published",
+    "total_concepts": 3,
+    "total_slides": 76,
+    "has_podcast": true,
+    "podcast_total_duration": "14m 16s"
+  }
+]

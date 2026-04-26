@@ -179,8 +179,14 @@ def session_content(exam_id, sub_idx, sess_idx):
     if 'videos' in allowed and not sess.video_locked:
         d['full_video_url'] = cdn_url(sess.full_video_url) if sess.full_video_url else ''
         d['full_video_duration'] = sess.full_video_duration
-        d['module_videos'] = [{'title': v.title, 'video_url': cdn_url(v.video_url),
-                                'duration': v.duration} for v in sess.module_videos]
+        d['module_videos'] = [{
+            'title': v.title,
+            'video_url': cdn_url(v.video_url),
+            'duration': v.duration,
+            'podcast_url': cdn_url(v.podcast_url) if v.podcast_url else '',
+            'podcast_duration': v.podcast_duration,
+            'slides_count': v.slides_count,
+        } for v in sess.module_videos]
 
     if 'live_classes' in allowed and not sess.live_locked:
         d['live_classes'] = [{'title': lc.title, 'description': lc.description,

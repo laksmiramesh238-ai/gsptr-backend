@@ -20,9 +20,12 @@ class DescriptiveQuestion(EmbeddedDocument):
 
 
 class ModuleVideo(EmbeddedDocument):
-    title     = StringField(required=True)
-    video_url = StringField(required=True)
-    duration  = StringField(default='')
+    title            = StringField(required=True)
+    video_url        = StringField(required=True)
+    duration         = StringField(default='')
+    podcast_url      = StringField(default='')
+    podcast_duration = StringField(default='')
+    slides_count     = IntField(default=0)
 
 
 class ExamLiveClass(EmbeddedDocument):

@@ -25,7 +25,7 @@ def gen_otp():
 def send_otp_email(email: str, code: str, name: str = ''):
     resend.Emails.send({
         'from':    FROM_EMAIL,
-        'to':      [email],
+        'to':      email,
         'subject': 'Your verification code',
         'html':    f"""
             <div style="font-family:sans-serif;max-width:480px;margin:auto">
