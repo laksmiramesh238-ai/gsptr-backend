@@ -15,6 +15,7 @@ exam_admin_bp = Blueprint('exam_admin', __name__)
 def _build_session(sd):
     sess = Session(title=sd.get('title', 'Untitled'))
     sess.locked = bool(sd.get('locked', False))
+    sess.preview = bool(sd.get('preview', False))
     sess.notes_locked = bool(sd.get('notes_locked', False))
     sess.mcq_locked = bool(sd.get('mcq_locked', False))
     sess.descriptive_locked = bool(sd.get('descriptive_locked', False))
@@ -97,6 +98,7 @@ def _session_to_json(sess):
     return {
         'title': sess.title,
         'locked': sess.locked,
+        'preview': sess.preview,
         'notes_locked': sess.notes_locked,
         'mcq_locked': sess.mcq_locked,
         'descriptive_locked': sess.descriptive_locked,

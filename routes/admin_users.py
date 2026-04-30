@@ -2,10 +2,20 @@
 
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required
+from bson import ObjectId
+from bson.errors import InvalidId
+from mongoengine.errors import ValidationError, DoesNotExist
 
 from models.student import Student
 from models.enrollment import Enrollment
 from models.exam_enrollment import ExamEnrollment
+
+
+def _safe_get_student(student_id):
+    try:
+        return Student.objects(id=ObjectId(student_id)).first()
+    except (InvalidId, ValidationError, DoesNotExist):
+        return None
 
 admin_users_bp = Blueprint('admin_users', __name__)
 
@@ -45,13 +55,28 @@ def list_users():
 @admin_users_bp.route('/<student_id>', methods=['GET'])
 @login_required
 def user_detail(student_id):
-    student = Student.objects(id=student_id).first()
+    student = _safe_get_student(student_id)
     if not student:
         flash('Student not found.', 'error')
         return redirect(url_for('admin_users.list_users'))
 
-    course_enrolls = Enrollment.objects(student=student).order_by('-created_at')
-    exam_enrolls   = ExamEnrollment.objects(student=student).order_by('-created_at')
+    # Wrap each enrollment with a safe label so template never dereferences
+    # a missing course/exam (which can throw DoesNotExist).
+    course_enrolls = []
+    for e in Enrollment.objects(student=student).order_by('-created_at'):
+        try:
+            label = e.course.name if e.course else '— deleted —'
+        except Exception:
+            label = '— deleted —'
+        course_enrolls.append({'e': e, 'label': label})
+
+    exam_enrolls = []
+    for e in ExamEnrollment.objects(student=student).order_by('-created_at'):
+        try:
+            label = e.exam.title if e.exam else '— deleted —'
+        except Exception:
+            label = '— deleted —'
+        exam_enrolls.append({'e': e, 'label': label})
 
     from models.exam_enrollment import EXAM_TIERS
     return render_template(
@@ -66,7 +91,7 @@ def user_detail(student_id):
 @admin_users_bp.route('/<student_id>/delete', methods=['POST'])
 @login_required
 def delete_user(student_id):
-    s = Student.objects(id=student_id).first()
+    s = _safe_get_student(student_id)
     if not s:
         flash('Student not found.', 'error')
         return redirect(url_for('admin_users.list_users'))

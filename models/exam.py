@@ -41,6 +41,7 @@ class ExamLiveClass(EmbeddedDocument):
 class Session(EmbeddedDocument):
     title  = StringField(required=True)
     locked = BooleanField(default=False)          # lock entire session
+    preview = BooleanField(default=False)         # if True, all content is open even without subscription
     # Per-content locks
     notes_locked       = BooleanField(default=False)
     mcq_locked         = BooleanField(default=False)

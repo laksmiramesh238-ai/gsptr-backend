@@ -56,9 +56,10 @@ td { padding: 9px 10px; border-bottom: 1px solid #f5f5f8; color: #333; }
           <tr><th>Course</th><th>Status</th><th>Enrolled</th><th>Expires</th><th>Order</th></tr>
         </thead>
         <tbody>
-          {% for e in course_enrolls %}
+          {% for row in course_enrolls %}
+            {% set e = row.e %}
             <tr>
-              <td>{{ e.course.name if e.course else '—' }}</td>
+              <td>{{ row.label }}</td>
               <td>
                 {% if e.status == 'paid' %}<span class="pill pill-paid">Paid</span>
                 {% else %}<span class="pill pill-pendingstatus">{{ e.status }}</span>{% endif %}
@@ -84,9 +85,10 @@ td { padding: 9px 10px; border-bottom: 1px solid #f5f5f8; color: #333; }
           <tr><th>Exam</th><th>Tier</th><th>Status</th><th>Enrolled</th><th>Expires</th></tr>
         </thead>
         <tbody>
-          {% for e in exam_enrolls %}
+          {% for row in exam_enrolls %}
+            {% set e = row.e %}
             <tr>
-              <td>{{ e.exam.title if e.exam else '—' }}</td>
+              <td>{{ row.label }}</td>
               <td>
                 {% if tiers.get(e.tier) %}
                   {{ e.tier }} · {{ tiers[e.tier].label }}

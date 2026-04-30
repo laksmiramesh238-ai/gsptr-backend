@@ -43,6 +43,9 @@ textarea { resize: vertical; min-height: 80px; }
     <label style="display:flex;align-items:center;gap:8px;text-transform:none">
       <input type="checkbox" id="sess_locked"/> 🔒 Lock entire session
     </label>
+    <label style="display:flex;align-items:center;gap:8px;text-transform:none;margin-top:6px">
+      <input type="checkbox" id="sess_preview"/> 👁️ Preview (open to everyone, no subscription needed)
+    </label>
   </div>
   <div class="lock-bar">
     <span>Content Locks:</span>
@@ -142,6 +145,7 @@ let liveClasses = sess.live_classes || [];
 // populate fields
 document.getElementById('sess_title').value = sess.title || '';
 document.getElementById('sess_locked').checked = !!sess.locked;
+document.getElementById('sess_preview').checked = !!sess.preview;
 document.getElementById('notes_locked').checked = !!sess.notes_locked;
 document.getElementById('mcq_locked').checked = !!sess.mcq_locked;
 document.getElementById('descriptive_locked').checked = !!sess.descriptive_locked;
@@ -275,6 +279,7 @@ async function saveSession() {
   const body = {
     title: document.getElementById('sess_title').value,
     locked: document.getElementById('sess_locked').checked,
+    preview: document.getElementById('sess_preview').checked,
     notes_locked: document.getElementById('notes_locked').checked,
     mcq_locked: document.getElementById('mcq_locked').checked,
     descriptive_locked: document.getElementById('descriptive_locked').checked,

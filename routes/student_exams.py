@@ -25,9 +25,12 @@ def _get_tier(student, exam):
 
 
 def _filter_session(sess, tier):
-    """Return session dict filtered by tier access."""
-    allowed = EXAM_TIERS.get(tier, {}).get('includes', []) if tier > 0 else []
-    d = {'title': sess.title}
+    """Return session dict filtered by tier access. Preview sessions get full top-tier access."""
+    if getattr(sess, 'preview', False):
+        allowed = EXAM_TIERS[max(EXAM_TIERS.keys())]['includes']
+    else:
+        allowed = EXAM_TIERS.get(tier, {}).get('includes', []) if tier > 0 else []
+    d = {'title': sess.title, 'preview': bool(getattr(sess, 'preview', False))}
 
     if 'mcq' in allowed:
         d['mcq_count'] = len(sess.mcqs)
@@ -86,6 +89,7 @@ def exam_detail(exam_id):
         for sess in sub.sessions:
             sd = _filter_session(sess, tier)
             sd['locked'] = sess.locked
+            sd['preview'] = bool(getattr(sess, 'preview', False))
             sd['notes_locked'] = sess.notes_locked
             sd['mcq_locked'] = sess.mcq_locked
             sd['descriptive_locked'] = sess.descriptive_locked
@@ -136,8 +140,6 @@ def session_content(exam_id, sub_idx, sess_idx):
 
     student = _get_student()
     tier = _get_tier(student, exam)
-    if tier == 0:
-        return jsonify({'ok': False, 'error': 'Not enrolled'}), 403
 
     if sub_idx >= len(exam.subjects):
         return jsonify({'ok': False, 'error': 'Subject not found'}), 404
@@ -146,12 +148,21 @@ def session_content(exam_id, sub_idx, sess_idx):
         return jsonify({'ok': False, 'error': 'Session not found'}), 404
     sess = sub.sessions[sess_idx]
 
+    is_preview = bool(getattr(sess, 'preview', False))
+
+    if not is_preview and tier == 0:
+        return jsonify({'ok': False, 'error': 'Not enrolled'}), 403
+
     if sub.locked or sess.locked:
         return jsonify({'ok': False, 'error': 'This content is locked'}), 403
 
-    allowed = EXAM_TIERS[tier]['includes']
+    if is_preview:
+        allowed = EXAM_TIERS[max(EXAM_TIERS.keys())]['includes']
+    else:
+        allowed = EXAM_TIERS[tier]['includes']
     d = {
         'title': sess.title, 'subject': sub.name,
+        'preview': is_preview,
         'notes_locked': sess.notes_locked,
         'mcq_locked': sess.mcq_locked,
         'descriptive_locked': sess.descriptive_locked,
