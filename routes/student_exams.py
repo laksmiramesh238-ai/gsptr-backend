@@ -130,6 +130,34 @@ def exam_detail(exam_id):
     })
 
 
+# ── one subject's session list (lightweight; for subject page) ────────────────
+
+@student_exams_bp.route('/<exam_id>/subject/<int:sub_idx>', methods=['GET'])
+def subject_detail(exam_id, sub_idx):
+    exam = Exam.objects(exam_id=exam_id).first()
+    if not exam:
+        return jsonify({'ok': False, 'error': 'Exam not found'}), 404
+    if sub_idx >= len(exam.subjects):
+        return jsonify({'ok': False, 'error': 'Subject not found'}), 404
+
+    student = _get_student()
+    tier = _get_tier(student, exam)
+    sub = exam.subjects[sub_idx]
+
+    sessions = []
+    for sess in sub.sessions:
+        sd = _filter_session(sess, tier)
+        sd['locked'] = sess.locked
+        sd['preview'] = bool(getattr(sess, 'preview', False))
+        sessions.append(sd)
+
+    return jsonify({
+        'ok': True,
+        'tier': tier,
+        'subject': {'name': sub.name, 'locked': sub.locked, 'sessions': sessions},
+    })
+
+
 # ── session content (full data for enrolled students) ─────────────────────────
 
 @student_exams_bp.route('/<exam_id>/subject/<int:sub_idx>/session/<int:sess_idx>', methods=['GET'])
