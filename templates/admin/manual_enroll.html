@@ -1,0 +1,156 @@
+{% extends 'admin/base.html' %}
+{% block title %}Manual Enrollment{% endblock %}
+{% block page_title %}Manual Enrollment{% endblock %}
+
+{% block extra_styles %}
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 22px; }
+.panel { background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 22px; }
+.panel h2 { font-size: 16px; font-weight: 700; margin-bottom: 4px; color: #1a1a2e; }
+.panel .desc { font-size: 13px; color: #888; margin-bottom: 18px; }
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 12px; font-weight: 600; color: #555; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.field input, .field select { width: 100%; padding: 10px 12px; border: 1px solid #d8d8e2; border-radius: 8px; font-size: 14px; background: #fafafe; }
+.field input:focus, .field select:focus { outline: none; border-color: #6c63ff; background: #fff; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.btn { padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; }
+.btn-primary { background: #6c63ff; color: #fff; }
+.btn-primary:hover { opacity: 0.85; }
+.btn-danger-sm { padding: 4px 10px; font-size: 11px; background: #ff4f4f; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+.helper { font-size: 11px; color: #999; margin-top: 4px; }
+.tier-pill { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; background: #eef0ff; color: #6c63ff; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font-weight: 600; color: #555; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 10px; border-bottom: 1px solid #eee; }
+td { padding: 9px 10px; border-bottom: 1px solid #f5f5f8; color: #333; }
+.empty-row { text-align: center; color: #aaa; padding: 18px; font-size: 13px; }
+.full-width { grid-column: 1 / -1; }
+{% endblock %}
+
+{% block content %}
+<div class="grid">
+  <!-- Course enrollment -->
+  <div class="panel">
+    <h2>Enroll in a Course</h2>
+    <div class="desc">Grant a student 6 months of access (or custom days) to a course.</div>
+    <form method="POST" action="{{ url_for('admin_enroll.enroll_course') }}">
+      <div class="field">
+        <label>Student (email or phone)</label>
+        <input type="text" name="student" list="student-list" placeholder="user@example.com" required/>
+        <div class="helper">Student must already have an account.</div>
+      </div>
+      <div class="field">
+        <label>Course</label>
+        <select name="course_id" required>
+          <option value="">— select course —</option>
+          {% for c in courses %}
+            <option value="{{ c.id }}">{{ c.name }} — ₹{{ c.price }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label>Access duration (days)</label>
+        <input type="number" name="days" value="183" min="1" max="3650"/>
+        <div class="helper">Default 183 = 6 months.</div>
+      </div>
+      <button class="btn btn-primary" type="submit">Enroll Student</button>
+    </form>
+  </div>
+
+  <!-- Exam enrollment -->
+  <div class="panel">
+    <h2>Enroll in an Exam</h2>
+    <div class="desc">Grant a tier-based plan on an exam (Basic → Premium).</div>
+    <form method="POST" action="{{ url_for('admin_enroll.enroll_exam') }}">
+      <div class="field">
+        <label>Student (email or phone)</label>
+        <input type="text" name="student" list="student-list" placeholder="user@example.com" required/>
+      </div>
+      <div class="field">
+        <label>Exam</label>
+        <select name="exam_id" required>
+          <option value="">— select exam —</option>
+          {% for e in exams %}
+            <option value="{{ e.id }}">{{ e.title }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Tier (plan)</label>
+          <select name="tier" required>
+            {% for num, info in tiers.items() %}
+              <option value="{{ num }}">{{ num }} — {{ info.label }} (₹{{ info.price }})</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="field">
+          <label>Duration (days)</label>
+          <input type="number" name="days" value="183" min="1" max="3650"/>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Enroll Student</button>
+    </form>
+  </div>
+
+  <!-- Recent course enrollments -->
+  <div class="panel">
+    <h2>Recent Manual Course Enrollments</h2>
+    <div class="desc">Last 10 admin-issued course enrollments.</div>
+    <table>
+      <thead>
+        <tr><th>Student</th><th>Course</th><th>Expires</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for e in recent_course %}
+          <tr>
+            <td>{{ e.student.email if e.student else '—' }}</td>
+            <td>{{ e.course.name if e.course else '—' }}</td>
+            <td>{{ e.expires_at.strftime('%d %b %Y') if e.expires_at else '—' }}</td>
+            <td>
+              <form method="POST" action="{{ url_for('admin_enroll.revoke_course', enrollment_id=e.id) }}" onsubmit="return confirm('Revoke this enrollment?')">
+                <button class="btn-danger-sm">Revoke</button>
+              </form>
+            </td>
+          </tr>
+        {% else %}
+          <tr><td class="empty-row" colspan="4">No manual enrollments yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Recent exam enrollments -->
+  <div class="panel">
+    <h2>Recent Manual Exam Enrollments</h2>
+    <div class="desc">Last 10 admin-issued exam enrollments.</div>
+    <table>
+      <thead>
+        <tr><th>Student</th><th>Exam</th><th>Tier</th><th>Expires</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for e in recent_exam %}
+          <tr>
+            <td>{{ e.student.email if e.student else '—' }}</td>
+            <td>{{ e.exam.title if e.exam else '—' }}</td>
+            <td><span class="tier-pill">{{ e.tier }} · {{ tiers[e.tier].label if tiers.get(e.tier) else '?' }}</span></td>
+            <td>{{ e.expires_at.strftime('%d %b %Y') if e.expires_at else '—' }}</td>
+            <td>
+              <form method="POST" action="{{ url_for('admin_enroll.revoke_exam', enrollment_id=e.id) }}" onsubmit="return confirm('Revoke this enrollment?')">
+                <button class="btn-danger-sm">Revoke</button>
+              </form>
+            </td>
+          </tr>
+        {% else %}
+          <tr><td class="empty-row" colspan="5">No manual enrollments yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<datalist id="student-list">
+  {% for s in students %}
+    <option value="{{ s.email }}">{{ s.name }}</option>
+    {% if s.phone %}<option value="{{ s.phone }}">{{ s.name }}</option>{% endif %}
+  {% endfor %}
+</datalist>
+{% endblock %}
