@@ -1,0 +1,121 @@
+{% extends 'admin/base.html' %}
+{% block title %}{{ student.email }}{% endblock %}
+{% block page_title %}{{ student.name or student.email }}{% endblock %}
+
+{% block extra_styles %}
+.back { display: inline-flex; align-items: center; gap: 6px; color: #6c63ff; text-decoration: none; font-size: 13px; margin-bottom: 18px; }
+.grid { display: grid; grid-template-columns: 320px 1fr; gap: 22px; }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+.panel { background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 22px; }
+.panel h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
+.kv { display: grid; grid-template-columns: 110px 1fr; gap: 10px; font-size: 13px; margin-bottom: 10px; }
+.kv .k { color: #888; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+.kv .v { color: #1a1a2e; word-break: break-word; }
+.pill { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+.pill-verified { background: #e6f9f0; color: #1a7a4a; }
+.pill-pending { background: #fff5e6; color: #b06e00; }
+.pill-paid { background: #e6f9f0; color: #1a7a4a; }
+.pill-pendingstatus { background: #fff5e6; color: #b06e00; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; padding: 8px 10px; font-size: 11px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #eee; }
+td { padding: 9px 10px; border-bottom: 1px solid #f5f5f8; color: #333; }
+.empty-row { text-align: center; color: #aaa; padding: 18px; }
+.btn-danger-sm { padding: 4px 10px; font-size: 11px; background: #ff4f4f; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+.section-spacer { height: 22px; }
+{% endblock %}
+
+{% block content %}
+<a class="back" href="{{ url_for('admin_users.list_users') }}">← Back to users</a>
+
+<div class="grid">
+  <!-- Profile -->
+  <div class="panel">
+    <h2>Profile</h2>
+    <div class="kv"><div class="k">Name</div><div class="v">{{ student.name or '—' }}</div></div>
+    <div class="kv"><div class="k">Email</div><div class="v">{{ student.email }}</div></div>
+    <div class="kv"><div class="k">Phone</div><div class="v">{{ student.phone or '—' }}</div></div>
+    <div class="kv"><div class="k">Status</div>
+      <div class="v">
+        {% if student.is_verified %}
+          <span class="pill pill-verified">Verified</span>
+        {% else %}
+          <span class="pill pill-pending">Unverified</span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="kv"><div class="k">Joined</div><div class="v">{{ student.created_at.strftime('%d %b %Y, %H:%M') if student.created_at else '—' }}</div></div>
+    <div class="kv"><div class="k">ID</div><div class="v" style="font-family: monospace; font-size: 11px; color: #888;">{{ student.id }}</div></div>
+  </div>
+
+  <div>
+    <!-- Course enrollments -->
+    <div class="panel">
+      <h2>Course Enrollments ({{ course_enrolls|length }})</h2>
+      <table>
+        <thead>
+          <tr><th>Course</th><th>Status</th><th>Enrolled</th><th>Expires</th><th>Order</th></tr>
+        </thead>
+        <tbody>
+          {% for e in course_enrolls %}
+            <tr>
+              <td>{{ e.course.name if e.course else '—' }}</td>
+              <td>
+                {% if e.status == 'paid' %}<span class="pill pill-paid">Paid</span>
+                {% else %}<span class="pill pill-pendingstatus">{{ e.status }}</span>{% endif %}
+              </td>
+              <td>{{ e.enrolled_at.strftime('%d %b %Y') if e.enrolled_at else '—' }}</td>
+              <td>{{ e.expires_at.strftime('%d %b %Y') if e.expires_at else '—' }}</td>
+              <td style="font-family: monospace; font-size: 11px; color: #888;">{{ e.order_id }}</td>
+            </tr>
+          {% else %}
+            <tr><td class="empty-row" colspan="5">No course enrollments.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Exam enrollments -->
+    <div class="panel">
+      <h2>Exam Enrollments ({{ exam_enrolls|length }})</h2>
+      <table>
+        <thead>
+          <tr><th>Exam</th><th>Tier</th><th>Status</th><th>Enrolled</th><th>Expires</th></tr>
+        </thead>
+        <tbody>
+          {% for e in exam_enrolls %}
+            <tr>
+              <td>{{ e.exam.title if e.exam else '—' }}</td>
+              <td>
+                {% if tiers.get(e.tier) %}
+                  {{ e.tier }} · {{ tiers[e.tier].label }}
+                {% else %}{{ e.tier }}{% endif %}
+              </td>
+              <td>
+                {% if e.status == 'paid' %}<span class="pill pill-paid">Paid</span>
+                {% else %}<span class="pill pill-pendingstatus">{{ e.status }}</span>{% endif %}
+              </td>
+              <td>{{ e.enrolled_at.strftime('%d %b %Y') if e.enrolled_at else '—' }}</td>
+              <td>{{ e.expires_at.strftime('%d %b %Y') if e.expires_at else '—' }}</td>
+            </tr>
+          {% else %}
+            <tr><td class="empty-row" colspan="5">No exam enrollments.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Danger zone -->
+    <div class="panel">
+      <h2 style="color: #c0392b;">Danger zone</h2>
+      <p style="font-size: 13px; color: #555; margin-bottom: 12px;">Deletes the student and all their enrollments. Cannot be undone.</p>
+      <form method="POST" action="{{ url_for('admin_users.delete_user', student_id=student.id) }}" onsubmit="return confirm('Delete {{ student.email }} and all their enrollments?')">
+        <button class="btn-danger-sm">Delete user</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

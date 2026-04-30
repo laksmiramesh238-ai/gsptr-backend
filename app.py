@@ -29,6 +29,7 @@ from routes.student_courses import student_courses_bp
 from routes.enrollment import enrollment_bp
 from routes.exam_admin import exam_admin_bp
 from routes.admin_enrollment import admin_enroll_bp
+from routes.admin_users import admin_users_bp
 from routes.student_exams import student_exams_bp
 from routes.exam_enrollment import exam_enrollment_bp
 from routes.student_assessments import student_assessments_bp
@@ -46,6 +47,7 @@ app.register_blueprint(student_courses_bp, url_prefix='/api/courses')
 app.register_blueprint(enrollment_bp, url_prefix='/api/enroll')
 app.register_blueprint(exam_admin_bp, url_prefix='/admin/exams')
 app.register_blueprint(admin_enroll_bp, url_prefix='/admin/enrollments')
+app.register_blueprint(admin_users_bp, url_prefix='/admin/users')
 app.register_blueprint(student_exams_bp, url_prefix='/api/exams')
 app.register_blueprint(exam_enrollment_bp, url_prefix='/api/exam-enroll')
 app.register_blueprint(student_assessments_bp, url_prefix='/api/assessments')
