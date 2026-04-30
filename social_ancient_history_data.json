@@ -1,0 +1,79 @@
+[
+  {
+    "domain": "Ancient History (ಪ್ರಾಚೀನ ಇತಿಹಾಸ)",
+    "chapter_name": "Chapter 1",
+    "full_video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_1/chapter_1_full.mp4",
+    "modules": [
+      { "title": "Module 1", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_1/chapter_1_m1.mp4" },
+      { "title": "Module 2", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_1/chapter_1_m2.mp4" },
+      { "title": "Module 3", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_1/chapter_1_m3.mp4" },
+      { "title": "Module 4", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_1/chapter_1_m4.mp4" },
+      { "title": "Module 5", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_1/chapter_1_m5.mp4" }
+    ]
+  },
+  {
+    "domain": "Ancient History (ಪ್ರಾಚೀನ ಇತಿಹಾಸ)",
+    "chapter_name": "Chapter 2",
+    "full_video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_2/chapter_2_full.mp4",
+    "modules": [
+      { "title": "Module 1", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_2/chapter_2_m1.mp4" },
+      { "title": "Module 2", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_2/chapter_2_m2.mp4" },
+      { "title": "Module 3", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_2/chapter_2_m3.mp4" },
+      { "title": "Module 4", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_2/chapter_2_m4.mp4" }
+    ]
+  },
+  {
+    "domain": "Ancient History (ಪ್ರಾಚೀನ ಇತಿಹಾಸ)",
+    "chapter_name": "Chapter 3",
+    "full_video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_3/chapter_3_full.mp4",
+    "modules": [
+      { "title": "Module 1", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_3/chapter_3_m1.mp4" },
+      { "title": "Module 2", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_3/chapter_3_m2.mp4" },
+      { "title": "Module 3", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_3/chapter_3_m3.mp4" },
+      { "title": "Module 4", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_3/chapter_3_m4.mp4" }
+    ]
+  },
+  {
+    "domain": "Ancient History (ಪ್ರಾಚೀನ ಇತಿಹಾಸ)",
+    "chapter_name": "Chapter 4",
+    "full_video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_4/chapter_4_full.mp4",
+    "modules": [
+      { "title": "Module 1", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_4/chapter_4_m1.mp4" },
+      { "title": "Module 2", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_4/chapter_4_m2.mp4" },
+      { "title": "Module 3", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_4/chapter_4_m3.mp4" }
+    ]
+  },
+  {
+    "domain": "Ancient History (ಪ್ರಾಚೀನ ಇತಿಹಾಸ)",
+    "chapter_name": "Chapter 5",
+    "full_video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_5/chapter_5_full.mp4",
+    "modules": [
+      { "title": "Module 1", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_5/chapter_5_m1.mp4" },
+      { "title": "Module 2", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_5/chapter_5_m2.mp4" },
+      { "title": "Module 3", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_5/chapter_5_m3.mp4" },
+      { "title": "Module 4", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_5/chapter_5_m4.mp4" }
+    ]
+  },
+  {
+    "domain": "Ancient History (ಪ್ರಾಚೀನ ಇತಿಹಾಸ)",
+    "chapter_name": "Chapter 6",
+    "full_video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_6/chapter_6_full.mp4",
+    "modules": [
+      { "title": "Module 1", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_6/chapter_6_m1.mp4" },
+      { "title": "Module 2", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_6/chapter_6_m2.mp4" },
+      { "title": "Module 3", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_6/chapter_6_m3.mp4" }
+    ]
+  },
+  {
+    "domain": "Ancient History (ಪ್ರಾಚೀನ ಇತಿಹಾಸ)",
+    "chapter_name": "Chapter 7",
+    "full_video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_7/chapter_7_full.mp4",
+    "modules": [
+      { "title": "Module 1", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_7/chapter_7_m1.mp4" },
+      { "title": "Module 2", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_7/chapter_7_m2.mp4" },
+      { "title": "Module 3", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_7/chapter_7_m3.mp4" },
+      { "title": "Module 4", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_7/chapter_7_m4.mp4" },
+      { "title": "Module 5", "video_url": "https://d34wwgjscxms4y.cloudfront.net/GPSTR/Courses/Social/AncientHistory/chapter_7/chapter_7_m5.mp4" }
+    ]
+  }
+]
