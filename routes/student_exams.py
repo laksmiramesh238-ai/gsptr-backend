@@ -129,55 +129,93 @@ def list_exams():
 def exam_detail(exam_id):
     """Slim exam detail — only what the exam landing page renders.
 
-    Returns subject summaries (name, lock state, counts), NOT the per-session
-    list. The session list is loaded lazily from `/api/exams/<id>/subject/<idx>`
-    when the user enters a subject.
+    Subject summaries are computed via Mongo aggregation so we never pull
+    the heavy embedded session arrays across the network.
     """
-    exam = Exam.objects(exam_id=exam_id).first()
-    if not exam:
+    coll = Exam._get_collection()
+    pipeline = [
+        {'$match': {'exam_id': exam_id}},
+        {'$project': {
+            'exam_id': 1, 'title': 1, 'full_form': 1,
+            'description_en': 1, 'description_kn': 1,
+            'thumbnail_url': 1, 'locked': 1,
+            'subjects': {
+                '$map': {
+                    'input': {'$ifNull': ['$subjects', []]},
+                    'as': 's',
+                    'in': {
+                        'name':   '$$s.name',
+                        'locked': '$$s.locked',
+                        'session_count': {'$size': {'$ifNull': ['$$s.sessions', []]}},
+                        'preview_count': {'$size': {
+                            '$filter': {
+                                'input': {'$ifNull': ['$$s.sessions', []]},
+                                'as': 'x',
+                                'cond': {'$eq': ['$$x.preview', True]},
+                            }
+                        }},
+                        'locked_count': {'$size': {
+                            '$filter': {
+                                'input': {'$ifNull': ['$$s.sessions', []]},
+                                'as': 'x',
+                                'cond': {'$eq': ['$$x.locked', True]},
+                            }
+                        }},
+                    },
+                }
+            },
+            'assessments': 1,   # ObjectId refs only — small
+        }},
+    ]
+    docs = list(coll.aggregate(pipeline))
+    if not docs:
         return jsonify({'ok': False, 'error': 'Exam not found'}), 404
+    doc = docs[0]
 
+    # Tier requires a real Exam ref for the enrollment query
     student = _get_student()
-    tier = _get_tier(student, exam)
+    if student:
+        e_ref = Exam(id=doc['_id'])
+        tier = _get_tier(student, e_ref)
+    else:
+        tier = 0
 
-    subjects = []
-    for sub in exam.subjects:
-        sessions = sub.sessions or []
-        preview_count = sum(1 for s in sessions if getattr(s, 'preview', False))
-        locked_count  = sum(1 for s in sessions if s.locked)
-        subjects.append({
-            'name':           sub.name,
-            'locked':         sub.locked,
-            'session_count':  len(sessions),
-            'preview_count':  preview_count,
-            'locked_count':   locked_count,
-        })
-
+    # Resolve assessment refs only when needed (small projection)
     assessments = []
-    for a in exam.assessments:
-        assessments.append({
-            'id':             str(a.id),
-            'title':          a.title,
-            'subject_filter': a.subject_filter,
-            'topic_filter':   a.topic_filter,
-            'session_filter': a.session_filter,
-            'question_count': len(a.questions),
-            'duration':       a.duration_minutes,
-        })
+    a_ids = doc.get('assessments') or []
+    if a_ids:
+        from models.assessment import Assessment
+        a_coll = Assessment._get_collection()
+        for a in a_coll.find(
+            {'_id': {'$in': a_ids}},
+            {'title': 1, 'subject_filter': 1, 'topic_filter': 1,
+             'session_filter': 1, 'questions': 1, 'duration_minutes': 1},
+        ):
+            assessments.append({
+                'id':             str(a['_id']),
+                'title':          a.get('title', ''),
+                'subject_filter': a.get('subject_filter', ''),
+                'topic_filter':   a.get('topic_filter', ''),
+                'session_filter': a.get('session_filter', ''),
+                'question_count': len(a.get('questions') or []),
+                'duration':       a.get('duration_minutes', 0),
+            })
+
+    subjects = doc.get('subjects', [])
 
     return jsonify({
         'ok': True,
         'tier': tier,
         'tiers': EXAM_TIERS,
         'exam': {
-            'id':             str(exam.id),
-            'exam_id':        exam.exam_id,
-            'title':          exam.title,
-            'locked':         exam.locked,
-            'full_form':      exam.full_form,
-            'description_en': exam.description_en,
-            'description_kn': exam.description_kn,
-            'thumbnail_url':  cdn_url(exam.thumbnail_url or ''),
+            'id':             str(doc['_id']),
+            'exam_id':        doc.get('exam_id', ''),
+            'title':          doc.get('title', ''),
+            'locked':         bool(doc.get('locked', False)),
+            'full_form':      doc.get('full_form', ''),
+            'description_en': doc.get('description_en', ''),
+            'description_kn': doc.get('description_kn', ''),
+            'thumbnail_url':  cdn_url(doc.get('thumbnail_url') or ''),
             'subjects':       subjects,
             'assessments':    assessments,
         },
@@ -188,29 +226,101 @@ def exam_detail(exam_id):
 
 @student_exams_bp.route('/<exam_id>/subject/<int:sub_idx>', methods=['GET'])
 def subject_detail(exam_id, sub_idx):
-    exam = Exam.objects(exam_id=exam_id).first()
-    if not exam:
+    """Slice a single subject out of the exam at the Mongo level so we never
+    transfer the other subjects' sessions across the network."""
+    coll = Exam._get_collection()
+    pipeline = [
+        {'$match': {'exam_id': exam_id}},
+        {'$project': {
+            '_id': 1,
+            'subjects_count': {'$size': {'$ifNull': ['$subjects', []]}},
+            'subject': {'$arrayElemAt': [{'$ifNull': ['$subjects', []]}, sub_idx]},
+        }},
+    ]
+    docs = list(coll.aggregate(pipeline))
+    if not docs:
         return jsonify({'ok': False, 'error': 'Exam not found'}), 404
-    if sub_idx >= len(exam.subjects):
+    doc = docs[0]
+    sub = doc.get('subject')
+    if not sub:
         return jsonify({'ok': False, 'error': 'Subject not found'}), 404
 
+    # Tier needs an Exam ref (id only is enough for the enrollment query)
     student = _get_student()
-    tier = _get_tier(student, exam)
-    sub = exam.subjects[sub_idx]
+    tier = _get_tier(student, Exam(id=doc['_id'])) if student else 0
 
-    content_idx = _content_index(sub.sessions)
+    raw_sessions = sub.get('sessions') or []
+
+    # Build content_idx via aggregation (counts only, no body data)
+    merge_codes = [s.get('merge_code') for s in raw_sessions if s.get('merge_code')]
+    content_idx = _bulk_session_content_stats(merge_codes) if merge_codes else {}
+
+    allowed_for_tier = EXAM_TIERS.get(tier, {}).get('includes', []) if tier > 0 else []
+    top_includes = EXAM_TIERS[max(EXAM_TIERS.keys())]['includes']
+
     sessions = []
-    for sess in sub.sessions:
-        sd = _filter_session(sess, tier, content_idx)
-        sd['locked'] = sess.locked
-        sd['preview'] = bool(getattr(sess, 'preview', False))
-        sessions.append(sd)
+    for s in raw_sessions:
+        is_preview = bool(s.get('preview', False))
+        allowed = top_includes if is_preview else allowed_for_tier
+        ext = content_idx.get(s.get('merge_code'))
+        mcq_count  = ext['mcq_count']  if ext else len(s.get('mcqs') or [])
+        desc_count = ext['desc_count'] if ext else len(s.get('descriptive_questions') or [])
+        has_notes  = (ext['has_notes'] if ext else bool(s.get('notes_html'))) or bool(s.get('notes_pdf_url'))
+        d: dict = {
+            'title':   s.get('title', ''),
+            'preview': is_preview,
+            'locked':  bool(s.get('locked', False)),
+        }
+        if 'mcq' in allowed:         d['mcq_count']         = mcq_count
+        if 'descriptive' in allowed: d['descriptive_count'] = desc_count
+        if 'notes' in allowed:       d['has_notes']         = has_notes
+        if 'audio' in allowed:
+            d['has_audio'] = bool(s.get('audio_url')) or any(
+                v.get('podcast_url') for v in (s.get('module_videos') or [])
+            )
+        if 'videos' in allowed:
+            d['has_video']           = bool(s.get('full_video_url'))
+            d['module_video_count']  = len(s.get('module_videos') or [])
+        if 'live_classes' in allowed:
+            d['live_class_count'] = len(s.get('live_classes') or [])
+        sessions.append(d)
 
     return jsonify({
         'ok': True,
         'tier': tier,
-        'subject': {'name': sub.name, 'locked': sub.locked, 'sessions': sessions},
+        'subject': {
+            'name':     sub.get('name', ''),
+            'locked':   bool(sub.get('locked', False)),
+            'sessions': sessions,
+        },
     })
+
+
+def _bulk_session_content_stats(codes):
+    """Same as _content_index but takes a list of codes directly."""
+    if not codes:
+        return {}
+    coll = SessionContent._get_collection()
+    pipeline = [
+        {'$match': {'merge_code': {'$in': codes}}},
+        {'$project': {
+            '_id': 0,
+            'merge_code': 1,
+            'mcq_count':  {'$size': {'$ifNull': ['$mcqs', []]}},
+            'desc_count': {'$size': {'$ifNull': ['$descriptive_questions', []]}},
+            'has_notes':  {'$gt': [
+                {'$strLenBytes': {'$ifNull': ['$notes_html', '']}}, 0
+            ]},
+        }},
+    ]
+    out = {}
+    for d in coll.aggregate(pipeline):
+        out[d['merge_code']] = {
+            'mcq_count':  d.get('mcq_count', 0),
+            'desc_count': d.get('desc_count', 0),
+            'has_notes':  bool(d.get('has_notes', False)),
+        }
+    return out
 
 
 # ── session content (full data for enrolled students) ─────────────────────────
