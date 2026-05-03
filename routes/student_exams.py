@@ -1,10 +1,41 @@
 from datetime import datetime
+import time
+from threading import Lock
 from flask import Blueprint, jsonify, request
 from models.exam import Exam
 from models.exam_enrollment import ExamEnrollment, EXAM_TIERS
 from models.session_content import SessionContent
 from routes.student_auth import student_from_token
 from utils.cdn import cdn_url
+
+
+# ── Server-side TTL cache ────────────────────────────────────────────────────
+# Cache hot read endpoints in-process so we avoid hammering Mongo from
+# Railway every time. Per-process — fine for our single-worker setup.
+# Bust via _bust_cache(prefix) when content changes.
+
+_cache: dict = {}
+_cache_lock = Lock()
+
+def _cache_get(key, max_age_s):
+    with _cache_lock:
+        e = _cache.get(key)
+    if not e: return None
+    if time.time() - e[1] > max_age_s: return None
+    return e[0]
+
+def _cache_put(key, value):
+    with _cache_lock:
+        _cache[key] = (value, time.time())
+
+def _bust_cache(prefix=None):
+    with _cache_lock:
+        if prefix is None:
+            _cache.clear()
+        else:
+            for k in list(_cache.keys()):
+                if k.startswith(prefix):
+                    _cache.pop(k, None)
 
 student_exams_bp = Blueprint('student_exams', __name__)
 
@@ -91,6 +122,9 @@ def _filter_session(sess, tier, content_idx=None):
 
 @student_exams_bp.route('', methods=['GET'])
 def list_exams():
+    cached = _cache_get('list_exams', 300)
+    if cached is not None:
+        return jsonify(cached)
     # Use raw mongo aggregation so we never pull subject/session content
     pipeline = [
         {'$project': {
@@ -120,7 +154,9 @@ def list_exams():
             'subject_count':  doc.get('subject_count', 0),
             'session_count':  doc.get('session_count', 0),
         })
-    return jsonify({'ok': True, 'exams': result})
+    payload = {'ok': True, 'exams': result}
+    _cache_put('list_exams', payload)
+    return jsonify(payload)
 
 
 # ── exam detail ───────────────────────────────────────────────────────────────
@@ -130,8 +166,18 @@ def exam_detail(exam_id):
     """Slim exam detail — only what the exam landing page renders.
 
     Subject summaries are computed via Mongo aggregation so we never pull
-    the heavy embedded session arrays across the network.
+    the heavy embedded session arrays across the network. The exam-level
+    payload is cached server-side; per-user `tier` is added on top.
     """
+    cache_key = f'exam_detail:{exam_id}'
+    cached = _cache_get(cache_key, 300)
+    if cached is not None:
+        student = _get_student()
+        tier = _get_tier(student, Exam(id=cached['_exam_oid'])) if student else 0
+        out = {**cached['payload']}
+        out['tier'] = tier
+        return jsonify(out)
+
     coll = Exam._get_collection()
     pipeline = [
         {'$match': {'exam_id': exam_id}},
@@ -203,9 +249,9 @@ def exam_detail(exam_id):
 
     subjects = doc.get('subjects', [])
 
-    return jsonify({
+    payload = {
         'ok': True,
-        'tier': tier,
+        'tier': tier,            # overwritten on cache hits with the user's actual tier
         'tiers': EXAM_TIERS,
         'exam': {
             'id':             str(doc['_id']),
@@ -219,7 +265,9 @@ def exam_detail(exam_id):
             'subjects':       subjects,
             'assessments':    assessments,
         },
-    })
+    }
+    _cache_put(cache_key, {'_exam_oid': doc['_id'], 'payload': payload})
+    return jsonify(payload)
 
 
 # ── one subject's session list (lightweight; for subject page) ────────────────
@@ -227,7 +275,23 @@ def exam_detail(exam_id):
 @student_exams_bp.route('/<exam_id>/subject/<int:sub_idx>', methods=['GET'])
 def subject_detail(exam_id, sub_idx):
     """Slice a single subject out of the exam at the Mongo level so we never
-    transfer the other subjects' sessions across the network."""
+    transfer the other subjects' sessions across the network. Cached per
+    (exam, subject_idx, tier)."""
+    student = _get_student()
+    # Resolve tier without a fresh Mongo query when possible
+    tier_key_cache = _cache_get(f'tier:{exam_id}:{student.id if student else "anon"}', 60)
+    if tier_key_cache is not None:
+        tier = tier_key_cache
+    else:
+        # Need exam id from cache or fetch later; defer
+        tier = None
+
+    cache_key = f'subject:{exam_id}:{sub_idx}:t{tier if tier is not None else "?"}'
+    if tier is not None:
+        cached = _cache_get(cache_key, 180)
+        if cached is not None:
+            return jsonify(cached)
+
     coll = Exam._get_collection()
     pipeline = [
         {'$match': {'exam_id': exam_id}},
@@ -246,8 +310,14 @@ def subject_detail(exam_id, sub_idx):
         return jsonify({'ok': False, 'error': 'Subject not found'}), 404
 
     # Tier needs an Exam ref (id only is enough for the enrollment query)
-    student = _get_student()
-    tier = _get_tier(student, Exam(id=doc['_id'])) if student else 0
+    if tier is None:
+        tier = _get_tier(student, Exam(id=doc['_id'])) if student else 0
+        _cache_put(f'tier:{exam_id}:{student.id if student else "anon"}', tier)
+        # Re-key the cache and check (in case a parallel request filled it)
+        cache_key = f'subject:{exam_id}:{sub_idx}:t{tier}'
+        cached = _cache_get(cache_key, 180)
+        if cached is not None:
+            return jsonify(cached)
 
     raw_sessions = sub.get('sessions') or []
 
@@ -285,7 +355,7 @@ def subject_detail(exam_id, sub_idx):
             d['live_class_count'] = len(s.get('live_classes') or [])
         sessions.append(d)
 
-    return jsonify({
+    payload = {
         'ok': True,
         'tier': tier,
         'subject': {
@@ -293,7 +363,9 @@ def subject_detail(exam_id, sub_idx):
             'locked':   bool(sub.get('locked', False)),
             'sessions': sessions,
         },
-    })
+    }
+    _cache_put(cache_key, payload)
+    return jsonify(payload)
 
 
 def _bulk_session_content_stats(codes):

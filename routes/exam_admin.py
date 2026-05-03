@@ -6,6 +6,7 @@ from models.exam import (
     ModuleVideo, ExamLiveClass,
 )
 from models.assessment import Assessment, AssessmentQuestion
+from routes.student_exams import _bust_cache as _bust_student_cache
 
 exam_admin_bp = Blueprint('exam_admin', __name__)
 
@@ -164,6 +165,7 @@ def add_exam_post():
             subjects=subjects,
         )
         exam.save()
+        _bust_student_cache()
         return jsonify({'ok': True, 'id': str(exam.id)})
     except Exception as e:
         return jsonify({'ok': False, 'error': str(e)}), 400
@@ -365,6 +367,7 @@ def add_session_post(exam_id, sub_idx):
         sess = _build_session(data)
         exam.subjects[sub_idx].sessions.append(sess)
         exam.save()
+        _bust_student_cache()
         return jsonify({'ok': True})
     except Exception as e:
         return jsonify({'ok': False, 'error': str(e)}), 400
@@ -397,6 +400,7 @@ def edit_session_post(exam_id, sub_idx, sess_idx):
         data = request.get_json(force=True)
         exam.subjects[sub_idx].sessions[sess_idx] = _build_session(data)
         exam.save()
+        _bust_student_cache()
         return jsonify({'ok': True})
     except Exception as e:
         return jsonify({'ok': False, 'error': str(e)}), 400
@@ -413,5 +417,6 @@ def delete_session(exam_id, sub_idx, sess_idx):
         abort(404)
     del exam.subjects[sub_idx].sessions[sess_idx]
     exam.save()
+    _bust_student_cache()
     flash('Session deleted.', 'success')
     return redirect(url_for('exam_admin.list_sessions', exam_id=exam_id, sub_idx=sub_idx))
