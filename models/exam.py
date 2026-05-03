@@ -1,6 +1,6 @@
 from mongoengine import (
     Document, EmbeddedDocument, EmbeddedDocumentField, EmbeddedDocumentListField,
-    StringField, ListField, ReferenceField, IntField, BooleanField
+    StringField, ListField, ReferenceField, IntField, BooleanField, FloatField
 )
 import re, uuid
 
@@ -8,15 +8,37 @@ import re, uuid
 # ── Embedded docs for Session content ────────────────────────────────────────
 
 class MCQQuestion(EmbeddedDocument):
-    question    = StringField(required=True)
-    options     = ListField(StringField(), required=True)  # 4 options
-    answer      = IntField(required=True)                  # 0-based index
-    explanation = StringField(default='')
+    question        = StringField(required=True)
+    options         = ListField(StringField(), required=True)   # 4 option texts
+    answer          = IntField(required=True)                   # 0-based index of correct option
+    explanation     = StringField(default='')
+    # Rich metadata from the new question generator
+    option_feedback = ListField(StringField(), default=list)    # parallel array to options (per-option feedback)
+    difficulty      = StringField(default='')                   # basic / intermediate / advanced
+    bloom_level     = StringField(default='')                   # remember / understand / apply / analyze / ...
+    marks           = IntField(default=1)
+    concept_id      = StringField(default='')                   # links MCQ to a concept in notes
+    qid             = StringField(default='')                   # source-side question id
+
+
+class MarkingStep(EmbeddedDocument):
+    step      = IntField(default=0)
+    marks     = FloatField(default=0)
+    criterion = StringField(default='')
 
 
 class DescriptiveQuestion(EmbeddedDocument):
-    question = StringField(required=True)
-    answer   = StringField(required=True)
+    question         = StringField(required=True)
+    answer           = StringField(default='')                  # legacy single-string answer (back-compat)
+    # Rich fields from the new question generator
+    marks            = IntField(default=2)
+    expected_answer  = StringField(default='')
+    key_points       = ListField(StringField(), default=list)
+    marking_scheme   = EmbeddedDocumentListField(MarkingStep)
+    common_traps     = ListField(StringField(), default=list)
+    model_solution   = StringField(default='')                  # full step-by-step model answer (markdown)
+    concept_id       = StringField(default='')
+    qid              = StringField(default='')
 
 
 class ModuleVideo(EmbeddedDocument):
@@ -40,6 +62,7 @@ class ExamLiveClass(EmbeddedDocument):
 
 class Session(EmbeddedDocument):
     title  = StringField(required=True)
+    merge_code = StringField(default='')          # links to source notes/questions e.g. "ALG-EXP-1"
     locked = BooleanField(default=False)          # lock entire session
     preview = BooleanField(default=False)         # if True, all content is open even without subscription
     # Per-content locks

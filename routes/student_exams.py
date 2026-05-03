@@ -200,13 +200,29 @@ def session_content(exam_id, sub_idx, sess_idx):
     }
 
     if 'mcq' in allowed and not sess.mcq_locked:
-        d['mcqs'] = [{'question': m.question, 'options': m.options,
-                       'answer': m.answer, 'explanation': m.explanation}
-                      for m in sess.mcqs]
+        d['mcqs'] = [{
+            'question':        m.question,
+            'options':         m.options,
+            'answer':          m.answer,
+            'explanation':     m.explanation,
+            'option_feedback': list(m.option_feedback or []),
+            'difficulty':      m.difficulty or '',
+            'bloom_level':     m.bloom_level or '',
+            'marks':           m.marks or 1,
+        } for m in sess.mcqs]
 
     if 'descriptive' in allowed and not sess.descriptive_locked:
-        d['descriptive'] = [{'question': dq.question, 'answer': dq.answer}
-                            for dq in sess.descriptive_questions]
+        d['descriptive'] = [{
+            'question':        dq.question,
+            'answer':          dq.answer,
+            'marks':           dq.marks or 0,
+            'expected_answer': dq.expected_answer or '',
+            'key_points':      list(dq.key_points or []),
+            'common_traps':    list(dq.common_traps or []),
+            'model_solution':  dq.model_solution or '',
+            'marking_scheme':  [{'step': s.step, 'marks': s.marks, 'criterion': s.criterion}
+                                for s in (dq.marking_scheme or [])],
+        } for dq in sess.descriptive_questions]
 
     if 'notes' in allowed and not sess.notes_locked:
         d['notes_html'] = sess.notes_html

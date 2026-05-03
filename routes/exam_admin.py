@@ -32,10 +32,19 @@ def _build_session(sd):
         sess.mcqs.append(MCQQuestion(
             question=m['question'], options=m.get('options', []),
             answer=int(m.get('answer', 0)), explanation=m.get('explanation', ''),
+            option_feedback=m.get('option_feedback', []) or [],
+            difficulty=m.get('difficulty', ''),
+            bloom_level=m.get('bloom_level', ''),
+            marks=int(m.get('marks') or 1),
         ))
     for d in sd.get('descriptive_questions', []):
         sess.descriptive_questions.append(DescriptiveQuestion(
-            question=d['question'], answer=d['answer'],
+            question=d['question'], answer=d.get('answer', ''),
+            marks=int(d.get('marks') or 2),
+            expected_answer=d.get('expected_answer', ''),
+            key_points=d.get('key_points', []) or [],
+            common_traps=d.get('common_traps', []) or [],
+            model_solution=d.get('model_solution', ''),
         ))
     for v in sd.get('module_videos', []):
         sess.module_videos.append(ModuleVideo(
