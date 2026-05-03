@@ -39,7 +39,7 @@ def _filter_session(sess, tier):
     if 'notes' in allowed:
         d['has_notes'] = bool(sess.notes_html or sess.notes_pdf_url)
     if 'audio' in allowed:
-        d['has_audio'] = bool(sess.audio_url)
+        d['has_audio'] = bool(sess.audio_url) or any(v.podcast_url for v in sess.module_videos)
     if 'videos' in allowed:
         d['has_video'] = bool(sess.full_video_url)
         d['module_video_count'] = len(sess.module_videos)
@@ -214,6 +214,13 @@ def session_content(exam_id, sub_idx, sess_idx):
 
     if 'audio' in allowed and not sess.audio_locked:
         d['audio_url'] = cdn_url(sess.audio_url) if sess.audio_url else ''
+        # Per-module podcasts — surface them under audio so audio-tier users get them
+        # even when videos aren't in their plan.
+        d['audio_modules'] = [{
+            'title': v.title,
+            'podcast_url': cdn_url(v.podcast_url),
+            'podcast_duration': v.podcast_duration,
+        } for v in sess.module_videos if v.podcast_url]
 
     if 'videos' in allowed and not sess.video_locked:
         d['full_video_url'] = cdn_url(sess.full_video_url) if sess.full_video_url else ''
