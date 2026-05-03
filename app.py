@@ -33,6 +33,7 @@ from routes.admin_users import admin_users_bp
 from routes.student_exams import student_exams_bp
 from routes.exam_enrollment import exam_enrollment_bp
 from routes.student_assessments import student_assessments_bp
+from routes.student_home import student_home_bp
 from utils.cdn import cdn_url
 
 CORS(app, resources={r'/api/*': {'origins': '*'}})
@@ -51,6 +52,7 @@ app.register_blueprint(admin_users_bp, url_prefix='/admin/users')
 app.register_blueprint(student_exams_bp, url_prefix='/api/exams')
 app.register_blueprint(exam_enrollment_bp, url_prefix='/api/exam-enroll')
 app.register_blueprint(student_assessments_bp, url_prefix='/api/assessments')
+app.register_blueprint(student_home_bp, url_prefix='/api/home')
 
 from routes.auth import AdminUser
 
