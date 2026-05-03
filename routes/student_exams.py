@@ -26,19 +26,31 @@ def _get_tier(student, exam):
 
 
 def _content_index(sessions):
-    """Bulk-load SessionContent stats for the given sessions (one query)."""
+    """Bulk-load SessionContent stats for the given sessions in a single
+    Mongo aggregation. Computes counts/flags WITHOUT fetching the (heavy)
+    notes_html / mcq / descriptive bodies."""
     codes = [s.merge_code for s in sessions if s.merge_code]
     if not codes:
         return {}
+    coll = SessionContent._get_collection()
+    pipeline = [
+        {'$match': {'merge_code': {'$in': codes}}},
+        {'$project': {
+            '_id': 0,
+            'merge_code': 1,
+            'mcq_count':  {'$size': {'$ifNull': ['$mcqs', []]}},
+            'desc_count': {'$size': {'$ifNull': ['$descriptive_questions', []]}},
+            'has_notes':  {'$gt': [
+                {'$strLenBytes': {'$ifNull': ['$notes_html', '']}}, 0
+            ]},
+        }},
+    ]
     out = {}
-    # Use a projection-only query — we just need counts/has_notes flag.
-    for sc in SessionContent.objects(merge_code__in=codes).only(
-        'merge_code', 'notes_html', 'mcqs', 'descriptive_questions'
-    ):
-        out[sc.merge_code] = {
-            'mcq_count': len(sc.mcqs),
-            'desc_count': len(sc.descriptive_questions),
-            'has_notes': bool(sc.notes_html),
+    for doc in coll.aggregate(pipeline):
+        out[doc['merge_code']] = {
+            'mcq_count':  doc.get('mcq_count', 0),
+            'desc_count': doc.get('desc_count', 0),
+            'has_notes':  bool(doc.get('has_notes', False)),
         }
     return out
 
@@ -79,21 +91,34 @@ def _filter_session(sess, tier, content_idx=None):
 
 @student_exams_bp.route('', methods=['GET'])
 def list_exams():
-    exams = Exam.objects.all()
+    # Use raw mongo aggregation so we never pull subject/session content
+    pipeline = [
+        {'$project': {
+            'exam_id': 1, 'title': 1, 'full_form': 1, 'description_en': 1,
+            'thumbnail_url': 1, 'locked': 1,
+            'subject_count': {'$size': {'$ifNull': ['$subjects', []]}},
+            'session_count': {'$sum': {
+                '$map': {
+                    'input': {'$ifNull': ['$subjects', []]},
+                    'as': 's',
+                    'in': {'$size': {'$ifNull': ['$$s.sessions', []]}},
+                }
+            }},
+        }},
+    ]
+    coll = Exam._get_collection()
     result = []
-    for e in exams:
-        subject_count = len(e.subjects)
-        session_count = sum(len(s.sessions) for s in e.subjects)
+    for doc in coll.aggregate(pipeline):
         result.append({
-            'id':             str(e.id),
-            'exam_id':        e.exam_id,
-            'title':          e.title,
-            'full_form':      e.full_form,
-            'description_en': e.description_en,
-            'thumbnail_url':  cdn_url(e.thumbnail_url or ''),
-            'locked':         e.locked,
-            'subject_count':  subject_count,
-            'session_count':  session_count,
+            'id':             str(doc['_id']),
+            'exam_id':        doc.get('exam_id', ''),
+            'title':          doc.get('title', ''),
+            'full_form':      doc.get('full_form', ''),
+            'description_en': doc.get('description_en', ''),
+            'thumbnail_url':  cdn_url(doc.get('thumbnail_url') or ''),
+            'locked':         bool(doc.get('locked', False)),
+            'subject_count':  doc.get('subject_count', 0),
+            'session_count':  doc.get('session_count', 0),
         })
     return jsonify({'ok': True, 'exams': result})
 
@@ -102,6 +127,12 @@ def list_exams():
 
 @student_exams_bp.route('/<exam_id>', methods=['GET'])
 def exam_detail(exam_id):
+    """Slim exam detail — only what the exam landing page renders.
+
+    Returns subject summaries (name, lock state, counts), NOT the per-session
+    list. The session list is loaded lazily from `/api/exams/<id>/subject/<idx>`
+    when the user enters a subject.
+    """
     exam = Exam.objects(exam_id=exam_id).first()
     if not exam:
         return jsonify({'ok': False, 'error': 'Exam not found'}), 404
@@ -109,24 +140,18 @@ def exam_detail(exam_id):
     student = _get_student()
     tier = _get_tier(student, exam)
 
-    all_sessions = [s for sub in exam.subjects for s in sub.sessions]
-    content_idx = _content_index(all_sessions)
-
     subjects = []
     for sub in exam.subjects:
-        sessions = []
-        for sess in sub.sessions:
-            sd = _filter_session(sess, tier, content_idx)
-            sd['locked'] = sess.locked
-            sd['preview'] = bool(getattr(sess, 'preview', False))
-            sd['notes_locked'] = sess.notes_locked
-            sd['mcq_locked'] = sess.mcq_locked
-            sd['descriptive_locked'] = sess.descriptive_locked
-            sd['audio_locked'] = sess.audio_locked
-            sd['video_locked'] = sess.video_locked
-            sd['live_locked'] = sess.live_locked
-            sessions.append(sd)
-        subjects.append({'name': sub.name, 'locked': sub.locked, 'sessions': sessions})
+        sessions = sub.sessions or []
+        preview_count = sum(1 for s in sessions if getattr(s, 'preview', False))
+        locked_count  = sum(1 for s in sessions if s.locked)
+        subjects.append({
+            'name':           sub.name,
+            'locked':         sub.locked,
+            'session_count':  len(sessions),
+            'preview_count':  preview_count,
+            'locked_count':   locked_count,
+        })
 
     assessments = []
     for a in exam.assessments:
