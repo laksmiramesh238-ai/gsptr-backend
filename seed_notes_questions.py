@@ -18,26 +18,35 @@ load_dotenv()
 from mongoengine import connect
 connect(db=os.getenv('DB_NAME', 'course_platform'), host=os.getenv('MONGO_URI'))
 
+from datetime import datetime
 from models.exam import Exam, MCQQuestion, DescriptiveQuestion, MarkingStep
+from models.session_content import SessionContent
 
-NOTES_DIR     = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'notes'))
-QUESTIONS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'questions'))
+# Scan multiple folder pairs (notes + questions). Add more here as new
+# subjects come online. First match wins per merge_code.
+_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+SOURCE_PAIRS = [
+    (os.path.join(_root, 'notes'),         os.path.join(_root, 'questions')),
+    (os.path.join(_root, 'notes_science'), os.path.join(_root, 'questions_science')),
+]
 
 
 def load_notes_html(merge_code: str) -> str | None:
-    path = os.path.join(NOTES_DIR, f'{merge_code}.html')
-    if not os.path.exists(path):
-        return None
-    with open(path, encoding='utf-8') as f:
-        return f.read()
+    for notes_dir, _ in SOURCE_PAIRS:
+        path = os.path.join(notes_dir, f'{merge_code}.html')
+        if os.path.exists(path):
+            with open(path, encoding='utf-8') as f:
+                return f.read()
+    return None
 
 
 def load_questions(merge_code: str) -> dict | None:
-    path = os.path.join(QUESTIONS_DIR, f'{merge_code}.json')
-    if not os.path.exists(path):
-        return None
-    with open(path, encoding='utf-8') as f:
-        return json.load(f)
+    for _, q_dir in SOURCE_PAIRS:
+        path = os.path.join(q_dir, f'{merge_code}.json')
+        if os.path.exists(path):
+            with open(path, encoding='utf-8') as f:
+                return json.load(f)
+    return None
 
 
 def build_mcq(q: dict) -> MCQQuestion:
@@ -94,42 +103,49 @@ def main():
     total_descs        = 0
     missing_codes      = []
 
+    # Collect every merge_code that exists in DB (across all exams)
+    merge_codes = set()
     for exam in Exam.objects():
-        changed = False
         for sub in exam.subjects:
             for sess in sub.sessions:
                 total_sessions += 1
-                mc = sess.merge_code
-                if not mc:
-                    continue
-                sessions_with_code += 1
+                if sess.merge_code:
+                    merge_codes.add(sess.merge_code)
+                    sessions_with_code += 1
 
-                html = load_notes_html(mc)
-                if html:
-                    sess.notes_html = html
-                    notes_seeded += 1
-                    changed = True
-                else:
-                    notes_missing += 1
-                    missing_codes.append(f'{mc} (notes)')
+    for mc in sorted(merge_codes):
+        html  = load_notes_html(mc)
+        qdata = load_questions(mc)
 
-                qdata = load_questions(mc)
-                if qdata:
-                    new_mcqs  = [build_mcq(m) for m in qdata.get('mcqs', [])]
-                    new_descs = [build_desc(d) for d in qdata.get('descriptive', [])]
-                    sess.mcqs = new_mcqs
-                    sess.descriptive_questions = new_descs
-                    questions_seeded += 1
-                    total_mcqs       += len(new_mcqs)
-                    total_descs      += len(new_descs)
-                    changed = True
-                else:
-                    questions_missing += 1
-                    missing_codes.append(f'{mc} (questions)')
+        if not html and not qdata:
+            notes_missing += 1
+            questions_missing += 1
+            missing_codes.append(f'{mc} (both)')
+            continue
 
-        if changed:
-            exam.save()
-            print(f"Saved exam: {exam.title}")
+        sc = SessionContent.objects(merge_code=mc).first() or SessionContent(merge_code=mc)
+        sc.updated_at = datetime.utcnow()
+
+        if html:
+            sc.notes_html = html
+            notes_seeded += 1
+        else:
+            notes_missing += 1
+            missing_codes.append(f'{mc} (notes)')
+
+        if qdata:
+            new_mcqs  = [build_mcq(m) for m in qdata.get('mcqs', [])]
+            new_descs = [build_desc(d) for d in qdata.get('descriptive', [])]
+            sc.mcqs = new_mcqs
+            sc.descriptive_questions = new_descs
+            questions_seeded += 1
+            total_mcqs  += len(new_mcqs)
+            total_descs += len(new_descs)
+        else:
+            questions_missing += 1
+            missing_codes.append(f'{mc} (questions)')
+
+        sc.save()
 
     print()
     print(f"Total sessions:           {total_sessions}")

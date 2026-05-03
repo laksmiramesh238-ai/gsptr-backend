@@ -2,6 +2,7 @@ from datetime import datetime
 from flask import Blueprint, jsonify, request
 from models.exam import Exam
 from models.exam_enrollment import ExamEnrollment, EXAM_TIERS
+from models.session_content import SessionContent
 from routes.student_auth import student_from_token
 from utils.cdn import cdn_url
 
@@ -24,7 +25,25 @@ def _get_tier(student, exam):
     return 0
 
 
-def _filter_session(sess, tier):
+def _content_index(sessions):
+    """Bulk-load SessionContent stats for the given sessions (one query)."""
+    codes = [s.merge_code for s in sessions if s.merge_code]
+    if not codes:
+        return {}
+    out = {}
+    # Use a projection-only query — we just need counts/has_notes flag.
+    for sc in SessionContent.objects(merge_code__in=codes).only(
+        'merge_code', 'notes_html', 'mcqs', 'descriptive_questions'
+    ):
+        out[sc.merge_code] = {
+            'mcq_count': len(sc.mcqs),
+            'desc_count': len(sc.descriptive_questions),
+            'has_notes': bool(sc.notes_html),
+        }
+    return out
+
+
+def _filter_session(sess, tier, content_idx=None):
     """Return session dict filtered by tier access. Preview sessions get full top-tier access."""
     if getattr(sess, 'preview', False):
         allowed = EXAM_TIERS[max(EXAM_TIERS.keys())]['includes']
@@ -32,12 +51,19 @@ def _filter_session(sess, tier):
         allowed = EXAM_TIERS.get(tier, {}).get('includes', []) if tier > 0 else []
     d = {'title': sess.title, 'preview': bool(getattr(sess, 'preview', False))}
 
+    # Prefer external SessionContent stats if available.
+    ext = (content_idx or {}).get(sess.merge_code) if sess.merge_code else None
+    mcq_count    = ext['mcq_count']  if ext else len(sess.mcqs)
+    desc_count   = ext['desc_count'] if ext else len(sess.descriptive_questions)
+    has_notes    = ext['has_notes']  if ext else bool(sess.notes_html)
+    has_notes    = has_notes or bool(sess.notes_pdf_url)
+
     if 'mcq' in allowed:
-        d['mcq_count'] = len(sess.mcqs)
+        d['mcq_count'] = mcq_count
     if 'descriptive' in allowed:
-        d['descriptive_count'] = len(sess.descriptive_questions)
+        d['descriptive_count'] = desc_count
     if 'notes' in allowed:
-        d['has_notes'] = bool(sess.notes_html or sess.notes_pdf_url)
+        d['has_notes'] = has_notes
     if 'audio' in allowed:
         d['has_audio'] = bool(sess.audio_url) or any(v.podcast_url for v in sess.module_videos)
     if 'videos' in allowed:
@@ -83,11 +109,14 @@ def exam_detail(exam_id):
     student = _get_student()
     tier = _get_tier(student, exam)
 
+    all_sessions = [s for sub in exam.subjects for s in sub.sessions]
+    content_idx = _content_index(all_sessions)
+
     subjects = []
     for sub in exam.subjects:
         sessions = []
         for sess in sub.sessions:
-            sd = _filter_session(sess, tier)
+            sd = _filter_session(sess, tier, content_idx)
             sd['locked'] = sess.locked
             sd['preview'] = bool(getattr(sess, 'preview', False))
             sd['notes_locked'] = sess.notes_locked
@@ -144,9 +173,10 @@ def subject_detail(exam_id, sub_idx):
     tier = _get_tier(student, exam)
     sub = exam.subjects[sub_idx]
 
+    content_idx = _content_index(sub.sessions)
     sessions = []
     for sess in sub.sessions:
-        sd = _filter_session(sess, tier)
+        sd = _filter_session(sess, tier, content_idx)
         sd['locked'] = sess.locked
         sd['preview'] = bool(getattr(sess, 'preview', False))
         sessions.append(sd)
@@ -199,6 +229,13 @@ def session_content(exam_id, sub_idx, sess_idx):
         'live_locked': sess.live_locked,
     }
 
+    # Load external content keyed by merge_code (notes, MCQs, descriptive
+    # questions live in SessionContent so the Exam doc stays under 16 MB).
+    sc = SessionContent.objects(merge_code=sess.merge_code).first() if sess.merge_code else None
+    mcqs_src   = sc.mcqs if sc else sess.mcqs
+    descs_src  = sc.descriptive_questions if sc else sess.descriptive_questions
+    notes_src  = (sc.notes_html if sc and sc.notes_html else sess.notes_html) or ''
+
     if 'mcq' in allowed and not sess.mcq_locked:
         d['mcqs'] = [{
             'question':        m.question,
@@ -209,7 +246,7 @@ def session_content(exam_id, sub_idx, sess_idx):
             'difficulty':      m.difficulty or '',
             'bloom_level':     m.bloom_level or '',
             'marks':           m.marks or 1,
-        } for m in sess.mcqs]
+        } for m in mcqs_src]
 
     if 'descriptive' in allowed and not sess.descriptive_locked:
         d['descriptive'] = [{
@@ -222,10 +259,10 @@ def session_content(exam_id, sub_idx, sess_idx):
             'model_solution':  dq.model_solution or '',
             'marking_scheme':  [{'step': s.step, 'marks': s.marks, 'criterion': s.criterion}
                                 for s in (dq.marking_scheme or [])],
-        } for dq in sess.descriptive_questions]
+        } for dq in descs_src]
 
     if 'notes' in allowed and not sess.notes_locked:
-        d['notes_html'] = sess.notes_html
+        d['notes_html'] = notes_src
         d['notes_pdf_url'] = cdn_url(sess.notes_pdf_url) if sess.notes_pdf_url else ''
 
     if 'audio' in allowed and not sess.audio_locked:
