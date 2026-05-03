@@ -110,6 +110,32 @@ td { padding: 9px 10px; border-bottom: 1px solid #f5f5f8; color: #333; }
 
     <div class="section-spacer"></div>
 
+    <!-- Device lock -->
+    <div class="panel">
+      <h2>Device Lock</h2>
+      <p style="font-size: 13px; color: #555; margin-bottom: 12px;">
+        This account is locked to one device. Reset to allow sign-in on a different phone.
+      </p>
+      <div class="kv"><div class="k">Device</div>
+        <div class="v">{{ student.device_label or '— not bound —' }}</div>
+      </div>
+      <div class="kv"><div class="k">Bound at</div>
+        <div class="v">{{ student.device_bound_at.strftime('%d %b %Y, %H:%M') if student.device_bound_at else '—' }}</div>
+      </div>
+      <div class="kv"><div class="k">Device ID</div>
+        <div class="v" style="font-family: monospace; font-size: 11px; color: #888;">{{ student.device_id or '—' }}</div>
+      </div>
+      {% if student.device_id %}
+      <form method="POST" action="{{ url_for('admin_users.reset_device', student_id=student.id) }}"
+            onsubmit="return confirm('Reset device for {{ student.email }}? Next sign-in will bind to whatever device they use.')"
+            style="margin-top: 10px;">
+        <button class="btn-danger-sm" style="background:#6c63ff;">Reset device</button>
+      </form>
+      {% endif %}
+    </div>
+
+    <div class="section-spacer"></div>
+
     <!-- Danger zone -->
     <div class="panel">
       <h2 style="color: #c0392b;">Danger zone</h2>

@@ -113,6 +113,8 @@ def verify_otp():
     data  = request.get_json(force=True)
     email = data.get('email', '').strip().lower()
     code  = data.get('code', '').strip()
+    device_id    = (data.get('device_id') or '').strip()
+    device_label = (data.get('device_label') or '').strip()[:120]
 
     if not email or not code:
         return jsonify({'ok': False, 'error': 'Email and code are required'}), 400
@@ -127,11 +129,23 @@ def verify_otp():
     if datetime.utcnow() > otp.expires_at:
         return jsonify({'ok': False, 'error': 'OTP expired'}), 401
 
+    student = Student.objects(email=email).first()
+    is_signup = student is None
+
+    # ── Device-lock check (only enforced for existing accounts) ──────────────
+    if student and student.device_id and device_id and student.device_id != device_id:
+        # Don't burn the OTP — let the user retry on the right device.
+        return jsonify({
+            'ok':           False,
+            'error':        'This account is already signed in on another device. '
+                            'Ask the admin to reset your device, then try again.',
+            'code':         'DEVICE_MISMATCH',
+            'bound_device': student.device_label or 'another device',
+        }), 403
+
     otp.update(used=True)
 
-    student = Student.objects(email=email).first()
-    if not student:
-        # signup flow — create the student now that OTP is verified
+    if is_signup:
         if not otp.pending_name:
             return jsonify({'ok': False, 'error': 'Account not found'}), 404
         student = Student(
@@ -143,6 +157,13 @@ def verify_otp():
         student.save()
     elif not student.is_verified:
         student.update(is_verified=True)
+
+    # Bind device on first successful verify (or rebind if cleared by admin).
+    if device_id and not student.device_id:
+        student.device_id       = device_id
+        student.device_label    = device_label
+        student.device_bound_at = datetime.utcnow()
+        student.save()
 
     token = make_token(student)
 
@@ -179,3 +200,63 @@ def me():
             'phone': student.phone,
         },
     })
+
+
+# ── My enrollments (courses + exams) ─────────────────────────────────────────
+
+@student_auth.route('/me/enrollments', methods=['GET'])
+def my_enrollments():
+    auth = request.headers.get('Authorization', '')
+    if not auth.startswith('Bearer '):
+        return jsonify({'ok': False, 'error': 'Unauthorized'}), 401
+    student = student_from_token(auth.split(' ', 1)[1])
+    if not student:
+        return jsonify({'ok': False, 'error': 'Invalid token'}), 401
+
+    from datetime import datetime
+    from models.enrollment import Enrollment
+    from models.exam_enrollment import ExamEnrollment, EXAM_TIERS
+    from utils.cdn import cdn_url
+
+    now = datetime.utcnow()
+
+    courses = []
+    for e in Enrollment.objects(student=student, status='paid').order_by('-enrolled_at'):
+        try:
+            c = e.course
+            if not c: continue
+            courses.append({
+                'enrollment_id': str(e.id),
+                'course_id':     c.course_id,
+                'name':          c.name,
+                'thumbnail_url': cdn_url(c.thumbnail_url or ''),
+                'enrolled_at':   e.enrolled_at.strftime('%d %b %Y') if e.enrolled_at else '',
+                'expires_at':    e.expires_at.strftime('%d %b %Y') if e.expires_at else '',
+                'active':        bool(e.expires_at and e.expires_at > now),
+                'days_left':     max(0, (e.expires_at - now).days) if e.expires_at else 0,
+            })
+        except Exception:
+            continue
+
+    exams = []
+    for e in ExamEnrollment.objects(student=student, status='paid').order_by('-enrolled_at'):
+        try:
+            x = e.exam
+            if not x: continue
+            tier_info = EXAM_TIERS.get(e.tier, {})
+            exams.append({
+                'enrollment_id': str(e.id),
+                'exam_id':       x.exam_id,
+                'title':         x.title,
+                'thumbnail_url': cdn_url(x.thumbnail_url or ''),
+                'tier':          e.tier,
+                'tier_label':    tier_info.get('label', ''),
+                'enrolled_at':   e.enrolled_at.strftime('%d %b %Y') if e.enrolled_at else '',
+                'expires_at':    e.expires_at.strftime('%d %b %Y') if e.expires_at else '',
+                'active':        bool(e.expires_at and e.expires_at > now),
+                'days_left':     max(0, (e.expires_at - now).days) if e.expires_at else 0,
+            })
+        except Exception:
+            continue
+
+    return jsonify({'ok': True, 'courses': courses, 'exams': exams})

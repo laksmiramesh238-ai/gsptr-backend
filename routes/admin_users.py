@@ -88,6 +88,21 @@ def user_detail(student_id):
     )
 
 
+@admin_users_bp.route('/<student_id>/reset-device', methods=['POST'])
+@login_required
+def reset_device(student_id):
+    s = _safe_get_student(student_id)
+    if not s:
+        flash('Student not found.', 'error')
+        return redirect(url_for('admin_users.list_users'))
+    s.device_id = ''
+    s.device_label = ''
+    s.device_bound_at = None
+    s.save()
+    flash(f'Device reset for {s.email}. They can sign in on a new device now.', 'success')
+    return redirect(url_for('admin_users.user_detail', student_id=student_id))
+
+
 @admin_users_bp.route('/<student_id>/delete', methods=['POST'])
 @login_required
 def delete_user(student_id):
