@@ -1,0 +1,73 @@
+{% extends 'admin/base.html' %}
+{% block title %}Results — {{ test.name }}{% endblock %}
+{% block page_title %}Results — {{ test.name }}{% endblock %}
+
+{% block extra_styles %}
+.btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn-outline { background: #fff; color: #6c63ff; border: 1.5px solid #6c63ff; }
+.btn-sm { padding: 5px 11px; font-size: 12px; }
+.section { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.table { width: 100%; border-collapse: collapse; }
+.table th { text-align: left; padding: 10px 14px; background: #f8f8fc; font-size: 11px; font-weight: 700; color: #666; text-transform: uppercase; }
+.table td { padding: 10px 14px; border-top: 1px solid #f0f0f0; font-size: 13px; color: #333; }
+.empty { color: #aaa; padding: 28px; text-align: center; font-size: 13px; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.pill { display: inline-block; padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+.pill.done { background: #e6f9f0; color: #208a4f; }
+.pill.prog { background: #fff8e6; color: #8a6d00; }
+.score-bar { display:inline-block; width: 80px; height: 8px; background: #f0f0f0; border-radius: 4px; vertical-align: middle; overflow: hidden; margin-right: 8px; }
+.score-fill { display: block; height: 100%; background: #6c63ff; }
+.summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+.summary-card { background: #fff; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.summary-num { font-size: 22px; font-weight: 800; color: #1a1a2e; }
+.summary-label { font-size: 11px; color: #888; font-weight: 700; text-transform: uppercase; margin-top: 4px; }
+{% endblock %}
+
+{% block content %}
+<div class="toolbar">
+  <a href="{{ url_for('admin_tests.list_tests') }}" class="btn btn-outline btn-sm">← Back to Tests</a>
+  <a href="{{ url_for('admin_tests.manage_enrollments', test_id=test.id) }}" class="btn btn-outline btn-sm">Manage Enrollments</a>
+</div>
+
+{% set submitted = rows | selectattr('status','equalto','Submitted') | list %}
+{% set in_progress = rows | selectattr('status','equalto','In progress') | list %}
+{% set avg = (submitted | sum(attribute='score') / submitted | length) if submitted else 0 %}
+
+<div class="summary">
+  <div class="summary-card"><div class="summary-num">{{ test.students_enrolled | length }}</div><div class="summary-label">Enrolled</div></div>
+  <div class="summary-card"><div class="summary-num" style="color:#208a4f">{{ submitted | length }}</div><div class="summary-label">Submitted</div></div>
+  <div class="summary-card"><div class="summary-num" style="color:#8a6d00">{{ in_progress | length }}</div><div class="summary-label">In Progress</div></div>
+  <div class="summary-card"><div class="summary-num" style="color:#6c63ff">{{ avg | round(1) }} / {{ max_score | round(1) }}</div><div class="summary-label">Avg Score</div></div>
+</div>
+
+<div class="section">
+  {% if rows %}
+  <table class="table">
+    <thead><tr><th>Student</th><th>Email</th><th>Status</th><th>Responses</th><th>Score</th><th>Submitted</th></tr></thead>
+    <tbody>
+      {% for r in rows %}
+      <tr>
+        <td><strong>{{ r.student_name }}</strong></td>
+        <td>{{ r.student_email }}</td>
+        <td>
+          {% if r.status == 'Submitted' %}<span class="pill done">Submitted</span>
+          {% else %}<span class="pill prog">In progress</span>{% endif %}
+        </td>
+        <td>{{ r.responses }}</td>
+        <td>
+          {% if r.status == 'Submitted' %}
+            {% set pct = (r.score / max_score * 100) if max_score else 0 %}
+            <span class="score-bar"><span class="score-fill" style="width:{{ [pct, 0] | max | round(0, 'floor') }}%"></span></span>
+            <strong>{{ r.score | round(1) }}</strong> / {{ max_score | round(1) }}
+          {% else %}—{% endif %}
+        </td>
+        <td>{{ r.submitted_at.strftime('%d %b %Y, %I:%M %p') if r.submitted_at else '—' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty">No attempts yet.</div>
+  {% endif %}
+</div>
+{% endblock %}

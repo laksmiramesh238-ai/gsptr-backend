@@ -1,0 +1,159 @@
+{% extends 'admin/base.html' %}
+{% block title %}Enrollments — {{ test.name }}{% endblock %}
+{% block page_title %}Enrollments — {{ test.name }}{% endblock %}
+
+{% block extra_styles %}
+.btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary { background: #6c63ff; color: #fff; }
+.btn-danger { background: #ff4f4f; color: #fff; }
+.btn-success { background: #2ecc71; color: #fff; }
+.btn-outline { background: #fff; color: #6c63ff; border: 1.5px solid #6c63ff; }
+.btn-sm { padding: 5px 11px; font-size: 12px; }
+.section { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.section-title { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+.table { width: 100%; border-collapse: collapse; }
+.table th { text-align: left; padding: 10px 14px; background: #f8f8fc; font-size: 11px; font-weight: 700; color: #666; text-transform: uppercase; }
+.table td { padding: 10px 14px; border-top: 1px solid #f0f0f0; font-size: 13px; color: #333; }
+.empty { color: #aaa; padding: 28px; text-align: center; font-size: 13px; }
+.searchrow { display: flex; gap: 8px; margin-bottom: 12px; }
+.searchrow input { flex: 1; border: 1.5px solid #ddd; border-radius: 8px; padding: 8px 12px; font-size: 13px; font-family: inherit; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.flash { padding: 10px 14px; border-radius: 8px; margin-bottom: 12px; font-size: 13px; font-weight: 600; }
+.flash.success { background: #e6f9f0; color: #208a4f; }
+.flash.error   { background: #fff0f0; color: #cc3333; }
+.checkbox-cell { width: 32px; text-align: center; }
+{% endblock %}
+
+{% block content %}
+<div class="toolbar">
+  <a href="{{ url_for('admin_tests.list_tests') }}" class="btn btn-outline btn-sm">← Back to Tests</a>
+  <div style="display:flex;gap:6px">
+    <a href="{{ url_for('admin_tests.edit_test', test_id=test.id) }}" class="btn btn-outline btn-sm">Edit Test</a>
+    <a href="{{ url_for('admin_tests.view_results', test_id=test.id) }}" class="btn btn-outline btn-sm">View Results</a>
+  </div>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, msg in messages %}
+    <div class="flash {{ category }}">{{ msg }}</div>
+  {% endfor %}
+{% endwith %}
+
+<div class="section">
+  <div style="font-size:13px;color:#666">
+    <strong>{{ test.duration }} min</strong> · <strong>{{ test.questions | length }} questions</strong> · max {{ test.get_total_max_score() | round(1) }} marks
+    · starts {{ test.start_date.strftime('%d %b %Y') if test.start_date else '?' }} {{ test.start_time }}
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Enrolled Students <span style="color:#888;font-size:13px">({{ enrolled | length }})</span></div>
+  {% if enrolled %}
+  <table class="table">
+    <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th></th></tr></thead>
+    <tbody>
+      {% for s in enrolled %}
+      <tr>
+        <td><strong>{{ s.name }}</strong></td>
+        <td>{{ s.email }}</td>
+        <td>{{ s.phone or '—' }}</td>
+        <td style="text-align:right">
+          <form method="POST" action="{{ url_for('admin_tests.unenroll_one', test_id=test.id) }}" onsubmit="return confirm('Remove {{ s.name }}? Their result will also be cleared.')">
+            <input type="hidden" name="student_id" value="{{ s.id }}"/>
+            <button class="btn btn-danger btn-sm">Remove</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}<div class="empty">No students enrolled yet.</div>{% endif %}
+</div>
+
+<div class="section">
+  <div class="section-title">
+    Add Students <span style="color:#888;font-size:13px">({{ available | length }} available)</span>
+    <button class="btn btn-success btn-sm" onclick="bulkAdd()" id="bulkBtn" style="display:none">+ Add Selected</button>
+  </div>
+
+  <div class="searchrow">
+    <input id="search" placeholder="Search by name, email, or phone..." onkeyup="filterRows()"/>
+    <button class="btn btn-outline btn-sm" onclick="toggleAll()">Select All</button>
+  </div>
+
+  {% if available %}
+  <table class="table" id="availTable">
+    <thead><tr>
+      <th class="checkbox-cell"><input type="checkbox" id="masterCheck" onchange="toggleAll()"/></th>
+      <th>Name</th><th>Email</th><th>Phone</th><th></th>
+    </tr></thead>
+    <tbody>
+      {% for s in available %}
+      <tr data-search="{{ (s.name or '') }} {{ s.email }} {{ s.phone or '' }}">
+        <td class="checkbox-cell"><input type="checkbox" class="rowCheck" value="{{ s.id }}" onchange="updateBulk()"/></td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.email }}</td>
+        <td>{{ s.phone or '—' }}</td>
+        <td style="text-align:right">
+          <form method="POST" action="{{ url_for('admin_tests.enroll_one', test_id=test.id) }}">
+            <input type="hidden" name="student_id" value="{{ s.id }}"/>
+            <button class="btn btn-primary btn-sm">+ Enroll</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}<div class="empty">All students are already enrolled.</div>{% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const TEST_ID = '{{ test.id }}';
+
+function filterRows() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  document.querySelectorAll('#availTable tbody tr').forEach(tr => {
+    const hay = (tr.dataset.search || '').toLowerCase();
+    tr.style.display = (!q || hay.includes(q)) ? '' : 'none';
+  });
+}
+
+function toggleAll() {
+  const master = document.getElementById('masterCheck');
+  const checks = document.querySelectorAll('.rowCheck');
+  const visible = Array.from(checks).filter(c => c.closest('tr').style.display !== 'none');
+  const allChecked = visible.every(c => c.checked);
+  visible.forEach(c => c.checked = !allChecked);
+  if (master) master.checked = !allChecked;
+  updateBulk();
+}
+
+function updateBulk() {
+  const n = document.querySelectorAll('.rowCheck:checked').length;
+  const btn = document.getElementById('bulkBtn');
+  btn.style.display = n > 0 ? 'inline-flex' : 'none';
+  btn.textContent = `+ Add ${n} Selected`;
+}
+
+async function bulkAdd() {
+  const ids = Array.from(document.querySelectorAll('.rowCheck:checked')).map(c => c.value);
+  if (!ids.length) return;
+  const btn = document.getElementById('bulkBtn');
+  btn.disabled = true; btn.textContent = 'Adding...';
+
+  try {
+    const res = await fetch(`/admin/tests/${TEST_ID}/enrollments/bulk`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ student_ids: ids }),
+    });
+    const data = await res.json();
+    if (data.ok) window.location.reload();
+    else { alert('Error: ' + (data.error || 'Unknown')); btn.disabled = false; }
+  } catch (e) {
+    alert('Network error: ' + e.message); btn.disabled = false;
+  }
+}
+</script>
+{% endblock %}

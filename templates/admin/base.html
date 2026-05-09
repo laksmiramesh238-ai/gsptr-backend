@@ -49,6 +49,9 @@
       <a href="{{ url_for('exam_admin.list_exams') }}" class="nav-item {% if 'exam_admin' in request.endpoint %}active{% endif %}">
         <span class="nav-icon">📝</span> Exams
       </a>
+      <a href="{{ url_for('admin_tests.list_tests') }}" class="nav-item {% if 'admin_tests' in request.endpoint %}active{% endif %}">
+        <span class="nav-icon">🧪</span> Tests
+      </a>
       <a href="{{ url_for('admin_users.list_users') }}" class="nav-item {% if 'admin_users' in request.endpoint %}active{% endif %}">
         <span class="nav-icon">👥</span> Users
       </a>
