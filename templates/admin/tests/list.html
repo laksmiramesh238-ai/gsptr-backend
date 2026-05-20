@@ -18,6 +18,17 @@
 .pill.upcoming{ background: #ece9ff; color: #5448d6; }
 .pill.ended   { background: #fff0f0; color: #cc3333; }
 .pill.muted   { background: #f0f0f0; color: #666; }
+.arrow-col { white-space: nowrap; width: 70px; }
+.arrow-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 6px; border: 1px solid #ddd;
+  background: #fff; cursor: pointer; font-size: 13px; color: #444;
+  padding: 0; margin: 0 1px;
+}
+.arrow-btn:hover:not(:disabled) { background: #ece9ff; color: #6c63ff; border-color: #6c63ff; }
+.arrow-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.arrow-form { display: inline-block; margin: 0; padding: 0; }
+.actions-cell { white-space: nowrap; }
 {% endblock %}
 
 {% block content %}
@@ -26,17 +37,29 @@
   <a href="{{ url_for('admin_tests.add_test') }}" class="btn btn-primary">+ Add Test</a>
 </div>
 
-{% if tests | list | length > 0 %}
+{% set tests_list = tests | list %}
+{% if tests_list | length > 0 %}
+{% set total = tests_list | length %}
 <table class="table">
   <thead><tr>
-    <th>Name</th><th>Window</th><th>Duration</th><th>Questions</th><th>Max</th><th>Enrolled</th><th>Submitted</th><th>Actions</th>
+    <th class="arrow-col">Order</th><th>Name</th><th>Window</th><th>Duration</th><th>Questions</th><th>Max</th><th>Enrolled</th><th>Submitted</th><th>Actions</th>
   </tr></thead>
   <tbody>
-    {% for t in tests %}
+    {% for t in tests_list %}
     {% set is_ended = t.end_date and t.end_date < now %}
     {% set is_upcoming = t.start_date and t.start_date > now %}
     {% set window = 'ended' if is_ended else ('upcoming' if is_upcoming else 'live') %}
     <tr>
+      <td class="arrow-col">
+        <form method="POST" action="{{ url_for('admin_tests.move_test', test_id=t.id) }}" class="arrow-form">
+          <input type="hidden" name="direction" value="up"/>
+          <button class="arrow-btn" title="Move up" {% if loop.first %}disabled{% endif %}>&#9650;</button>
+        </form>
+        <form method="POST" action="{{ url_for('admin_tests.move_test', test_id=t.id) }}" class="arrow-form">
+          <input type="hidden" name="direction" value="down"/>
+          <button class="arrow-btn" title="Move down" {% if loop.last %}disabled{% endif %}>&#9660;</button>
+        </form>
+      </td>
       <td><strong>{{ t.name }}</strong></td>
       <td>
         {{ t.start_date.strftime('%d %b %Y') if t.start_date else '—' }} {{ t.start_time }}
@@ -47,7 +70,7 @@
       <td>{{ t.get_total_max_score() | round(1) }}</td>
       <td>{{ t.students_enrolled | length }}</td>
       <td>{{ t.results | selectattr('status', 'equalto', 1) | list | length }}</td>
-      <td>
+      <td class="actions-cell">
         <a href="{{ url_for('admin_tests.manage_enrollments', test_id=t.id) }}" class="btn btn-outline btn-sm">Enroll</a>
         <a href="{{ url_for('admin_tests.view_results', test_id=t.id) }}" class="btn btn-outline btn-sm">Results</a>
         <a href="{{ url_for('admin_tests.edit_test', test_id=t.id) }}" class="btn btn-primary btn-sm">Edit</a>

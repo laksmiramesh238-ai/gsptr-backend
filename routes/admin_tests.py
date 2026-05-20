@@ -238,6 +238,65 @@ def unenroll_one(test_id):
     return redirect(url_for('admin_tests.manage_enrollments', test_id=test_id))
 
 
+# ── reorder ──────────────────────────────────────────────────────────────────
+
+@admin_tests_bp.route('/<test_id>/move', methods=['POST'])
+@login_required
+def move_test(test_id):
+    """Swap order_index with the neighbour above/below.
+
+    POST body: form-encoded `direction=up|down` (or JSON).
+    """
+    direction = (request.form.get('direction')
+                 or (request.get_json(silent=True) or {}).get('direction', ''))
+    if direction not in ('up', 'down'):
+        return jsonify({'ok': False, 'error': 'direction must be up or down'}), 400
+
+    t = Test.objects(id=test_id).first()
+    if not t:
+        return jsonify({'ok': False, 'error': 'Test not found'}), 404
+
+    # Same sort as the list page: order_index ASC, then -start_date
+    ordered = list(Test.objects.order_by('order_index', '-start_date'))
+    try:
+        idx = next(i for i, x in enumerate(ordered) if str(x.id) == str(t.id))
+    except StopIteration:
+        return jsonify({'ok': False, 'error': 'Test not found in list'}), 404
+
+    swap_idx = idx - 1 if direction == 'up' else idx + 1
+    if swap_idx < 0 or swap_idx >= len(ordered):
+        return redirect(url_for('admin_tests.list_tests'))  # at boundary, no-op
+
+    neighbour = ordered[swap_idx]
+
+    # If both have the same order_index, just bump theirs by ±1 so they actually swap.
+    if t.order_index == neighbour.order_index:
+        if direction == 'up':
+            t.order_index = neighbour.order_index - 1
+        else:
+            t.order_index = neighbour.order_index + 1
+        t.save()
+    else:
+        t.order_index, neighbour.order_index = neighbour.order_index, t.order_index
+        t.save(); neighbour.save()
+
+    return redirect(url_for('admin_tests.list_tests'))
+
+
+@admin_tests_bp.route('/reorder', methods=['POST'])
+@login_required
+def bulk_reorder():
+    """Set order_index for a list of test IDs.
+
+    JSON body: { "new_order": ["test_id_1", "test_id_2", ...] }
+    """
+    data = request.get_json(force=True)
+    new_order = data.get('new_order', [])
+    for idx, tid in enumerate(new_order):
+        Test.objects(id=tid).update(set__order_index=idx)
+    return jsonify({'ok': True, 'count': len(new_order)})
+
+
 # ── results browser ──────────────────────────────────────────────────────────
 
 @admin_tests_bp.route('/<test_id>/results', methods=['GET'])
