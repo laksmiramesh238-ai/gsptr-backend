@@ -36,11 +36,17 @@ def list_users():
 
     students = list(qs.order_by('-created_at').limit(500))
 
-    course_counts = {}
-    exam_counts   = {}
-    for s in students:
-        course_counts[str(s.id)] = Enrollment.objects(student=s, status='paid').count()
-        exam_counts[str(s.id)]   = ExamEnrollment.objects(student=s, status='paid').count()
+    # Aggregate counts in a single query per collection (instead of N per student).
+    sids = [s.id for s in students]
+    course_counts = {str(sid): 0 for sid in sids}
+    exam_counts   = {str(sid): 0 for sid in sids}
+    if sids:
+        for row in Enrollment.objects(student__in=sids, status='paid').aggregate(
+                {'$group': {'_id': '$student', 'n': {'$sum': 1}}}):
+            course_counts[str(row['_id'])] = row['n']
+        for row in ExamEnrollment.objects(student__in=sids, status='paid').aggregate(
+                {'$group': {'_id': '$student', 'n': {'$sum': 1}}}):
+            exam_counts[str(row['_id'])] = row['n']
 
     return render_template(
         'admin/users_list.html',

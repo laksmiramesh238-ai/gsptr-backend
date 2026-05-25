@@ -56,19 +56,32 @@ def _chapter_to_dict(ch, include_media: bool) -> dict:
 
 @student_courses_bp.route('', methods=['GET'])
 def list_courses():
-    courses = Course.objects.all()
+    """Aggregation avoids transferring the embedded chapters payload."""
+    from mongoengine.connection import get_db
+    pipeline = [
+        {'$project': {
+            'course_id':      1,
+            'name':           1,
+            'thumbnail_url':  1,
+            'price':          1,
+            'whole_duration': 1,
+            'topics':         1,
+            'professors':     1,
+            'chapter_count':  {'$size': {'$ifNull': ['$chapters', []]}},
+        }},
+    ]
     result = []
-    for c in courses:
+    for c in get_db()['courses'].aggregate(pipeline):
         result.append({
-            'id':             str(c.id),
-            'course_id':      c.course_id,
-            'name':           c.name,
-            'thumbnail_url':  cdn_url(c.thumbnail_url or ''),
-            'price':          str(c.price),
-            'whole_duration': c.whole_duration,
-            'topics':         c.topics,
-            'professors':     c.professors,
-            'chapter_count':  len(c.chapters),
+            'id':             str(c['_id']),
+            'course_id':      c.get('course_id'),
+            'name':           c.get('name'),
+            'thumbnail_url':  cdn_url(c.get('thumbnail_url') or ''),
+            'price':          str(c.get('price') or ''),
+            'whole_duration': c.get('whole_duration'),
+            'topics':         c.get('topics'),
+            'professors':     c.get('professors'),
+            'chapter_count':  c.get('chapter_count', 0),
         })
     return jsonify({'ok': True, 'courses': result})
 

@@ -399,104 +399,140 @@ def _bulk_session_content_stats(codes):
 
 @student_exams_bp.route('/<exam_id>/subject/<int:sub_idx>/session/<int:sess_idx>', methods=['GET'])
 def session_content(exam_id, sub_idx, sess_idx):
-    exam = Exam.objects(exam_id=exam_id).first()
-    if not exam:
+    """Use aggregation to fetch only one session — never pull the 700KB exam doc."""
+    from mongoengine.connection import get_db
+    pipeline = [
+        {'$match': {'exam_id': exam_id}},
+        {'$project': {
+            '_id': 1,
+            'subject': {'$arrayElemAt': ['$subjects', sub_idx]},
+            'sub_count': {'$size': {'$ifNull': ['$subjects', []]}},
+        }},
+        {'$project': {
+            '_id': 1,
+            'sub_count': 1,
+            'subject_name':   '$subject.name',
+            'subject_locked': '$subject.locked',
+            'sess_count':     {'$size': {'$ifNull': ['$subject.sessions', []]}},
+            'session':        {'$arrayElemAt': ['$subject.sessions', sess_idx]},
+        }},
+    ]
+    rows = list(get_db()['exams'].aggregate(pipeline))
+    if not rows:
         return jsonify({'ok': False, 'error': 'Exam not found'}), 404
+    row = rows[0]
+    if sub_idx >= row.get('sub_count', 0) or row.get('subject_name') is None:
+        return jsonify({'ok': False, 'error': 'Subject not found'}), 404
+    if sess_idx >= row.get('sess_count', 0) or not row.get('session'):
+        return jsonify({'ok': False, 'error': 'Session not found'}), 404
+
+    sess = row['session']
+    sub_locked   = row.get('subject_locked', False)
+    subject_name = row['subject_name']
+    exam_oid     = row['_id']
 
     student = _get_student()
-    tier = _get_tier(student, exam)
+    # Tier lookup: query ExamEnrollment by raw ObjectId (avoids loading Exam doc).
+    tier = 0
+    if student:
+        e = ExamEnrollment.objects(student=student, exam=exam_oid, status='paid').first()
+        if e and e.expires_at > datetime.utcnow():
+            tier = e.tier
 
-    if sub_idx >= len(exam.subjects):
-        return jsonify({'ok': False, 'error': 'Subject not found'}), 404
-    sub = exam.subjects[sub_idx]
-    if sess_idx >= len(sub.sessions):
-        return jsonify({'ok': False, 'error': 'Session not found'}), 404
-    sess = sub.sessions[sess_idx]
-
-    is_preview = bool(getattr(sess, 'preview', False))
+    is_preview = bool(sess.get('preview', False))
 
     if not is_preview and tier == 0:
         return jsonify({'ok': False, 'error': 'Not enrolled'}), 403
 
-    if sub.locked or sess.locked:
+    if sub_locked or sess.get('locked'):
         return jsonify({'ok': False, 'error': 'This content is locked'}), 403
 
     if is_preview:
         allowed = EXAM_TIERS[max(EXAM_TIERS.keys())]['includes']
     else:
         allowed = EXAM_TIERS[tier]['includes']
+
     d = {
-        'title': sess.title, 'subject': sub.name,
-        'preview': is_preview,
-        'notes_locked': sess.notes_locked,
-        'mcq_locked': sess.mcq_locked,
-        'descriptive_locked': sess.descriptive_locked,
-        'audio_locked': sess.audio_locked,
-        'video_locked': sess.video_locked,
-        'live_locked': sess.live_locked,
+        'title':              sess.get('title', ''),
+        'subject':            subject_name,
+        'preview':            is_preview,
+        'notes_locked':       sess.get('notes_locked', False),
+        'mcq_locked':         sess.get('mcq_locked', False),
+        'descriptive_locked': sess.get('descriptive_locked', False),
+        'audio_locked':       sess.get('audio_locked', False),
+        'video_locked':       sess.get('video_locked', False),
+        'live_locked':        sess.get('live_locked', False),
     }
 
-    # Load external content keyed by merge_code (notes, MCQs, descriptive
-    # questions live in SessionContent so the Exam doc stays under 16 MB).
-    sc = SessionContent.objects(merge_code=sess.merge_code).first() if sess.merge_code else None
-    mcqs_src   = sc.mcqs if sc else sess.mcqs
-    descs_src  = sc.descriptive_questions if sc else sess.descriptive_questions
-    notes_src  = (sc.notes_html if sc and sc.notes_html else sess.notes_html) or ''
+    merge_code = sess.get('merge_code') or ''
+    sc = SessionContent.objects(merge_code=merge_code).first() if merge_code else None
+    mcqs_src  = (sc.mcqs if sc else sess.get('mcqs') or [])
+    descs_src = (sc.descriptive_questions if sc else sess.get('descriptive_questions') or [])
+    notes_src = (sc.notes_html if sc and sc.notes_html else sess.get('notes_html')) or ''
 
-    if 'mcq' in allowed and not sess.mcq_locked:
+    def _attr(o, k, default=None):
+        # MCQs/descriptive can come from SessionContent (mongoengine objects) or raw dicts.
+        return getattr(o, k, default) if not isinstance(o, dict) else o.get(k, default)
+
+    if 'mcq' in allowed and not d['mcq_locked']:
         d['mcqs'] = [{
-            'question':        m.question,
-            'options':         m.options,
-            'answer':          m.answer,
-            'explanation':     m.explanation,
-            'option_feedback': list(m.option_feedback or []),
-            'difficulty':      m.difficulty or '',
-            'bloom_level':     m.bloom_level or '',
-            'marks':           m.marks or 1,
+            'question':        _attr(m, 'question'),
+            'options':         _attr(m, 'options'),
+            'answer':          _attr(m, 'answer'),
+            'explanation':     _attr(m, 'explanation'),
+            'option_feedback': list(_attr(m, 'option_feedback') or []),
+            'difficulty':      _attr(m, 'difficulty') or '',
+            'bloom_level':     _attr(m, 'bloom_level') or '',
+            'marks':           _attr(m, 'marks') or 1,
         } for m in mcqs_src]
 
-    if 'descriptive' in allowed and not sess.descriptive_locked:
+    if 'descriptive' in allowed and not d['descriptive_locked']:
         d['descriptive'] = [{
-            'question':        dq.question,
-            'answer':          dq.answer,
-            'marks':           dq.marks or 0,
-            'expected_answer': dq.expected_answer or '',
-            'key_points':      list(dq.key_points or []),
-            'common_traps':    list(dq.common_traps or []),
-            'model_solution':  dq.model_solution or '',
-            'marking_scheme':  [{'step': s.step, 'marks': s.marks, 'criterion': s.criterion}
-                                for s in (dq.marking_scheme or [])],
+            'question':        _attr(dq, 'question'),
+            'answer':          _attr(dq, 'answer'),
+            'marks':           _attr(dq, 'marks') or 0,
+            'expected_answer': _attr(dq, 'expected_answer') or '',
+            'key_points':      list(_attr(dq, 'key_points') or []),
+            'common_traps':    list(_attr(dq, 'common_traps') or []),
+            'model_solution':  _attr(dq, 'model_solution') or '',
+            'marking_scheme':  [{
+                'step':      _attr(s, 'step'),
+                'marks':     _attr(s, 'marks'),
+                'criterion': _attr(s, 'criterion'),
+            } for s in (_attr(dq, 'marking_scheme') or [])],
         } for dq in descs_src]
 
-    if 'notes' in allowed and not sess.notes_locked:
-        d['notes_html'] = notes_src
-        d['notes_pdf_url'] = cdn_url(sess.notes_pdf_url) if sess.notes_pdf_url else ''
+    if 'notes' in allowed and not d['notes_locked']:
+        d['notes_html']    = notes_src
+        d['notes_pdf_url'] = cdn_url(sess.get('notes_pdf_url')) if sess.get('notes_pdf_url') else ''
 
-    if 'audio' in allowed and not sess.audio_locked:
-        d['audio_url'] = cdn_url(sess.audio_url) if sess.audio_url else ''
-        # Per-module podcasts — surface them under audio so audio-tier users get them
-        # even when videos aren't in their plan.
+    if 'audio' in allowed and not d['audio_locked']:
+        d['audio_url'] = cdn_url(sess.get('audio_url')) if sess.get('audio_url') else ''
         d['audio_modules'] = [{
-            'title': v.title,
-            'podcast_url': cdn_url(v.podcast_url),
-            'podcast_duration': v.podcast_duration,
-        } for v in sess.module_videos if v.podcast_url]
+            'title':            v.get('title'),
+            'podcast_url':      cdn_url(v.get('podcast_url')),
+            'podcast_duration': v.get('podcast_duration'),
+        } for v in (sess.get('module_videos') or []) if v.get('podcast_url')]
 
-    if 'videos' in allowed and not sess.video_locked:
-        d['full_video_url'] = cdn_url(sess.full_video_url) if sess.full_video_url else ''
-        d['full_video_duration'] = sess.full_video_duration
+    if 'videos' in allowed and not d['video_locked']:
+        d['full_video_url']      = cdn_url(sess.get('full_video_url')) if sess.get('full_video_url') else ''
+        d['full_video_duration'] = sess.get('full_video_duration')
         d['module_videos'] = [{
-            'title': v.title,
-            'video_url': cdn_url(v.video_url),
-            'duration': v.duration,
-            'podcast_url': cdn_url(v.podcast_url) if v.podcast_url else '',
-            'podcast_duration': v.podcast_duration,
-            'slides_count': v.slides_count,
-        } for v in sess.module_videos]
+            'title':            v.get('title'),
+            'video_url':        cdn_url(v.get('video_url')),
+            'duration':         v.get('duration'),
+            'podcast_url':      cdn_url(v.get('podcast_url')) if v.get('podcast_url') else '',
+            'podcast_duration': v.get('podcast_duration'),
+            'slides_count':     v.get('slides_count'),
+        } for v in (sess.get('module_videos') or [])]
 
-    if 'live_classes' in allowed and not sess.live_locked:
-        d['live_classes'] = [{'title': lc.title, 'description': lc.description,
-                              'date': lc.date, 'time': lc.time,
-                              'join_url': lc.join_url} for lc in sess.live_classes]
+    if 'live_classes' in allowed and not d['live_locked']:
+        d['live_classes'] = [{
+            'title':       lc.get('title'),
+            'description': lc.get('description'),
+            'date':        lc.get('date'),
+            'time':        lc.get('time'),
+            'join_url':    lc.get('join_url'),
+        } for lc in (sess.get('live_classes') or [])]
 
     return jsonify({'ok': True, 'session': d, 'tier': tier, 'allowed': allowed})

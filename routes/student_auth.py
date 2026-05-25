@@ -216,47 +216,65 @@ def my_enrollments():
     from datetime import datetime
     from models.enrollment import Enrollment
     from models.exam_enrollment import ExamEnrollment, EXAM_TIERS
+    from models.course import Course
+    from models.exam import Exam
     from utils.cdn import cdn_url
 
     now = datetime.utcnow()
 
+    # Course enrollments — batch-fetch courses in one query (no per-row deref).
+    c_enrolls = list(Enrollment.objects(student=student, status='paid').order_by('-enrolled_at'))
+    c_ids = {e.course.id for e in c_enrolls if e.course}
+    c_map = {}
+    if c_ids:
+        for c in Course.objects(id__in=list(c_ids)).only('course_id', 'name', 'thumbnail_url'):
+            c_map[str(c.id)] = c
+
     courses = []
-    for e in Enrollment.objects(student=student, status='paid').order_by('-enrolled_at'):
-        try:
-            c = e.course
-            if not c: continue
-            courses.append({
-                'enrollment_id': str(e.id),
-                'course_id':     c.course_id,
-                'name':          c.name,
-                'thumbnail_url': cdn_url(c.thumbnail_url or ''),
-                'enrolled_at':   e.enrolled_at.strftime('%d %b %Y') if e.enrolled_at else '',
-                'expires_at':    e.expires_at.strftime('%d %b %Y') if e.expires_at else '',
-                'active':        bool(e.expires_at and e.expires_at > now),
-                'days_left':     max(0, (e.expires_at - now).days) if e.expires_at else 0,
-            })
-        except Exception:
+    for e in c_enrolls:
+        if not e.course:
             continue
+        c = c_map.get(str(e.course.id))
+        if not c:
+            continue
+        courses.append({
+            'enrollment_id': str(e.id),
+            'course_id':     c.course_id,
+            'name':          c.name,
+            'thumbnail_url': cdn_url(c.thumbnail_url or ''),
+            'enrolled_at':   e.enrolled_at.strftime('%d %b %Y') if e.enrolled_at else '',
+            'expires_at':    e.expires_at.strftime('%d %b %Y') if e.expires_at else '',
+            'active':        bool(e.expires_at and e.expires_at > now),
+            'days_left':     max(0, (e.expires_at - now).days) if e.expires_at else 0,
+        })
+
+    # Exam enrollments — same idea. Exam docs are HUGE so projection matters a lot.
+    x_enrolls = list(ExamEnrollment.objects(student=student, status='paid').order_by('-enrolled_at'))
+    x_ids = {e.exam.id for e in x_enrolls if e.exam}
+    x_map = {}
+    if x_ids:
+        for x in Exam.objects(id__in=list(x_ids)).only('exam_id', 'title', 'thumbnail_url'):
+            x_map[str(x.id)] = x
 
     exams = []
-    for e in ExamEnrollment.objects(student=student, status='paid').order_by('-enrolled_at'):
-        try:
-            x = e.exam
-            if not x: continue
-            tier_info = EXAM_TIERS.get(e.tier, {})
-            exams.append({
-                'enrollment_id': str(e.id),
-                'exam_id':       x.exam_id,
-                'title':         x.title,
-                'thumbnail_url': cdn_url(x.thumbnail_url or ''),
-                'tier':          e.tier,
-                'tier_label':    tier_info.get('label', ''),
-                'enrolled_at':   e.enrolled_at.strftime('%d %b %Y') if e.enrolled_at else '',
-                'expires_at':    e.expires_at.strftime('%d %b %Y') if e.expires_at else '',
-                'active':        bool(e.expires_at and e.expires_at > now),
-                'days_left':     max(0, (e.expires_at - now).days) if e.expires_at else 0,
-            })
-        except Exception:
+    for e in x_enrolls:
+        if not e.exam:
             continue
+        x = x_map.get(str(e.exam.id))
+        if not x:
+            continue
+        tier_info = EXAM_TIERS.get(e.tier, {})
+        exams.append({
+            'enrollment_id': str(e.id),
+            'exam_id':       x.exam_id,
+            'title':         x.title,
+            'thumbnail_url': cdn_url(x.thumbnail_url or ''),
+            'tier':          e.tier,
+            'tier_label':    tier_info.get('label', ''),
+            'enrolled_at':   e.enrolled_at.strftime('%d %b %Y') if e.enrolled_at else '',
+            'expires_at':    e.expires_at.strftime('%d %b %Y') if e.expires_at else '',
+            'active':        bool(e.expires_at and e.expires_at > now),
+            'days_left':     max(0, (e.expires_at - now).days) if e.expires_at else 0,
+        })
 
     return jsonify({'ok': True, 'courses': courses, 'exams': exams})

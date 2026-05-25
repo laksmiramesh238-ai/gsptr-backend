@@ -51,11 +51,11 @@
     {% set window = 'ended' if is_ended else ('upcoming' if is_upcoming else 'live') %}
     <tr>
       <td class="arrow-col">
-        <form method="POST" action="{{ url_for('admin_tests.move_test', test_id=t.id) }}" class="arrow-form">
+        <form method="POST" action="{{ url_for('admin_tests.move_test', test_id=t._id) }}" class="arrow-form">
           <input type="hidden" name="direction" value="up"/>
           <button class="arrow-btn" title="Move up" {% if loop.first %}disabled{% endif %}>&#9650;</button>
         </form>
-        <form method="POST" action="{{ url_for('admin_tests.move_test', test_id=t.id) }}" class="arrow-form">
+        <form method="POST" action="{{ url_for('admin_tests.move_test', test_id=t._id) }}" class="arrow-form">
           <input type="hidden" name="direction" value="down"/>
           <button class="arrow-btn" title="Move down" {% if loop.last %}disabled{% endif %}>&#9660;</button>
         </form>
@@ -66,15 +66,15 @@
         <span class="pill {{ window }}" style="margin-left:6px">{{ window | upper }}</span>
       </td>
       <td>{{ t.duration }} min</td>
-      <td>{{ t.questions | length }}</td>
-      <td>{{ t.get_total_max_score() | round(1) }}</td>
-      <td>{{ t.students_enrolled | length }}</td>
-      <td>{{ t.results | selectattr('status', 'equalto', 1) | list | length }}</td>
+      <td>{{ t.questions_count }}</td>
+      <td>{{ t.total_max_score | round(1) }}</td>
+      <td>{{ t.enrolled_count }}</td>
+      <td>{{ t.submitted_count }}</td>
       <td class="actions-cell">
-        <a href="{{ url_for('admin_tests.manage_enrollments', test_id=t.id) }}" class="btn btn-outline btn-sm">Enroll</a>
-        <a href="{{ url_for('admin_tests.view_results', test_id=t.id) }}" class="btn btn-outline btn-sm">Results</a>
-        <a href="{{ url_for('admin_tests.edit_test', test_id=t.id) }}" class="btn btn-primary btn-sm">Edit</a>
-        <form method="POST" action="{{ url_for('admin_tests.delete_test', test_id=t.id) }}" style="display:inline" onsubmit="return confirm('Delete this test? Cannot be undone.')">
+        <a href="{{ url_for('admin_tests.manage_enrollments', test_id=t._id) }}" class="btn btn-outline btn-sm">Enroll</a>
+        <a href="{{ url_for('admin_tests.view_results', test_id=t._id) }}" class="btn btn-outline btn-sm">Results</a>
+        <a href="{{ url_for('admin_tests.edit_test', test_id=t._id) }}" class="btn btn-primary btn-sm">Edit</a>
+        <form method="POST" action="{{ url_for('admin_tests.delete_test', test_id=t._id) }}" style="display:inline" onsubmit="return confirm('Delete this test? Cannot be undone.')">
           <button class="btn btn-danger btn-sm">Delete</button>
         </form>
       </td>

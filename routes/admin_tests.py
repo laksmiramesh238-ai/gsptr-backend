@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from bson import ObjectId
 import json
 
+from mongoengine.connection import get_db
 from models.test import Test, QuestionDetail
 from models.student import Student
 
@@ -55,7 +56,41 @@ def _build_questions(payload):
 @admin_tests_bp.route('/')
 @login_required
 def list_tests():
-    tests = Test.objects.order_by('order_index', '-start_date')
+    """List page — uses an aggregation so we don't pull all questions over the wire."""
+    pipeline = [
+        {'$project': {
+            '_id': 1,
+            'name': 1,
+            'start_date': 1,
+            'start_time': 1,
+            'end_date': 1,
+            'end_time': 1,
+            'duration': 1,
+            'order_index': 1,
+            'questions_count': {'$size': {'$ifNull': ['$questions', []]}},
+            'enrolled_count':  {'$size': {'$ifNull': ['$students_enrolled', []]}},
+            'submitted_count': {
+                '$size': {
+                    '$filter': {
+                        'input': {'$ifNull': ['$results', []]},
+                        'as':    'r',
+                        'cond':  {'$eq': ['$$r.status', 1]},
+                    }
+                }
+            },
+            'total_max_score': {
+                '$sum': {
+                    '$map': {
+                        'input': {'$ifNull': ['$questions', []]},
+                        'as':    'q',
+                        'in':    {'$ifNull': ['$$q.crt_ans_score', 0]},
+                    }
+                }
+            },
+        }},
+        {'$sort': {'order_index': 1, 'start_date': -1}},
+    ]
+    tests = list(get_db()['tests'].aggregate(pipeline))
     return render_template('admin/tests/list.html', tests=tests, now=datetime.utcnow())
 
 

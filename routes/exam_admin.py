@@ -135,7 +135,31 @@ def _session_to_json(sess):
 @exam_admin_bp.route('/')
 @login_required
 def list_exams():
-    exams = Exam.objects.all()
+    """Aggregation skips embedded subjects/sessions payload (700KB per exam)."""
+    from mongoengine.connection import get_db
+    pipeline = [
+        {'$project': {
+            'exam_id':        1,
+            'title':          1,
+            'full_form':      1,
+            'description_en': 1,
+            'subjects':       {'$size': {'$ifNull': ['$subjects',    []]}},
+            'assessments':    {'$size': {'$ifNull': ['$assessments', []]}},
+        }},
+    ]
+    # The template iterates fields like e.title / e.subjects | length — so
+    # wrap dicts to expose the same shapes (subjects as a fake list for |length).
+    class _ExamRow:
+        def __init__(self, d):
+            self.id             = d['_id']
+            self.exam_id        = d.get('exam_id')
+            self.title          = d.get('title')
+            self.full_form      = d.get('full_form')
+            self.description_en = d.get('description_en')
+            self.subjects       = [None] * d.get('subjects', 0)
+            self.assessments    = [None] * d.get('assessments', 0)
+
+    exams = [_ExamRow(d) for d in get_db()['exams'].aggregate(pipeline)]
     return render_template('admin/exams/list.html', exams=exams)
 
 
