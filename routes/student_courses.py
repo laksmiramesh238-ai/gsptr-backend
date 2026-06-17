@@ -17,7 +17,7 @@ def _chapter_title(ch) -> str:
     return 'Untitled'
 
 
-def _chapter_to_dict(ch, include_media: bool) -> dict:
+def _chapter_to_dict(ch, include_media: bool, offline_allowed: bool = False) -> dict:
     d = {
         'id':    str(ch.id),
         'type':  ch.type,
@@ -34,6 +34,9 @@ def _chapter_to_dict(ch, include_media: bool) -> dict:
             'duration':  ch.video.duration,
             'professor': ch.video.professor,
             'notes':     ch.video.notes,
+            # Offline download is only offered to genuinely enrolled students,
+            # never for free demo chapters.
+            'offline_allowed': offline_allowed,
         }
     elif ch.type == 'pdf' and ch.pdf:
         d['pdf'] = {'pdf_url': cdn_url(ch.pdf.pdf_url)}
@@ -107,7 +110,8 @@ def course_detail(course_id):
     chapters = []
     for ch in course.chapters:
         include_media = enrolled or ch.demo
-        chapters.append(_chapter_to_dict(ch, include_media=include_media))
+        chapters.append(_chapter_to_dict(
+            ch, include_media=include_media, offline_allowed=enrolled))
 
     return jsonify({
         'ok': True,

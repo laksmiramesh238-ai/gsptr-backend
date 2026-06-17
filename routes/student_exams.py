@@ -535,4 +535,11 @@ def session_content(exam_id, sub_idx, sess_idx):
             'join_url':    lc.get('join_url'),
         } for lc in (sess.get('live_classes') or [])]
 
-    return jsonify({'ok': True, 'session': d, 'tier': tier, 'allowed': allowed})
+    # Offline download is a tier-5 perk ('offline' in includes) and is only
+    # granted to genuinely paid enrollments — never for free preview sessions.
+    offline_allowed = ('offline' in allowed) and tier >= 1
+
+    return jsonify({
+        'ok': True, 'session': d, 'tier': tier,
+        'allowed': allowed, 'offline_allowed': offline_allowed,
+    })
