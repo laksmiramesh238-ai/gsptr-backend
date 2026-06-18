@@ -430,6 +430,33 @@ def edit_session_post(exam_id, sub_idx, sess_idx):
         return jsonify({'ok': False, 'error': str(e)}), 400
 
 
+@exam_admin_bp.route('/<exam_id>/subjects/<int:sub_idx>/sessions/reorder', methods=['POST'])
+@login_required
+def reorder_sessions(exam_id, sub_idx):
+    """Reorder the sessions within a subject.
+
+    Body: {"order": [<current_idx>, ...]} — a permutation of the existing
+    session indices. Reorders the stored Session objects in place so every
+    field (merge_code, podcast_url, notes, questions) is preserved; we never
+    rebuild sessions from form data here.
+    """
+    try:
+        exam = Exam.objects(id=exam_id).first()
+        if not exam or sub_idx >= len(exam.subjects):
+            return jsonify({'ok': False, 'error': 'Not found'}), 404
+        sub = exam.subjects[sub_idx]
+        n = len(sub.sessions)
+        order = request.get_json(force=True).get('order', [])
+        if sorted(order) != list(range(n)):
+            return jsonify({'ok': False, 'error': 'order must be a permutation of 0..n-1'}), 400
+        exam.subjects[sub_idx].sessions = [sub.sessions[i] for i in order]
+        exam.save()
+        _bust_student_cache()
+        return jsonify({'ok': True})
+    except Exception as e:
+        return jsonify({'ok': False, 'error': str(e)}), 400
+
+
 @exam_admin_bp.route('/<exam_id>/subjects/<int:sub_idx>/sessions/<int:sess_idx>/delete', methods=['POST'])
 @login_required
 def delete_session(exam_id, sub_idx, sess_idx):

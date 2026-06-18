@@ -24,18 +24,33 @@
 .badge-ok { background: #e6f9f0; color: #2ecc71; }
 .session-actions { display: flex; gap: 8px; flex-shrink: 0; }
 .empty { text-align: center; padding: 60px 20px; color: #aaa; }
+.reorder-arrows { display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; }
+.arrow-btn { width: 26px; height: 20px; border: 1px solid #ddd; background: #fafaff; color: #6c63ff; border-radius: 5px; cursor: pointer; font-size: 11px; line-height: 1; display: flex; align-items: center; justify-content: center; padding: 0; }
+.arrow-btn:hover:not(:disabled) { background: #6c63ff; color: #fff; }
+.arrow-btn:disabled { opacity: 0.3; cursor: default; }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.reorder-hint { font-size: 12px; color: #e08a00; margin-left: auto; align-self: center; display: none; }
+.reorder-hint.show { display: inline; }
 {% endblock %}
 
 {% block content %}
 <div class="toolbar">
   <a href="{{ url_for('exam_admin.edit_exam', exam_id=exam.id) }}" class="btn btn-outline btn-sm">← Back to Exam</a>
-  <a href="{{ url_for('exam_admin.add_session_page', exam_id=exam.id, sub_idx=sub_idx) }}" class="btn btn-primary">+ Add Session</a>
+  <div style="display:flex; gap:10px; align-items:center;">
+    <span id="reorderHint" class="reorder-hint">Unsaved order</span>
+    <button id="saveOrderBtn" class="btn btn-outline btn-sm" disabled>Save Order</button>
+    <a href="{{ url_for('exam_admin.add_session_page', exam_id=exam.id, sub_idx=sub_idx) }}" class="btn btn-primary">+ Add Session</a>
+  </div>
 </div>
 
 {% if subject.sessions | length > 0 %}
-<div class="session-list">
+<div class="session-list" id="sessionList">
   {% for sess in subject.sessions %}
-  <div class="session-card">
+  <div class="session-card" data-idx="{{ loop.index0 }}">
+    <div class="reorder-arrows">
+      <button type="button" class="arrow-btn move-up" title="Move up">▲</button>
+      <button type="button" class="arrow-btn move-down" title="Move down">▼</button>
+    </div>
     <div class="session-num">{{ loop.index }}</div>
     <div class="session-info">
       <div class="session-title">
@@ -63,4 +78,75 @@
 {% else %}
 <div class="empty">No sessions yet. Add one to start building content.</div>
 {% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  const list = document.getElementById('sessionList');
+  if (!list) return;
+  const saveBtn = document.getElementById('saveOrderBtn');
+  const hint    = document.getElementById('reorderHint');
+  const reorderUrl = "{{ url_for('exam_admin.reorder_sessions', exam_id=exam.id, sub_idx=sub_idx) }}";
+
+  // Snapshot the original order so we can detect changes.
+  const originalOrder = [...list.children].map(c => c.dataset.idx);
+
+  function renumber() {
+    const cards = [...list.children];
+    cards.forEach((card, i) => {
+      const num = card.querySelector('.session-num');
+      if (num) num.textContent = i + 1;
+      // First card can't move up, last can't move down.
+      card.querySelector('.move-up').disabled   = (i === 0);
+      card.querySelector('.move-down').disabled = (i === cards.length - 1);
+    });
+    const current = cards.map(c => c.dataset.idx);
+    const changed = current.join(',') !== originalOrder.join(',');
+    saveBtn.disabled = !changed;
+    hint.classList.toggle('show', changed);
+  }
+
+  list.addEventListener('click', e => {
+    const btn = e.target.closest('.arrow-btn');
+    if (!btn) return;
+    const card = btn.closest('.session-card');
+    if (btn.classList.contains('move-up')) {
+      const prev = card.previousElementSibling;
+      if (prev) list.insertBefore(card, prev);
+    } else {
+      const next = card.nextElementSibling;
+      if (next) list.insertBefore(next, card);
+    }
+    renumber();
+  });
+
+  renumber();  // set initial disabled states on first/last arrows
+
+  saveBtn.addEventListener('click', async () => {
+    const order = [...list.children].map(c => parseInt(c.dataset.idx, 10));
+    saveBtn.disabled = true;
+    saveBtn.textContent = 'Saving…';
+    try {
+      const res = await fetch(reorderUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ order }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        location.reload();
+      } else {
+        alert('Could not save order: ' + (data.error || 'unknown error'));
+        saveBtn.textContent = 'Save Order';
+        saveBtn.disabled = false;
+      }
+    } catch (err) {
+      alert('Could not save order: ' + err);
+      saveBtn.textContent = 'Save Order';
+      saveBtn.disabled = false;
+    }
+  });
+})();
+</script>
 {% endblock %}
