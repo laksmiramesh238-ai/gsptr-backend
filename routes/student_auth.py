@@ -15,6 +15,20 @@ SECRET         = os.getenv('SECRET_KEY', 'dev-secret')
 FROM_EMAIL     = os.getenv('RESEND_FROM', 'onboarding@resend.dev')
 OTP_EXPIRY_MIN = 10
 
+# ── Play Store review / demo accounts ────────────────────────────────────────
+# These accounts never receive a real emailed OTP and accept a single fixed
+# code, so Google Play reviewers (who cannot read the account's inbox) can sign
+# in. They are also exempt from the single-device lock so multiple reviewer
+# devices can use them. Configure via env (comma-separated emails):
+#   REVIEW_EMAILS="elokesh857@gmail.com"
+#   REVIEW_OTP="123456"
+REVIEW_EMAILS = {
+    e.strip().lower()
+    for e in os.getenv('REVIEW_EMAILS', 'elokesh857@gmail.com').split(',')
+    if e.strip()
+}
+REVIEW_OTP = os.getenv('REVIEW_OTP', '123456')
+
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -98,6 +112,10 @@ def send_otp():
     if not student:
         return jsonify({'ok': False, 'error': 'No account found with this email'}), 404
 
+    # Demo/review accounts: skip emailing a real OTP entirely.
+    if email in REVIEW_EMAILS:
+        return jsonify({'ok': True, 'message': 'OTP sent'})
+
     code = gen_otp()
     OTP(email=email, code=code,
         expires_at=datetime.utcnow() + timedelta(minutes=OTP_EXPIRY_MIN)).save()
@@ -118,6 +136,24 @@ def verify_otp():
 
     if not email or not code:
         return jsonify({'ok': False, 'error': 'Email and code are required'}), 400
+
+    # Demo/review accounts: accept the fixed review code, bypassing the OTP
+    # record, expiry, and the single-device lock entirely.
+    if email in REVIEW_EMAILS and code == REVIEW_OTP:
+        student = Student.objects(email=email).first()
+        if not student:
+            return jsonify({'ok': False, 'error': 'Account not found'}), 404
+        token = make_token(student)
+        return jsonify({
+            'ok': True,
+            'token': token,
+            'student': {
+                'id':    str(student.id),
+                'name':  student.name,
+                'email': student.email,
+                'phone': student.phone,
+            },
+        })
 
     otp = OTP.objects(
         email=email, code=code, used=False
