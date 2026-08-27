@@ -166,17 +166,21 @@ def edit_course(course_id):
 @courses_bp.route('/<course_id>/edit', methods=['POST'])
 @login_required
 def edit_course_post(course_id):
+    # course_id (the slug) is a permanent identifier — enrollments, exam
+    # links and the mobile app all reference it — so it is intentionally
+    # never accepted from the client here, only ever set once at creation.
+    saved_chapters = []
     try:
         course = Course.objects(id=course_id).first()
         if not course:
             return jsonify({'ok': False, 'error': 'Course not found'}), 404
         data = request.get_json(force=True)
 
-        # delete old chapters, replace with new
-        for old_ch in course.chapters:
-            old_ch.delete()
+        old_chapters = list(course.chapters)
 
-        saved_chapters = []
+        # Build + save the new chapters BEFORE touching the old ones, so a
+        # failure here (or in the course update below) never destroys
+        # existing course content — the old chapters stay intact and linked.
         for ch_data in data.get('chapters', []):
             ch = build_chapter(ch_data)
             ch.save()
@@ -187,7 +191,6 @@ def edit_course_post(course_id):
 
         course.update(
             name=data['name'],
-            course_id=data['course_id'],
             price=data['price'],
             whole_duration=data.get('whole_duration', '0'),
             topics=topics,
@@ -195,8 +198,22 @@ def edit_course_post(course_id):
             thumbnail_url=data.get('thumbnail_url', ''),
             chapters=saved_chapters,
         )
+
+        # Only now that the course points at the new chapters is it safe to
+        # remove the old ones.
+        for old_ch in old_chapters:
+            old_ch.delete()
+
         return jsonify({'ok': True})
     except Exception as e:
+        # Roll back any chapters saved during this failed attempt so they
+        # don't linger as orphans — the course's existing chapters (if any)
+        # were never touched at this point.
+        for ch in saved_chapters:
+            try:
+                ch.delete()
+            except Exception:
+                pass
         return jsonify({'ok': False, 'error': str(e)}), 400
 
 
