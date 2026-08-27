@@ -21,7 +21,10 @@ class TextChapter(EmbeddedDocument):
 
 class VideoChapter(EmbeddedDocument):
     video_url = URLField(required=True)
-    thumbnail = URLField(required=False, default='')
+    # default=None (not '') — MongoEngine's URLField validates any non-None
+    # value, so an empty string fails "Invalid scheme in URL" even though
+    # this field is optional. None skips validation entirely.
+    thumbnail = URLField(required=False, default=None)
     title = StringField(required=True)
     duration = StringField(required=True, default='')
     professor = StringField(required=False, default='')

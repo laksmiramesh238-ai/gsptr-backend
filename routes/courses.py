@@ -42,7 +42,7 @@ def build_chapter(ch_data: dict) -> Chapter:
         chapter.video = VideoChapter(
             title=v['title'],
             video_url=v['video_url'],
-            thumbnail=v.get('thumbnail', ''),
+            thumbnail=v.get('thumbnail') or None,
             duration=v.get('duration', ''),
             professor=v.get('professor', ''),
             notes=v.get('notes', ''),
