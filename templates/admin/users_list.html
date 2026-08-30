@@ -11,6 +11,7 @@
 .btn-sm { padding: 5px 11px; font-size: 12px; }
 .btn-link { background: #f0efff; color: #6c63ff; }
 .btn-danger-sm { padding: 4px 10px; font-size: 11px; background: #ff4f4f; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+.btn-warn { background: #fff5e6; color: #b06e00; }
 
 .panel { background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden; }
 table { width: 100%; border-collapse: collapse; }
@@ -31,11 +32,19 @@ tr:hover td { background: #fafafe; }
 {% endblock %}
 
 {% block content %}
-<form method="GET" class="toolbar">
-  <input class="search" name="q" value="{{ q }}" placeholder="Search by email / phone / name…"/>
-  <button class="btn btn-primary" type="submit">Search</button>
-  {% if q %}<a class="btn btn-link" href="{{ url_for('admin_users.list_users') }}">Clear</a>{% endif %}
-</form>
+<div class="toolbar">
+  <form method="GET" style="display: flex; gap: 10px; align-items: center; flex: 1;">
+    <input class="search" name="q" value="{{ q }}" placeholder="Search by email / phone / name…"/>
+    <button class="btn btn-primary" type="submit">Search</button>
+    {% if q %}<a class="btn btn-link" href="{{ url_for('admin_users.list_users') }}">Clear</a>{% endif %}
+  </form>
+  {% if device_bound_count %}
+  <form method="POST" action="{{ url_for('admin_users.reset_all_devices') }}"
+        onsubmit="return confirm('Reset the device lock for all {{ device_bound_count }} bound account(s)? Each student will simply bind to whatever device they next sign in from — nothing else about their account changes.')">
+    <button class="btn btn-warn" type="submit">Reset ALL Device Locks ({{ device_bound_count }})</button>
+  </form>
+  {% endif %}
+</div>
 
 <div class="panel">
   <table>

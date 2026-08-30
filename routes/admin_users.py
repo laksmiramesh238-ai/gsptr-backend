@@ -35,6 +35,7 @@ def list_users():
         })
 
     students = list(qs.order_by('-created_at').limit(500))
+    device_bound_count = Student.objects(device_id__ne='').count()
 
     # Aggregate counts in a single query per collection (instead of N per student).
     sids = [s.id for s in students]
@@ -55,6 +56,7 @@ def list_users():
         exam_counts=exam_counts,
         q=q,
         total=Student.objects().count(),
+        device_bound_count=device_bound_count,
     )
 
 
@@ -107,6 +109,18 @@ def reset_device(student_id):
     s.save()
     flash(f'Device reset for {s.email}. They can sign in on a new device now.', 'success')
     return redirect(url_for('admin_users.user_detail', student_id=student_id))
+
+
+@admin_users_bp.route('/reset-all-devices', methods=['POST'])
+@login_required
+def reset_all_devices():
+    """Bulk device-lock reset — e.g. after a Play Store relaunch forces
+    everyone onto a freshly-signed install with a new device id."""
+    bound = Student.objects(device_id__ne='')
+    count = bound.count()
+    bound.update(set__device_id='', set__device_label='', set__device_bound_at=None)
+    flash(f'Device lock reset for {count} account(s). Each will bind to whatever device next signs in.', 'success')
+    return redirect(url_for('admin_users.list_users'))
 
 
 @admin_users_bp.route('/<student_id>/delete', methods=['POST'])
