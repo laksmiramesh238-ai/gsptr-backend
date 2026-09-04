@@ -32,6 +32,7 @@ import boto3
 from models.course import Course
 from models.chapter import Chapter
 from models.exam import Exam
+from utils.cdn import cdn_url
 
 AWS_ACCESS_KEY_ID     = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
@@ -107,7 +108,9 @@ def find_targets():
 
 def download(url: str, dest: str):
     req = urllib.request.Request(url, headers={'User-Agent': 'mpg-to-mp4-migration/1.0'})
-    with urllib.request.urlopen(req, timeout=120) as r, open(dest, 'wb') as f:
+    # Some source files are multi-GB — this is a per-read stall timeout, not
+    # a total-transfer cap, so it's safe to keep generous for large files.
+    with urllib.request.urlopen(req, timeout=300) as r, open(dest, 'wb') as f:
         shutil.copyfileobj(r, f)
 
 
@@ -159,7 +162,9 @@ def process_one(t: dict, apply: bool):
     dst_path = os.path.join(tmp, 'converted.mp4')
     try:
         print('    downloading...')
-        download(t['url'], src_path)
+        # Some buckets only allow reads through CloudFront, not the raw S3
+        # origin — fetch the same way the app itself does.
+        download(cdn_url(t['url']), src_path)
 
         print('    transcoding...')
         transcode(src_path, dst_path)
