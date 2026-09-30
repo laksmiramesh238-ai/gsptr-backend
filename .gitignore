@@ -5,3 +5,6 @@ __pycache__/
 *.csv
 .DS_Store
 upload_science.log
+*.pem
+.*_key*.txt
+*_credentials*.txt
