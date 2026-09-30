@@ -19,7 +19,7 @@ Usage:
   python find_orphaned_s3_files.py --full-list out.csv   # also write every orphan to CSV
 """
 import os, sys, csv
-from urllib.parse import urlparse
+from urllib.parse import urlparse, unquote
 
 try: sys.stdout.reconfigure(encoding='utf-8')
 except Exception: pass
@@ -53,7 +53,9 @@ def url_to_key(url: str):
     p = urlparse(url)
     if p.netloc not in OUR_HOSTS:
         return None
-    return p.path.lstrip('/')
+    # DB-stored URLs are percent-encoded (spaces, Kannada text, etc.) but
+    # actual S3 keys are stored with raw characters — must decode to match.
+    return unquote(p.path.lstrip('/'))
 
 
 def list_all_s3_objects():
